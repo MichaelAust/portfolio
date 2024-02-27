@@ -1,0 +1,1409 @@
+/*!
+ * lazy-animation.scss
+ * @version 0.1
+ */
+@media (min-width: 1200px) {
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="50"] {
+    transition-duration: 50ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="50"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="50"].on-screen {
+    transition-delay: 50ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="100"] {
+    transition-duration: 100ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="100"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="100"].on-screen {
+    transition-delay: 100ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="150"] {
+    transition-duration: 150ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="150"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="150"].on-screen {
+    transition-delay: 150ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="200"] {
+    transition-duration: 200ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="200"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="200"].on-screen {
+    transition-delay: 200ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="250"] {
+    transition-duration: 250ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="250"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="250"].on-screen {
+    transition-delay: 250ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="300"] {
+    transition-duration: 300ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="300"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="300"].on-screen {
+    transition-delay: 300ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="350"] {
+    transition-duration: 350ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="350"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="350"].on-screen {
+    transition-delay: 350ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="400"] {
+    transition-duration: 400ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="400"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="400"].on-screen {
+    transition-delay: 400ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="450"] {
+    transition-duration: 450ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="450"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="450"].on-screen {
+    transition-delay: 450ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="500"] {
+    transition-duration: 500ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="500"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="500"].on-screen {
+    transition-delay: 500ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="550"] {
+    transition-duration: 550ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="550"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="550"].on-screen {
+    transition-delay: 550ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="600"] {
+    transition-duration: 600ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="600"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="600"].on-screen {
+    transition-delay: 600ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="650"] {
+    transition-duration: 650ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="650"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="650"].on-screen {
+    transition-delay: 650ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="700"] {
+    transition-duration: 700ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="700"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="700"].on-screen {
+    transition-delay: 700ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="750"] {
+    transition-duration: 750ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="750"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="750"].on-screen {
+    transition-delay: 750ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="800"] {
+    transition-duration: 800ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="800"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="800"].on-screen {
+    transition-delay: 800ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="850"] {
+    transition-duration: 850ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="850"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="850"].on-screen {
+    transition-delay: 850ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="900"] {
+    transition-duration: 900ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="900"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="900"].on-screen {
+    transition-delay: 900ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="950"] {
+    transition-duration: 950ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="950"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="950"].on-screen {
+    transition-delay: 950ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1000"] {
+    transition-duration: 1000ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1000"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1000"].on-screen {
+    transition-delay: 1000ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1050"] {
+    transition-duration: 1050ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1050"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1050"].on-screen {
+    transition-delay: 1050ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1100"] {
+    transition-duration: 1100ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1100"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1100"].on-screen {
+    transition-delay: 1100ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1150"] {
+    transition-duration: 1150ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1150"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1150"].on-screen {
+    transition-delay: 1150ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1200"] {
+    transition-duration: 1200ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1200"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1200"].on-screen {
+    transition-delay: 1200ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1250"] {
+    transition-duration: 1250ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1250"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1250"].on-screen {
+    transition-delay: 1250ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1300"] {
+    transition-duration: 1300ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1300"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1300"].on-screen {
+    transition-delay: 1300ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1350"] {
+    transition-duration: 1350ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1350"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1350"].on-screen {
+    transition-delay: 1350ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1400"] {
+    transition-duration: 1400ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1400"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1400"].on-screen {
+    transition-delay: 1400ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1450"] {
+    transition-duration: 1450ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1450"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1450"].on-screen {
+    transition-delay: 1450ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1500"] {
+    transition-duration: 1500ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1500"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1500"].on-screen {
+    transition-delay: 1500ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1550"] {
+    transition-duration: 1550ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1550"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1550"].on-screen {
+    transition-delay: 1550ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1600"] {
+    transition-duration: 1600ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1600"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1600"].on-screen {
+    transition-delay: 1600ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1650"] {
+    transition-duration: 1650ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1650"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1650"].on-screen {
+    transition-delay: 1650ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1700"] {
+    transition-duration: 1700ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1700"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1700"].on-screen {
+    transition-delay: 1700ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1750"] {
+    transition-duration: 1750ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1750"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1750"].on-screen {
+    transition-delay: 1750ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1800"] {
+    transition-duration: 1800ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1800"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1800"].on-screen {
+    transition-delay: 1800ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1850"] {
+    transition-duration: 1850ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1850"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1850"].on-screen {
+    transition-delay: 1850ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1900"] {
+    transition-duration: 1900ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1900"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1900"].on-screen {
+    transition-delay: 1900ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="1950"] {
+    transition-duration: 1950ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1950"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="1950"].on-screen {
+    transition-delay: 1950ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2000"] {
+    transition-duration: 2000ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2000"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2000"].on-screen {
+    transition-delay: 2000ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2050"] {
+    transition-duration: 2050ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2050"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2050"].on-screen {
+    transition-delay: 2050ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2100"] {
+    transition-duration: 2100ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2100"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2100"].on-screen {
+    transition-delay: 2100ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2150"] {
+    transition-duration: 2150ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2150"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2150"].on-screen {
+    transition-delay: 2150ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2200"] {
+    transition-duration: 2200ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2200"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2200"].on-screen {
+    transition-delay: 2200ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2250"] {
+    transition-duration: 2250ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2250"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2250"].on-screen {
+    transition-delay: 2250ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2300"] {
+    transition-duration: 2300ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2300"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2300"].on-screen {
+    transition-delay: 2300ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2350"] {
+    transition-duration: 2350ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2350"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2350"].on-screen {
+    transition-delay: 2350ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2400"] {
+    transition-duration: 2400ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2400"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2400"].on-screen {
+    transition-delay: 2400ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2450"] {
+    transition-duration: 2450ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2450"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2450"].on-screen {
+    transition-delay: 2450ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2500"] {
+    transition-duration: 2500ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2500"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2500"].on-screen {
+    transition-delay: 2500ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2550"] {
+    transition-duration: 2550ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2550"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2550"].on-screen {
+    transition-delay: 2550ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2600"] {
+    transition-duration: 2600ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2600"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2600"].on-screen {
+    transition-delay: 2600ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2650"] {
+    transition-duration: 2650ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2650"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2650"].on-screen {
+    transition-delay: 2650ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2700"] {
+    transition-duration: 2700ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2700"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2700"].on-screen {
+    transition-delay: 2700ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2750"] {
+    transition-duration: 2750ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2750"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2750"].on-screen {
+    transition-delay: 2750ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2800"] {
+    transition-duration: 2800ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2800"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2800"].on-screen {
+    transition-delay: 2800ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2850"] {
+    transition-duration: 2850ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2850"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2850"].on-screen {
+    transition-delay: 2850ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2900"] {
+    transition-duration: 2900ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2900"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2900"].on-screen {
+    transition-delay: 2900ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="2950"] {
+    transition-duration: 2950ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2950"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="2950"].on-screen {
+    transition-delay: 2950ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="3000"] {
+    transition-duration: 3000ms;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="3000"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-delay="3000"].on-screen {
+    transition-delay: 3000ms;
+  }
+  [data-lazy-animation^=fade]:not(.desk-no-fade) {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-delay: 50ms;
+    transition-duration: 1000ms;
+  }
+  [data-lazy-animation^=fade]:not(.desk-no-fade).on-screen {
+    opacity: 1;
+    transform: none;
+  }
+  [data-lazy-animation=fade-left]:not(.desk-no-fade) {
+    transform: translate3d(5.21rem, 0, 0);
+  }
+  [data-lazy-animation=fade-right]:not(.desk-no-fade) {
+    transform: translate3d(-5.21rem, 0, 0);
+  }
+  [data-lazy-animation=fade-up]:not(.desk-no-fade) {
+    transform: translate3d(0, 5.21rem, 0);
+  }
+  [data-lazy-animation=fade-down]:not(.desk-no-fade) {
+    transform: translate3d(0, -5.21rem, 0);
+  }
+  [data-lazy-animation^=zoom-in]:not(.desk-no-fade) {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-delay: 50ms;
+    transition-duration: 1000ms;
+  }
+  [data-lazy-animation^=zoom-in]:not(.desk-no-fade).on-screen {
+    opacity: 1;
+    transform: none;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  [data-lazy-animation=zoom-in-left] {
+    transform: translate3d(5.21rem, 0, 0) scale(0.6);
+  }
+  [data-lazy-animation=zoom-in-right] {
+    transform: translate3d(-5.21rem, 0, 0) scale(0.6);
+  }
+  [data-lazy-animation=zoom-in-up] {
+    transform: translate3d(0, 5.21rem, 0) scale(0.6);
+  }
+  [data-lazy-animation=zoom-in-down] {
+    transform: translate3d(0, -5.21rem, 0) scale(0.6);
+  }
+  [data-lazy-animation^=zoom-out]:not(.desk-no-fade) {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-delay: 50ms;
+    transition-duration: 1000ms;
+  }
+  [data-lazy-animation^=zoom-out]:not(.desk-no-fade).on-screen {
+    opacity: 1;
+    transform: none;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  [data-lazy-animation=zoom-out-left] {
+    transform: translate3d(5.21rem, 0, 0) scale(1.2);
+  }
+  [data-lazy-animation=zoom-out-right] {
+    transform: translate3d(-5.21rem, 0, 0) scale(1.2);
+  }
+  [data-lazy-animation=zoom-out-up] {
+    transform: translate3d(0, 5.21rem, 0) scale(1.2);
+  }
+  [data-lazy-animation=zoom-out-down] {
+    transform: translate3d(0, -5.21rem, 0) scale(1.2);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=linear] {
+    transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease] {
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in] {
+    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-out] {
+    transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-out] {
+    transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-back] {
+    transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-out-back] {
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-out-back] {
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-sine] {
+    transition-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-out-sine] {
+    transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-out-sine] {
+    transition-timing-function: cubic-bezier(0, 0, 0.06, 1);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-quad] {
+    transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-out-quad] {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-out-quad] {
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-cubic] {
+    transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-out-cubic] {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-out-cubic] {
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-quart] {
+    transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-out-quart] {
+    transition-timing-function: cubic-bezier(0, 0, 0.08, 0.97);
+  }
+  [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-out-quart] {
+    transition-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  }
+  .animate {
+    transform: scale3d(1, 0, 1) !important;
+    opacity: 1 !important;
+  }
+  .animate.on-screen {
+    transition-duration: 2s !important;
+    transition-timing-function: cubic-bezier(0, 0, 0.15, 1) !important;
+    transform-origin: center;
+    transform: scale3d(1, 1, 1) !important;
+  }
+  .animate.on-screen.faster {
+    transition-duration: 2s !important;
+  }
+  .animate.top {
+    transform-origin: top;
+  }
+  .animate-horizontal {
+    transform: scale3d(0, 1, 1) !important;
+    opacity: 1 !important;
+    transform-origin: center;
+  }
+  .animate-horizontal.on-screen {
+    transition-duration: 2s !important;
+    transition-timing-function: cubic-bezier(0, 0, 0.15, 1) !important;
+    transform: scale3d(1, 1, 1) !important;
+  }
+  .animate-horizontal.left {
+    transform-origin: left;
+  }
+  .animate-horizontal.right {
+    transform-origin: right;
+  }
+}
+/*!
+ * lazy-animation.scss
+ * @version 0.1
+ */
+@media (max-width: 1200px) {
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="50"] {
+    transition-duration: 50ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="50"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="50"].on-screen {
+    transition-delay: 50ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="100"] {
+    transition-duration: 100ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="100"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="100"].on-screen {
+    transition-delay: 100ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="150"] {
+    transition-duration: 150ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="150"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="150"].on-screen {
+    transition-delay: 150ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="200"] {
+    transition-duration: 200ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="200"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="200"].on-screen {
+    transition-delay: 200ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="250"] {
+    transition-duration: 250ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="250"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="250"].on-screen {
+    transition-delay: 250ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="300"] {
+    transition-duration: 300ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="300"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="300"].on-screen {
+    transition-delay: 300ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="350"] {
+    transition-duration: 350ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="350"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="350"].on-screen {
+    transition-delay: 350ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="400"] {
+    transition-duration: 400ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="400"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="400"].on-screen {
+    transition-delay: 400ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="450"] {
+    transition-duration: 450ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="450"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="450"].on-screen {
+    transition-delay: 450ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="500"] {
+    transition-duration: 500ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="500"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="500"].on-screen {
+    transition-delay: 500ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="550"] {
+    transition-duration: 550ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="550"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="550"].on-screen {
+    transition-delay: 550ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="600"] {
+    transition-duration: 600ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="600"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="600"].on-screen {
+    transition-delay: 600ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="650"] {
+    transition-duration: 650ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="650"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="650"].on-screen {
+    transition-delay: 650ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="700"] {
+    transition-duration: 700ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="700"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="700"].on-screen {
+    transition-delay: 700ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="750"] {
+    transition-duration: 750ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="750"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="750"].on-screen {
+    transition-delay: 750ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="800"] {
+    transition-duration: 800ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="800"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="800"].on-screen {
+    transition-delay: 800ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="850"] {
+    transition-duration: 850ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="850"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="850"].on-screen {
+    transition-delay: 850ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="900"] {
+    transition-duration: 900ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="900"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="900"].on-screen {
+    transition-delay: 900ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="950"] {
+    transition-duration: 950ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="950"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="950"].on-screen {
+    transition-delay: 950ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1000"] {
+    transition-duration: 1000ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1000"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1000"].on-screen {
+    transition-delay: 1000ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1050"] {
+    transition-duration: 1050ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1050"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1050"].on-screen {
+    transition-delay: 1050ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1100"] {
+    transition-duration: 1100ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1100"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1100"].on-screen {
+    transition-delay: 1100ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1150"] {
+    transition-duration: 1150ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1150"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1150"].on-screen {
+    transition-delay: 1150ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1200"] {
+    transition-duration: 1200ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1200"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1200"].on-screen {
+    transition-delay: 1200ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1250"] {
+    transition-duration: 1250ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1250"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1250"].on-screen {
+    transition-delay: 1250ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1300"] {
+    transition-duration: 1300ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1300"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1300"].on-screen {
+    transition-delay: 1300ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1350"] {
+    transition-duration: 1350ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1350"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1350"].on-screen {
+    transition-delay: 1350ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1400"] {
+    transition-duration: 1400ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1400"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1400"].on-screen {
+    transition-delay: 1400ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1450"] {
+    transition-duration: 1450ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1450"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1450"].on-screen {
+    transition-delay: 1450ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1500"] {
+    transition-duration: 1500ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1500"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1500"].on-screen {
+    transition-delay: 1500ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1550"] {
+    transition-duration: 1550ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1550"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1550"].on-screen {
+    transition-delay: 1550ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1600"] {
+    transition-duration: 1600ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1600"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1600"].on-screen {
+    transition-delay: 1600ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1650"] {
+    transition-duration: 1650ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1650"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1650"].on-screen {
+    transition-delay: 1650ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1700"] {
+    transition-duration: 1700ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1700"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1700"].on-screen {
+    transition-delay: 1700ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1750"] {
+    transition-duration: 1750ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1750"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1750"].on-screen {
+    transition-delay: 1750ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1800"] {
+    transition-duration: 1800ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1800"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1800"].on-screen {
+    transition-delay: 1800ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1850"] {
+    transition-duration: 1850ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1850"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1850"].on-screen {
+    transition-delay: 1850ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1900"] {
+    transition-duration: 1900ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1900"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1900"].on-screen {
+    transition-delay: 1900ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="1950"] {
+    transition-duration: 1950ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1950"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="1950"].on-screen {
+    transition-delay: 1950ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2000"] {
+    transition-duration: 2000ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2000"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2000"].on-screen {
+    transition-delay: 2000ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2050"] {
+    transition-duration: 2050ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2050"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2050"].on-screen {
+    transition-delay: 2050ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2100"] {
+    transition-duration: 2100ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2100"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2100"].on-screen {
+    transition-delay: 2100ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2150"] {
+    transition-duration: 2150ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2150"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2150"].on-screen {
+    transition-delay: 2150ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2200"] {
+    transition-duration: 2200ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2200"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2200"].on-screen {
+    transition-delay: 2200ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2250"] {
+    transition-duration: 2250ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2250"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2250"].on-screen {
+    transition-delay: 2250ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2300"] {
+    transition-duration: 2300ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2300"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2300"].on-screen {
+    transition-delay: 2300ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2350"] {
+    transition-duration: 2350ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2350"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2350"].on-screen {
+    transition-delay: 2350ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2400"] {
+    transition-duration: 2400ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2400"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2400"].on-screen {
+    transition-delay: 2400ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2450"] {
+    transition-duration: 2450ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2450"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2450"].on-screen {
+    transition-delay: 2450ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2500"] {
+    transition-duration: 2500ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2500"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2500"].on-screen {
+    transition-delay: 2500ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2550"] {
+    transition-duration: 2550ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2550"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2550"].on-screen {
+    transition-delay: 2550ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2600"] {
+    transition-duration: 2600ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2600"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2600"].on-screen {
+    transition-delay: 2600ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2650"] {
+    transition-duration: 2650ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2650"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2650"].on-screen {
+    transition-delay: 2650ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2700"] {
+    transition-duration: 2700ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2700"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2700"].on-screen {
+    transition-delay: 2700ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2750"] {
+    transition-duration: 2750ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2750"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2750"].on-screen {
+    transition-delay: 2750ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2800"] {
+    transition-duration: 2800ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2800"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2800"].on-screen {
+    transition-delay: 2800ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2850"] {
+    transition-duration: 2850ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2850"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2850"].on-screen {
+    transition-delay: 2850ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2900"] {
+    transition-duration: 2900ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2900"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2900"].on-screen {
+    transition-delay: 2900ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="2950"] {
+    transition-duration: 2950ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2950"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="2950"].on-screen {
+    transition-delay: 2950ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="3000"] {
+    transition-duration: 3000ms;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="3000"] {
+    transition-delay: 0s;
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation-delay-mobile="3000"].on-screen {
+    transition-delay: 3000ms;
+  }
+  [data-lazy-animation-mobile^=fade].mobile-fade {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-delay: 0ms;
+    transition-duration: 1000ms;
+  }
+  [data-lazy-animation-mobile^=fade].mobile-fade.on-screen {
+    opacity: 1;
+    transform: none;
+  }
+  [data-lazy-animation=fade-left].mobile-fade {
+    transform: translate3d(5.21rem, 0, 0);
+  }
+  [data-lazy-animation=fade-right].mobile-fade {
+    transform: translate3d(-5.21rem, 0, 0);
+  }
+  [data-lazy-animation=fade-up].mobile-fade {
+    transform: translate3d(0, 5.21rem, 0);
+  }
+  [data-lazy-animation=fade-down].mobile-fade {
+    transform: translate3d(0, -5.21rem, 0);
+  }
+  [data-lazy-animation-mobile^=zoom-in].mobile-fade {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-delay: 0ms;
+    transition-duration: 1000ms;
+  }
+  [data-lazy-animation-mobile^=zoom-in].mobile-fade.on-screen {
+    opacity: 1;
+    transform: none;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  [data-lazy-animation=zoom-in-left].mobile-fade {
+    transform: translate3d(5.21rem, 0, 0) scale(0.6);
+  }
+  [data-lazy-animation=zoom-in-right].mobile-fade {
+    transform: translate3d(-5.21rem, 0, 0) scale(0.6);
+  }
+  [data-lazy-animation=zoom-in-up].mobile-fade {
+    transform: translate3d(0, 5.21rem, 0) scale(0.6);
+  }
+  [data-lazy-animation=zoom-in-down].mobile-fade {
+    transform: translate3d(0, -5.21rem, 0) scale(0.6);
+  }
+  [data-lazy-animation-mobile^=zoom-out].mobile-fade {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-delay: 0ms;
+    transition-duration: 1000ms;
+  }
+  [data-lazy-animation-mobile^=zoom-out].mobile-fade.on-screen {
+    opacity: 1;
+    transform: none;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  [data-lazy-animation=zoom-out-left].mobile-fade {
+    transform: translate3d(5.21rem, 0, 0) scale(1.2);
+  }
+  [data-lazy-animation=zoom-out-right].mobile-fade {
+    transform: translate3d(-5.21rem, 0, 0) scale(1.2);
+  }
+  [data-lazy-animation=zoom-out-up].mobile-fade {
+    transform: translate3d(0, 5.21rem, 0) scale(1.2);
+  }
+  [data-lazy-animation=zoom-out-down].mobile-fade {
+    transform: translate3d(0, -5.21rem, 0) scale(1.2);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=linear] {
+    transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease] {
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in] {
+    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-out] {
+    transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-out] {
+    transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-back] {
+    transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-out-back] {
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-out-back] {
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-sine] {
+    transition-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-out-sine] {
+    transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-out-sine] {
+    transition-timing-function: cubic-bezier(0, 0, 0.06, 1);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-quad] {
+    transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-out-quad] {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-out-quad] {
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-cubic] {
+    transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-out-cubic] {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-out-cubic] {
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-quart] {
+    transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-out-quart] {
+    transition-timing-function: cubic-bezier(0, 0, 0.08, 0.97);
+  }
+  [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-out-quart] {
+    transition-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  }
+  .animate {
+    transform: scale3d(1, 0, 1) !important;
+    opacity: 1 !important;
+  }
+  .animate.on-screen {
+    transition-duration: 2s !important;
+    transition-timing-function: cubic-bezier(0, 0, 0.15, 1) !important;
+    transform-origin: center;
+    transform: scale3d(1, 1, 1) !important;
+  }
+  .animate.on-screen.faster {
+    transition-duration: 2s !important;
+  }
+  .animate.top {
+    transform-origin: top;
+  }
+  .animate-horizontal {
+    transform: scale3d(0, 1, 1) !important;
+    opacity: 1 !important;
+    transform-origin: center;
+  }
+  .animate-horizontal.on-screen {
+    transition-duration: 2s !important;
+    transition-timing-function: cubic-bezier(0, 0, 0.15, 1) !important;
+    transform: scale3d(1, 1, 1) !important;
+  }
+  .animate-horizontal.left {
+    transform-origin: left;
+  }
+}/*# sourceMappingURL=lazy-animations.css.map */

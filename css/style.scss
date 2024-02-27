@@ -1,0 +1,2020 @@
+///Globals
+
+$dark: #1D1D1D;
+$dark-grey: #2D2D2D;
+$light: #d9d9d9;
+$cream: #D6D5CD;
+$border: #484848;
+$text: #636363;
+$text-dark: #ADADAD;
+$text-darker: #858585;
+
+
+$m-font: neue-haas-grotesk-text,
+sans-serif;
+
+$d-font: neue-haas-grotesk-display,
+sans-serif;
+
+
+$s-font: sloop-script-one,
+serif;
+
+$s-font-2: sloop-script-two,
+serif;
+
+$s-font-3: sloop-script-three,
+serif;
+
+
+
+$base-font-size: 3.89rem;
+$large-font-size: 0.99rem;
+
+
+$base-line-height: 1.5;
+$large-line-height: 1.44;
+
+$base-gap: 5rem;
+$large-base-gap: 0.94rem;
+
+//Grid
+$large: 759px;
+
+// $padding: 30.56rem;
+$padding: 41.67rem;
+
+$padding-large: 15.63rem;
+
+@media (min-width: $large) {
+
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+
+
+%animated-transform {
+    transition: 0.3s ease;
+}
+
+%animated-transform-inout {
+    transition: 0.7s cubic-bezier(.95, .05, .05, .95);
+}
+
+%animated-transform-out {
+    transition: 0.7s cubic-bezier(0, 0, 0, 1);
+}
+%animated-transform-outlonger {
+    transition: 0.8s cubic-bezier(0, 0, 0, 1);
+}
+
+%animated-transform-out-short {
+    transition: 0.5s cubic-bezier(0, 0, 0.1, 1);
+}
+
+%animated-transform-long {
+    transition: 2s cubic-bezier(0.43, 0.01, 0, 1);
+}
+
+html {
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    background-color: $light;
+    color: $text;
+    font-family: $m-font;
+    font-size: 1vw;
+    @extend %animated-transform;
+}
+
+html.open-navi,
+html.open-filter {
+    overflow: hidden;
+}
+
+body,
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    &,
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    word-wrap: break-word;
+}
+
+main {
+
+    p,
+    ul,
+    .mb {
+        margin-bottom: calc($base-font-size * 1.5);
+
+        @media (min-width: $large) {
+            margin-bottom: calc($large-font-size * 1.5);
+        }
+    }
+}
+
+b,
+strong {
+    color: $dark;
+}
+
+
+main {
+
+    ul {
+
+        li {
+            margin-bottom: $base-font-size;
+            position: relative;
+            padding-left: calc($base-font-size * 1.2);
+
+            @media (min-width: $large) {
+                margin-bottom: $large-font-size;
+                padding-left: calc($large-font-size * 1.3);
+            }
+
+            &:before {
+                text-indent: (-$base-font-size);
+                content: '';
+                position: absolute;
+                left: 0;
+                transform: translateY(-50%);
+                top: calc($base-font-size * .85);
+                height: calc($base-font-size * .5);
+                width: calc($base-font-size * .5);
+                background: $text;
+                border-radius: 100%;
+
+                @media (min-width: $large) {
+                    text-indent: (-$large-font-size);
+                    top: calc($large-font-size * .7);
+                    height: calc($large-font-size * .5);
+                    width: calc($large-font-size * .5);
+                }
+            }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        ul {
+            margin-left: 1rem;
+            margin-bottom: 0;
+            margin-top: 1rem;
+        }
+    }
+}
+
+main a:not(.ansehen):not(.gallery-btn):not(.round-btn) {
+    background-image: linear-gradient(transparent calc(100% - 1px), currentColor 1px);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+    @extend %animated-transform-out;
+
+    &:hover {
+        background-size: 0% 100%;
+    }
+}
+
+body {
+    // font-size: clamp(14px, $base-font-size, 19px);
+    font-size: $base-font-size;
+
+    line-height: $base-line-height;
+
+    @media (min-width: $large) {
+        font-size: $large-font-size;
+        line-height: $large-line-height;
+    }
+}
+
+img {
+    vertical-align: bottom;
+    float: none;
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+////Rows and Cols
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    @media (min-width: $large) {
+        max-width: 96.4rem;
+    }
+
+    //vertical alignment
+    &.stretch {
+        align-items: stretch;
+    }
+
+    &.top {
+        align-items: flex-start;
+    }
+
+    &.middle {
+        align-items: center;
+    }
+
+    &.bottom {
+        align-items: flex-end;
+    }
+
+    //horizontal alignment
+    &.start {
+        justify-content: flex-start;
+    }
+
+    &.center {
+        justify-content: center;
+    }
+
+    &.end {
+        justify-content: flex-end;
+    }
+
+    &.around {
+        justify-content: space-around;
+    }
+
+    &.between {
+        justify-content: space-between;
+    }
+}
+
+.row.full-width {
+    max-width: none
+}
+
+.row>.row {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+    flex-basis: 100%
+}
+
+.row:not(.full-width) .row {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -$base-gap;
+    max-width: calc(100% + $base-gap * 2);
+    width: calc(100% + $base-gap * 2);
+
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: $base-gap;
+    right: $base-gap;
+    z-index: 1001;
+    font-size: 1rem;
+    width: 14rem;
+    height: 14rem;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    mix-blend-mode: difference;
+    @media (min-width: $large) {
+        width: 3.3rem;
+        height: 3.3rem;
+        bottom: $large-base-gap;
+        right: $large-base-gap;
+    }
+
+    body:not(.scrolling-up) &,
+    html:not(.fixed) & {
+        .circle {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0);
+        }
+        .arrow {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0);
+        }
+
+       
+    }
+    .arrow {
+        position: absolute;
+        margin: 0;
+        inset: auto;
+        width: 15%;
+        @extend %animated-transform;
+        z-index: 3;
+        mix-blend-mode: difference;
+
+    }
+    .circle {
+        @extend %animated-transform;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        margin: 0;
+        inset: auto;
+        background-color: $light;
+        border-radius: 100%;
+    }
+
+}
+
+
+.col {
+    float: left;
+    padding-left: $base-gap;
+    padding-right: $base-gap;
+    max-width: 100%;
+    width: 100%;
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: 100%;
+    box-sizing: border-box;
+
+    @media (min-width: $large) {
+        padding-left: $large-base-gap;
+        padding-right: $large-base-gap;
+    }
+}
+
+
+
+
+
+@media (min-width: 0) {
+    .col.default-1 {
+        max-width: 8.33333%;
+        flex-basis: 8.33333%
+    }
+
+    .col.default-2 {
+        max-width: 16.66667%;
+        flex-basis: 16.66667%
+    }
+
+    .col.default-3 {
+        max-width: 25%;
+        flex-basis: 25%
+    }
+
+    .col.default-4 {
+        max-width: 33.33333%;
+        flex-basis: 33.33333%
+    }
+
+    .col.default-5 {
+        max-width: 41.66667%;
+        flex-basis: 41.66667%
+    }
+
+    .col.default-6 {
+        max-width: 50%;
+        flex-basis: 50%
+    }
+
+    .col.default-7 {
+        max-width: 58.33333%;
+        flex-basis: 58.33333%
+    }
+
+    .col.default-8 {
+        max-width: 66.66667%;
+        flex-basis: 66.66667%
+    }
+
+    .col.default-9 {
+        max-width: 75%;
+        flex-basis: 75%
+    }
+
+    .col.default-10 {
+        max-width: 83.33333%;
+        flex-basis: 83.33333%
+    }
+
+    .col.default-11 {
+        max-width: 91.66667%;
+        flex-basis: 91.66667%
+    }
+
+    .col.default-12 {
+        max-width: 100%;
+        flex-basis: 100%
+    }
+
+    .col.default-auto {
+        max-width: 100%;
+        flex-basis: 0
+    }
+
+    .col.default-prefix-0 {
+        margin-left: 0%
+    }
+
+    .col.default-prefix-1 {
+        margin-left: 8.33333%
+    }
+
+    .col.default-prefix-2 {
+        margin-left: 16.66667%
+    }
+
+    .col.default-prefix-3 {
+        margin-left: 25%
+    }
+
+    .col.default-prefix-4 {
+        margin-left: 33.33333%
+    }
+
+    .col.default-prefix-5 {
+        margin-left: 41.66667%
+    }
+
+    .col.default-prefix-6 {
+        margin-left: 50%
+    }
+
+    .col.default-prefix-7 {
+        margin-left: 58.33333%
+    }
+
+    .col.default-prefix-8 {
+        margin-left: 66.66667%
+    }
+
+    .col.default-prefix-9 {
+        margin-left: 75%
+    }
+
+    .col.default-prefix-10 {
+        margin-left: 83.33333%
+    }
+
+    .col.default-prefix-11 {
+        margin-left: 91.66667%
+    }
+
+    .col.default-prefix-12 {
+        margin-left: 100%
+    }
+
+    .col.default-suffix-0 {
+        margin-right: 0%
+    }
+
+    .col.default-suffix-1 {
+        margin-right: 8.33333%
+    }
+
+    .col.default-suffix-2 {
+        margin-right: 16.66667%
+    }
+
+    .col.default-suffix-3 {
+        margin-right: 25%
+    }
+
+    .col.default-suffix-4 {
+        margin-right: 33.33333%
+    }
+
+    .col.default-suffix-5 {
+        margin-right: 41.66667%
+    }
+
+    .col.default-suffix-6 {
+        margin-right: 50%
+    }
+
+    .col.default-suffix-7 {
+        margin-right: 58.33333%
+    }
+
+    .col.default-suffix-8 {
+        margin-right: 66.66667%
+    }
+
+    .col.default-suffix-9 {
+        margin-right: 75%
+    }
+
+    .col.default-suffix-10 {
+        margin-right: 83.33333%
+    }
+
+    .col.default-suffix-11 {
+        margin-right: 91.66667%
+    }
+
+    .col.default-suffix-12 {
+        margin-right: 100%
+    }
+}
+
+@media (min-width: $large) {
+    .col.large-1 {
+        max-width: 8.33333%;
+        flex-basis: 8.33333%
+    }
+
+    .col.large-2 {
+        max-width: 16.66667%;
+        flex-basis: 16.66667%
+    }
+
+    .col.large-3 {
+        max-width: 25%;
+        flex-basis: 25%
+    }
+
+    .col.large-4 {
+        max-width: 33.33333%;
+        flex-basis: 33.33333%
+    }
+
+    .col.large-5 {
+        max-width: 41.66667%;
+        flex-basis: 41.66667%
+    }
+
+    .col.large-6 {
+        max-width: 50%;
+        flex-basis: 50%
+    }
+
+    .col.large-7 {
+        max-width: 58.33333%;
+        flex-basis: 58.33333%
+    }
+
+    .col.large-8 {
+        max-width: 66.66667%;
+        flex-basis: 66.66667%
+    }
+
+    .col.large-9 {
+        max-width: 75%;
+        flex-basis: 75%
+    }
+
+    .col.large-10 {
+        max-width: 83.33333%;
+        flex-basis: 83.33333%
+    }
+
+    .col.large-11 {
+        max-width: 91.66667%;
+        flex-basis: 91.66667%
+    }
+
+    .col.large-12 {
+        max-width: 100%;
+        flex-basis: 100%
+    }
+
+    .col.large-auto {
+        max-width: 100%;
+        flex-basis: 0
+    }
+
+    .col.large-prefix-0 {
+        margin-left: 0%
+    }
+
+    .col.large-prefix-1 {
+        margin-left: 8.33333%
+    }
+
+    .col.large-prefix-2 {
+        margin-left: 16.66667%
+    }
+
+    .col.large-prefix-3 {
+        margin-left: 25%
+    }
+
+    .col.large-prefix-4 {
+        margin-left: 33.33333%
+    }
+
+    .col.large-prefix-5 {
+        margin-left: 41.66667%
+    }
+
+    .col.large-prefix-6 {
+        margin-left: 50%
+    }
+
+    .col.large-prefix-7 {
+        margin-left: 58.33333%
+    }
+
+    .col.large-prefix-8 {
+        margin-left: 66.66667%
+    }
+
+    .col.large-prefix-9 {
+        margin-left: 75%
+    }
+
+    .col.large-prefix-10 {
+        margin-left: 83.33333%
+    }
+
+    .col.large-prefix-11 {
+        margin-left: 91.66667%
+    }
+
+    .col.large-prefix-12 {
+        margin-left: 100%
+    }
+
+    .col.large-suffix-0 {
+        margin-right: 0%
+    }
+
+    .col.large-suffix-1 {
+        margin-right: 8.33333%
+    }
+
+    .col.large-suffix-2 {
+        margin-right: 16.66667%
+    }
+
+    .col.large-suffix-3 {
+        margin-right: 25%
+    }
+
+    .col.large-suffix-4 {
+        margin-right: 33.33333%
+    }
+
+    .col.large-suffix-5 {
+        margin-right: 41.66667%
+    }
+
+    .col.large-suffix-6 {
+        margin-right: 50%
+    }
+
+    .col.large-suffix-7 {
+        margin-right: 58.33333%
+    }
+
+    .col.large-suffix-8 {
+        margin-right: 66.66667%
+    }
+
+    .col.large-suffix-9 {
+        margin-right: 75%
+    }
+
+    .col.large-suffix-10 {
+        margin-right: 83.33333%
+    }
+
+    .col.large-suffix-11 {
+        margin-right: 91.66667%
+    }
+
+    .col.large-suffix-12 {
+        margin-right: 100%
+    }
+}
+
+////Rows and Cols End
+
+.padding-outer {
+    padding: $padding 0;
+
+    @media (min-width: $large) {
+        padding: $padding-large 0;
+    }
+
+    &.top-only {
+        padding: $padding 0 0;
+
+
+        @media (min-width: $large) {
+            padding: $padding-large 0 0;
+        }
+    }
+
+    &.bottom-only {
+        padding: 0 0 $padding;
+
+        @media (min-width: $large) {
+            padding: 0 0 $padding-large;
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    display: block;
+    text-rendering: optimizeLegibility;
+    hyphens: auto;
+    font-weight: 300;
+    font-family: $d-font;
+    line-height: 1em;
+    color: $dark;
+
+    /* Use this to let headlines break in Chrome Desktop
+    body.platformWindows.chrome &, body.platformLinux.chrome & {
+        word-break: break-all;
+    }
+    */
+}
+
+
+////Globals End
+/// Helpers Start
+main .line.standard {
+    display: block;
+    background-color: $border;
+    width: 100%;
+    height: 1px;
+    margin: 18.06rem 0;
+
+    @media (min-width: $large) {
+        margin: 7.03rem 0;
+    }
+}
+
+.no-mb {
+    margin-bottom: 0 !important;
+}
+
+
+/// Helpers End
+
+////Navigation
+
+.page-wrap {
+    transition: .5s;
+    html:not(.open-navi) & {
+        transition-delay: .5s;
+    }
+
+
+    html.open-navi & {
+        opacity: 0;
+
+    }
+
+}
+
+$menu-width: 15rem;
+$menu-height: 1.9rem;
+$branding-width: 10rem;
+
+$large-menu-width: 4.79rem;
+$large-menu-height: 0.57rem;
+$large-branding-width: 3.18rem;
+
+
+.quickbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
+    @extend %animated-transform;
+    mix-blend-mode: difference;
+
+    html.open-navi & {
+        transform: 0;
+    }
+
+    // @media (min-width: $large) {
+    //     display: none;
+    // }
+
+    .quickbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5rem;
+        position: relative;
+
+        @media (min-width: $large) {
+            padding: 1.88rem 2.81rem;
+
+        }
+
+        html.open-navi & {}
+
+        .branding {
+            width: $branding-width;
+            display: flex;
+            width: 10rem;
+            align-items: center;
+            justify-content: center;
+            @extend %animated-transform;
+
+            @media (min-width: $large) {
+                width: 3.65rem;
+            }
+
+            &:hover {
+                opacity: .9;
+            }
+
+            svg {
+                width: 100%;
+                display: block;
+                height: 100%;
+            }
+        }
+
+        .menu {
+            width: $menu-width;
+            height: 6.67rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            @media (min-width: $large) {
+                height: 0.57rem;
+                width: auto;
+
+            }
+
+            .desktop-nav {
+                @media (max-width: $large) {
+                    display: none;
+                }
+
+                display: flex;
+                overflow: hidden;
+                gap: 1.77rem;
+
+                li {
+                    overflow: hidden;
+                    @extend %animated-transform-out;
+                    $transition-delay-step: 0.05s; // Zeitintervall zwischen den Transition-Delay-Werten
+
+                    @for $i from 0 through 10 {
+
+                        // Du kannst die Obergrenze anpassen oder entfernen
+                        &:nth-child(#{$i}) {
+                            transition-delay: $transition-delay-step * ($i - 1);
+
+                        }
+                    }
+
+                    html.fixed &,
+                    html.open-navi & {
+                        transform: translateY(-100%);
+                    }
+
+                    a {
+                        color: white;
+                        position: relative;
+                        display: block;
+
+                        &:hover {
+                            >span {
+                                &:first-of-type {
+                                    span {
+                                        opacity: 1;
+                                        transform: translateY(-100%);
+                                    }
+                                }
+
+                                &:last-of-type {
+                                    span {
+                                        opacity: 1;
+                                        transform: translateY(0%);
+
+                                    }
+                                }
+                            }
+                        }
+
+                        >span {
+                            display: flex;
+                            $transition-delay-step: 0.05s; // Zeitintervall zwischen den Transition-Delay-Werten
+
+                            span {
+                                @extend %animated-transform-inout;
+
+                                @for $i from 0 through 10 {
+
+                                    // Du kannst die Obergrenze anpassen oder entfernen
+                                    &:nth-child(#{$i}) {
+                                        transition-delay: $transition-delay-step * ($i - 1);
+
+                                    }
+                                }
+                            }
+
+                            &:last-of-type {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+
+                                span {
+                                    transform: translateY(100%);
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .div-line {
+                @media (max-width: $large) {
+                    display: none;
+                }
+
+                width: 1px;
+                height: 175%;
+                background-color: white;
+                margin-inline: 1.77rem;
+                @extend %animated-transform-out;
+
+                html.open-navi &,
+                html.fixed & {
+                    height: 0;
+                }
+            }
+
+            .hamburger {
+                width: 100%;
+                height: $menu-height;
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                @extend %animated-transform-out;
+                padding-block: 1rem;
+
+                @media (min-width: $large) {
+                    height: $large-menu-height;
+                    width: $large-menu-width;
+                    padding-block: 2rem;
+
+                    &:hover {
+                        html:not(.is-transitioning) & {
+                            .line {
+                                &:before {
+                                    width: 100%;
+                                    transition-delay: .2s;
+                                    // left: 0;
+                                    // right: auto;
+                                }
+    
+                                .line-inner {
+                                    width: 0%;
+                                    transition-delay: 0s;
+                                }
+    
+                                &:last-of-type {
+                                    &:before {
+                                        transition-delay: .4s;
+    
+                                    }
+    
+                                    .line-inner {
+                                        transition-delay: .2s;
+                                    }
+    
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+                .line {
+                    width: 100%;
+                    height: 1px;
+                    min-height: 1px;
+                    position: relative;
+                    overflow: hidden;
+
+                    &:before {
+                        @extend %animated-transform-outlonger;
+                        @media (min-width: $large) {
+                            content: '';
+                            position: absolute;
+                            width: 0%;
+                            left: 0;
+                            height: 100%;
+                            top: 0;
+                            background-color: white;
+                            transition-delay: 0s;
+                            html.open-navi & {
+                                transition-delay: 0s!important;
+                            }
+                        }
+
+                    }
+
+                    &:last-of-type {
+                        &:before {
+                                left: auto;
+                                right: 0;
+                                transition-delay: .2s;
+
+                                html.open-navi & {
+                                    width: 0;
+                                    left: auto!important;
+                                    right: 0;
+                                }
+                        }
+                        .line-inner {
+                            left: 0;
+                            right: auto;
+                            html.open-navi & {
+                                width: 0;
+                                left: auto!important;
+                                right: 0!important;
+                            }
+                            @media (min-width: $large) {
+                                transition-delay: .4s;
+
+                            }
+                        }
+                    }
+
+                    .line-inner {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: white;
+                        @extend %animated-transform-outlonger;
+                        transition-delay: .2s;
+                        html.open-navi & {
+                            transition-delay: 0s!important;
+                            width: 0;
+                            left: 0;
+                            right: auto;
+                        }
+                    }
+
+                }
+            }
+
+            .x {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, - 50%);
+                width: 80%;
+                height: 100%;
+                @extend %animated-transform-outlonger;
+                pointer-events: none;
+                cursor: pointer;
+
+                html.open-navi & {
+                    pointer-events: auto;
+                }
+
+                &:hover {
+                    transform: translate(-50%, - 50%) scale(.9) !important;
+
+                    @media (min-width: $large) {
+                        transform: translate(0, - 50%) scale(.9) !important;
+                    }
+                }
+
+                @media (min-width: $large) {
+                    height: $large-menu-width;
+                    width: $large-menu-width;
+                    left: auto;
+                    right: 0;
+                    transform: translate(0, - 50%);
+                }
+
+                .line {
+                    width: 50%;
+                    height: 1px;
+                    background-color: $dark;
+                    transform: rotate(45deg);
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    @extend %animated-transform-out;
+                    transform: rotate(45deg) scale3d(0, 1, 1) translateX(-50%);
+                    transform-origin: left;
+
+                    html.open-navi & {
+                        transition-delay: .1s;
+                        transform: rotate(45deg) scale3d(1, 1, 1) translateX(-50%);
+                    }
+
+                    &:nth-of-type(2) {
+                        transform: rotate(-45deg) scale3d(0, 1, 1) translateX(-50%);
+                        @extend %animated-transform-out;
+
+                        html.open-navi & {
+                            transform: rotate(-45deg) scale3d(1, 1, 1) translateX(-50%);
+                            transition-delay: .3s;
+
+                        }
+                    }
+                }
+
+                .circle {
+                    width: 0;
+                    height: 0;
+                    border-radius: 100%;
+                    background-color: $light;
+                    position: absolute;
+                    z-index: -1;
+                    @extend %animated-transform-out;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    html.open-navi & {
+                        transform: translate(-50%, -50%);
+                        width: 11.67rem;
+                        height: 11.67rem;
+                        transition-delay: .2s;
+
+                        @media (min-width: $large) {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+#navigation {
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: $dark;
+    z-index: 1000;
+    transform: translateX(100%);
+    @extend %animated-transform-inout;
+    overflow: auto;
+
+    @media (min-width: $large) {
+        transform: translateY(100%);
+    }
+
+    html:not(.open-navi) & {
+        transition-delay: .15s;
+    }
+
+    html.open-navi & {
+        transform: translateX(0);
+
+        @media (min-width: $large) {
+            transform: translateY(0);
+        }
+    }
+
+    .row {
+        height: 100%;
+
+        .col {
+            height: 100%;
+
+            @media (min-width: $large) {
+                padding-block: 3.75rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .navigation-inner {
+                height: 100%;
+                display: flex;
+                flex-flow: column;
+                justify-content: space-between;
+
+                padding-top: 16.94rem * 2;
+
+                @media (min-width: $large) {
+                    flex-flow: row;
+                    padding-top: 0;
+                    justify-content: flex-end;
+                    height: auto;
+
+                }
+
+                nav {
+                    ul {
+                        &:hover {
+                            a {
+                                opacity: .5;
+                            }
+                        }
+
+                        li {
+                            overflow: hidden;
+                            $transition-delay-step-li: 0.1s; // Zeitintervall zwischen den Transition-Delay-Werten
+                            $initial-delay-li: 0.3s; // Zeitintervall zwischen den Transition-Delay-Werten
+
+                            @for $i from 0 through 10 {
+
+                                // Du kannst die Obergrenze anpassen oder entfernen
+                                &:nth-child(#{$i}) {
+                                    a {
+                                        html.open-navi & {
+                                            transition-delay: $initial-delay-li + $transition-delay-step-li * ($i - 1);
+
+                                            @media (min-width: $large) {
+                                                transition-delay: $initial-delay-li * 1.5 + $transition-delay-step-li * ($i - 1);
+
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+
+                            a {
+                                display: flex;
+                                align-items: flex-end;
+                                justify-content: flex-end;
+                                @extend %animated-transform-out;
+
+                                // @media (min-width: $large) {
+                                //     display: flex;
+                                //     flex-flow: row-reverse;
+                                //     justify-content: flex-start;
+                                // }
+                                html:not(.open-navi) & {
+                                    transform: translateY(100%);
+                                }
+
+                                &.about,
+                                &.work,
+                                &.contact {
+                                    .script {
+                                        margin-right: 10rem;
+
+                                        @media (min-width: $large) {
+                                            margin-right: 7rem;
+                                        }
+                                    }
+                                }
+
+                                &:hover {
+                                    opacity: 1;
+
+                                    .name {
+                                        .serif {
+                                            span {
+                                                transform: translateY(-100%);
+                                                opacity: 0;
+                                            }
+                                        }
+
+                                        .script {
+                                            span {
+                                                transform: translateY(0);
+                                                opacity: 1;
+
+                                            }
+
+                                        }
+                                    }
+                                }
+
+                                span {
+                                    color: $light;
+
+                                    &.name {
+                                        position: relative;
+
+
+                                        .serif {
+                                            font-family: $d-font;
+                                            font-weight: 600;
+                                            text-transform: uppercase;
+                                            display: flex;
+                                            letter-spacing: -0.015em;
+                                            font-size: 16.11rem;
+                                            line-height: 1.2em;
+                                            opacity: 1;
+
+                                            @media (min-width: $large) {
+                                                font-size: 8.5rem;
+                                                line-height: 1.17em;
+
+                                            }
+
+                                            span {
+                                                @extend %animated-transform-inout;
+                                                $transition-delay-step: 0.05s; // Zeitintervall zwischen den Transition-Delay-Werten
+
+                                                @for $i from 0 through 10 {
+
+                                                    // Du kannst die Obergrenze anpassen oder entfernen
+                                                    &:nth-child(#{$i}) {
+                                                        transition-delay: $transition-delay-step * ($i - 1);
+                                                    }
+                                                }
+
+                                                &.mr {
+                                                    margin-right: -0.3rem;
+                                                }
+
+                                                &.mr-l {
+                                                    margin-right: -0.8rem;
+                                                }
+
+                                            }
+                                        }
+
+                                        .script {
+                                            position: absolute;
+                                            top: 0;
+                                            right: 0;
+                                            font-family: $s-font-3;
+                                            font-weight: 700;
+                                            display: flex;
+                                            font-size: 18.06rem;
+                                            line-height: 1.2em;
+
+                                            @media (min-width: $large) {
+                                                font-size: 9rem;
+                                                line-height: 1.18em;
+
+                                            }
+
+                                            span {
+                                                opacity: 0;
+                                                transform: translateY(100%);
+                                                @extend %animated-transform-inout;
+                                                $transition-delay: 0.05s; // Initialer Wert für das Transition-Delay
+
+                                                $initial-delay: 0.05s; // Initialer Wert für das Transition-Delay
+
+                                                @for $i from 0 through 10 {
+
+                                                    // Du kannst die Obergrenze anpassen oder entfernen
+                                                    &:nth-child(#{$i}) {
+                                                        transition-delay: $initial-delay + $transition-delay * $i;
+                                                    }
+                                                }
+
+                                            }
+                                        }
+                                    }
+
+                                    &.number {
+                                        font-family: $s-font;
+                                        color: $text;
+                                        font-size: 6.8rem;
+                                        margin-left: 2rem;
+
+                                        @media (min-width: $large) {
+                                            font-size: 3.2rem;
+                                            margin-left: 0.5rem;
+                                            padding-right: 0.3rem;
+
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+
+                .nav-info-ct {
+                    margin-bottom: 10rem;
+
+                    @media (min-width: $large) {
+                        margin-bottom: 0;
+                        display: flex;
+                        align-items: flex-end;
+                    }
+
+                    .line {
+                        width: 100%;
+                        height: 1px;
+                        background-color: $border;
+                        margin-bottom: 3.89rem * 2;
+                        transition: .9s cubic-bezier(0, 0, 0, 1);
+                        transform-origin: right;
+                        margin-top: 3.89rem * 2;
+
+                        html.open-navi & {
+                            transition-delay: .5s;
+                        }
+
+                        html:not(.open-navi) & {
+                            transform: scale3d(0, 1, 1);
+                        }
+
+                        @media (min-width: $large) {
+                            height: 100%;
+                            width: 1px;
+                            margin-bottom: 0;
+                            margin-top: 0;
+                            transform-origin: top;
+                            margin-inline: 13.65rem;
+
+                            @media (min-width: $large) {
+                                transform-origin: center;
+                            }
+
+                            html:not(.open-navi) & {
+                                transform: scale3d(1, 0, 1);
+
+                            }
+                        }
+                    }
+
+                    .mail {
+                        color: $text-dark;
+                        position: relative;
+                        width: fit-content;
+                        overflow: hidden;
+                        display: block;
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: auto;
+                            right: 0;
+
+                            width: 0%;
+                            height: 1px;
+                            background-color: $text-dark;
+                            @extend %animated-transform-out;
+                        }
+
+                        &:hover {
+                            &:before {
+                                right: auto;
+                                left: 0;
+                                width: 100%;
+                            }
+                        }
+
+                        span {
+                            @extend %animated-transform-out;
+                            display: block;
+
+                            html.open-navi & {
+                                transition-delay: .6s;
+                            }
+
+                            html:not(.open-navi) & {
+                                transform: translateY(100%);
+                            }
+
+                            html.is-transitioning & {}
+                        }
+                    }
+
+                    .socials-ct {
+                        display: flex;
+                        align-items: center;
+                        margin-top: 3.89rem;
+                        gap: 3.89rem;
+                        overflow: hidden;
+
+                        @media (min-width: $large) {
+                            margin-top: 1.41rem;
+                            gap: 1.41rem;
+                        }
+
+                        .social {
+                            @extend %animated-transform-out;
+
+                            html.open-navi & {
+                                $transition-delay: 0.05s; // Initialer Wert für das Transition-Delay
+
+                                $initial-delay: 0.6s; // Initialer Wert für das Transition-Delay
+
+                                @for $i from 0 through 10 {
+
+                                    // Du kannst die Obergrenze anpassen oder entfernen
+                                    &:nth-child(#{$i}) {
+                                        transition-delay: $initial-delay + $transition-delay * $i;
+                                    }
+                                }
+                            }
+
+                            html:not(.open-navi) & {
+                                transform: translateY(110%);
+                            }
+
+                            a {
+                                width: 7.22rem;
+                                height: 7.22rem;
+                                background-color: $text-dark;
+                                border-radius: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                @extend %animated-transform-out;
+
+                                @media (min-width: $large) {
+                                    width: 1.88rem;
+                                    height: 1.88rem;
+
+                                }
+
+                                &:hover {
+                                    transition-delay: 0s !important;
+                                    @extend %animated-transform;
+                                    background-color: $light;
+                                }
+
+                                img {
+                                    width: 4.17rem;
+                                    height: 4.17rem;
+
+                                    @media (min-width: $large) {
+                                        width: 1.09rem;
+                                        height: 1.09rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+////Navigation End
+
+
+header {
+    &.index-header {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center 25%;
+            background-image: url(../images/index/header.jpg);
+            z-index: -1;
+        }
+        .name {
+            span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: $light;
+                &.big {
+                    text-align: center;
+                    font-size: 33.61rem;
+                    line-height: 1em;
+                    font-family: $d-font;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    @media (min-width: $large) {
+                        font-size: 17.76rem;
+                        margin-top: 5rem;
+                    }
+                    .letter-ct {
+                        margin-inline: -.01em;
+                        &.a {
+                            margin-right: -.03em;
+                        }
+                        &.t {
+                            margin-left: -.02em;
+                        }
+                        &.comma {
+                            margin-left: -.1em;
+                        }
+                    }
+
+                }
+                &.small {
+                    text-align: center;
+                    font-size: 10.06rem;
+                    font-family: $s-font;
+                    font-weight: 400;
+                    justify-content: flex-end;
+                    margin-right: 12rem;
+                    margin-top: -.45em;
+                    @media (min-width: $large) {
+                        font-size: 4.06rem;
+                        justify-content: center;
+                        margin-right: -23rem;
+                        margin-top: -.5em;
+
+
+                    }
+
+                }
+            }
+        }
+        .passion {
+            position: absolute;
+            inset: auto auto 3.3%;
+            margin: auto;
+            text-align: center;
+            text-transform: uppercase;
+            color: $light;
+            @media (min-width: $large) {
+                font-size: 0.94rem;
+                line-height: 1.3em;
+                inset: auto auto 3.5%;
+
+            }
+            span {
+                display: block;
+            }
+        }
+    }
+    &.project-header {
+        @media (min-width: $large) {
+            height: 100vh;
+            position: relative;
+        }
+        >.row {
+            @media (min-width: $large) {
+                height: 100%;
+            }
+        }
+        .h1-col {
+            @media (min-width: $large) {
+                display: flex;
+                height: 100%;
+                align-items: flex-end;
+            }
+        }
+        h1 {
+            @media (max-width: $large) {
+                margin-top: 40vh;
+                text-align: center;
+                margin-bottom: 10rem;
+                font-size: 15rem;
+            }
+            @media (min-width: $large) {
+                margin-bottom: 2.8rem;
+                font-size: 8.39rem;
+            }
+            
+            span {
+                display: block;
+                &.serif {
+                    font-family: $d-font;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    letter-spacing: -.015em;
+                }
+                &.script {
+                    font-family: $s-font-3;
+                    font-weight: 500;
+                    margin-top: -.05em;
+                    @media (min-width: $large) {
+                        margin-left: 13rem;
+                    }
+                    body.united-media & {
+                    }
+                }
+            }
+        }
+        .header-img-ct {
+            height: 100vh;
+            @media (min-width: $large) {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 50%;
+                height: 100%;
+            }
+
+            .header-img {
+                height: 100%;
+                picture {
+
+                    height: 100%;
+                    img {
+
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                        @media (min-width: $large) {
+                            transform: translate3d(0, 1, 1);
+                        }
+                    }
+                }
+            }
+            .desk-overlay {
+                @media (min-width: $large) {
+                    
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $light;
+                        z-index: 1;
+                        pointer-events: none;
+                        opacity: 1!important;
+                        transform: scale3d(1, 1, 1)!important;
+                        transform-origin: left;
+
+                        &.on-screen {
+                            transform: scale3d(0, 1, 1)!important;
+                        }
+                    
+                }
+            }
+        }
+    }
+}
+
+main {
+    position: relative;
+    .sec-1 {
+        // height: 100vh;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        padding-bottom: 150vh;
+        @media (min-width: $large) {
+            padding-bottom: 200vh;
+        }
+        .sec-1-inner {
+            background-color: $light;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            @media (min-width: $large) {
+                height: auto;
+                padding-block: 15.63rem;            
+            }
+        }
+        .claim-text {
+            span {
+                display: block;
+                color: $dark;
+                font-size: 11.94rem;
+                line-height: 1em;
+                @media (min-width: $large) {
+                    font-size: 8.07rem;
+                    line-height: .9em;
+
+                }
+                &.sans {
+                    text-transform: uppercase;
+                    letter-spacing: -.01em;
+                    font-family: $d-font;
+                    font-weight: 500;
+                    @media (min-width: $large) {
+                        font-weight: 700;                    
+                    }
+                }
+                &.script {
+                    font-family: $s-font-3;
+                    font-weight: 700;
+                    @media (min-width: $large) {
+                        font-weight: 500;                    
+                    }
+                }
+                &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5) {
+                    text-align: right;
+                }
+                &:nth-of-type(1) {
+
+                }
+                &:nth-of-type(2) {
+                    margin-left: 18.06rem;
+                    @media (min-width: $large) {
+                        margin-left: 15.63rem;
+                    }
+                }
+                &:nth-of-type(3) {
+                    @media (min-width: $large) {
+                        margin-right: 3.59rem;
+                    }
+                }
+                &:nth-of-type(4) {
+                    margin-right: 7.22rem;
+                    @media (min-width: $large) {
+                        margin-right: 17.5rem;
+                    }
+                  
+                }
+                &:nth-of-type(5) {
+                    
+                }
+            }
+        }
+    }
+    .sec-2 {
+        background: $dark;
+        height: 240vh;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        @media (min-width: $large) {
+            height: calc(210vh + 62.92rem);
+        }
+        
+        .scroll-wrapper {
+            position: sticky;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .intro-text {
+            
+        }
+        .p {
+            color: $light;
+            letter-spacing: -.015em;
+            font-family: $d-font;
+            font-weight: 500;
+            font-size: 6rem;
+            line-height: 1.15em;
+            text-indent: 25.28rem;
+            margin-bottom: 1.5em;
+            @media (min-width: $large) {
+                font-size: 2.76rem;
+                text-indent: 10.42rem;
+                line-height: 1.05em;
+
+            }
+            &:last-of-type {
+                text-indent: 0!important;
+                margin-bottom: 0;
+
+            }
+            >div {
+                display: inline;
+            }
+        }
+    }
+    .ref-sec-1 {
+        padding-bottom: $padding;
+        @media (min-width: $large) {
+            padding-bottom: $padding-large;        
+        }
+        .bg {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            &:before {
+                @media (max-width: $large) {  
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba($dark, .5);
+                }
+            }
+            &.on-screen {
+                background-image: url(/images/united-media/bg/um-bg-1.jpg);
+                @media (min-width: $large) {
+                    background-image: url(/images/united-media/bg/um-bg-1.jpg);
+                }
+            }
+        }
+    }
+    .ref-sec-2 {
+        position: relative;
+        z-index: 1;
+        margin-top: -30.56rem;
+        @media (min-width: $large) {
+            margin-top: -9.11rem;
+        }
+        .box {
+            background-color: $dark;
+            color: $light;
+            padding: 30.56rem 15.28rem;
+            display: flex;
+            flex-flow: column;
+            gap: 7.78rem;
+            @media (min-width: $large) {
+                flex-flow: row;
+                gap: auto;
+                justify-content: space-between;
+                padding: 7.81rem;
+                // margin-right: -2.8rem;
+            }
+            .list-item {
+                span {
+                    display: block;
+                    &.category {
+                        color: $text-darker;
+                    }
+                }
+            }
+        }
+    }
+    .ref-sec-4 {
+        .second-image-col {
+            position: relative;
+            .image-2 {
+                height: auto;
+                display: block;
+                position: absolute;
+            }
+        }
+    }
+}
+
+footer {}

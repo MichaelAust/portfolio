@@ -1,0 +1,381 @@
+/*!
+ * lazy-animation.scss
+ * @version 0.1
+ */
+ $large: 1200px;
+@media (min-width: $large) {
+
+   // default options
+   // distance
+   $lazy-animation-distance: 5.21rem !default;
+   // delay
+   $lazy-animation-delay: 50ms !default;
+   // duration
+   $lazy-animation-duration: 1000ms !default;
+   // scale ratio for zoom
+   $lazy-animation-zoom-in: 0.6 !default;
+   $lazy-animation-zoom-out: $lazy-animation-zoom-in * 2 !default;
+   
+   // 
+   // 
+   // do not change anything from here
+   $animation-effects: fade, zoom-in, zoom-out;
+   
+   // core
+   // 50ms to 3000ms
+   [data-lazy-animation]:not(.desk-no-fade) {
+     @for $i from 1 through 60 {
+       &[data-lazy-animation-duration='#{$i * 50}'] {
+         transition-duration: #{$i * 50}ms;
+       }
+   
+       &[data-lazy-animation-delay='#{$i * 50}'] {
+         transition-delay: 0s;
+   
+         &.on-screen {
+           transition-delay: #{$i * 50}ms;
+         }
+       }
+     }
+   }
+   
+   // effects
+   @each $effect in $animation-effects {
+     $fade-effects: (
+       "left": $effect,
+       "right": $effect,
+       "up": $effect,
+       "down": $effect
+     );
+   
+     [data-lazy-animation^=#{$effect}]:not(.desk-no-fade) {
+       opacity: 0;
+       transition-property: opacity, transform;
+       transition-delay: $lazy-animation-delay;
+       transition-duration: $lazy-animation-duration;
+   
+       &.on-screen {
+         opacity: 1;
+         transform: none;
+   
+         @if $effect != fade {
+           transform: translate3d(0, 0, 0) scale(1);
+         }
+       }
+     }
+   
+     @each $direction, $effect in $fade-effects {
+       $lazy-animation-zoom: null;
+   
+       @if $effect == zoom-out {
+         $lazy-animation-zoom: $lazy-animation-zoom-out;
+       }
+   
+       @else {
+         $lazy-animation-zoom: $lazy-animation-zoom-in;
+       }
+   
+       @if $effect == fade {
+         [data-lazy-animation=#{$effect}-#{$direction}]:not(.desk-no-fade) {
+           @if $direction == up {
+             transform: translate3d(0, $lazy-animation-distance, 0);
+           }
+   
+           @else if $direction == down {
+             transform: translate3d(0, -$lazy-animation-distance, 0);
+           }
+   
+           @else if $direction == right {
+             transform: translate3d(-$lazy-animation-distance , 0, 0);
+           }
+   
+           @else {
+             transform: translate3d($lazy-animation-distance, 0, 0);
+           }
+         }
+       }
+   
+       @else if $effect == zoom-in or zoom-out {
+         [data-lazy-animation=#{$effect}-#{$direction}] {
+           @if $direction == up {
+             transform: translate3d(0, $lazy-animation-distance, 0) scale($lazy-animation-zoom);
+           }
+   
+           @else if $direction == down {
+             transform: translate3d(0, -$lazy-animation-distance, 0) scale($lazy-animation-zoom);
+           }
+   
+           @else if $direction == right {
+             transform: translate3d(-$lazy-animation-distance, 0, 0) scale($lazy-animation-zoom);
+           }
+   
+           @else {
+             transform: translate3d($lazy-animation-distance, 0, 0) scale($lazy-animation-zoom);
+           }
+         }
+       }
+     }
+   }
+   
+   // easings implementations
+   $lazy-animation-easing: (
+     linear: cubic-bezier(.250, .250, .750, .750),
+   
+     ease: cubic-bezier(.250, .100, .250, 1),
+     ease-in: cubic-bezier(.420, 0, 1, 1),
+     ease-out: cubic-bezier(.000, 0, .580, 1),
+     ease-in-out: cubic-bezier(.420, 0, .580, 1),
+   
+     ease-in-back: cubic-bezier(.6, -.28, .735, .045),
+     ease-out-back: cubic-bezier(.175, .885, .32, 1.275),
+     ease-in-out-back: cubic-bezier(.68, -.55, .265, 1.55),
+   
+     ease-in-sine: cubic-bezier(.47, 0, .745, .715),
+     ease-out-sine: cubic-bezier(.39, .575, .565, 1),
+     ease-in-out-sine: cubic-bezier(0, 0, 0.06, 1),
+   
+     ease-in-quad: cubic-bezier(.55, .085, .68, .53),
+     ease-out-quad: cubic-bezier(.25, .46, .45, .94),
+     ease-in-out-quad: cubic-bezier(.455, .03, .515, .955),
+   
+     ease-in-cubic: cubic-bezier(.55, .085, .68, .53),
+     ease-out-cubic: cubic-bezier(.25, .46, .45, .94),
+     ease-in-out-cubic: cubic-bezier(.455, .03, .515, .955),
+   
+     ease-in-quart: cubic-bezier(.55, .085, .68, .53),
+     ease-out-quart: cubic-bezier(0, 0, 0.08, 0.97),
+     ease-in-out-quart: cubic-bezier(0.6, 0, 0.4, 1),
+   );
+   
+   [data-lazy-animation] {
+     @each $key,$val in $lazy-animation-easing {
+       &[data-lazy-animation][data-lazy-animation-easing="#{$key}"] {
+         transition-timing-function: $val;
+       }
+     }
+   }
+   .animate {
+     transform: scale3d(1, 0, 1)!important; ///vertical 
+     opacity: 1!important;
+     &.on-screen {
+       transition-duration: 2s!important;
+       transition-timing-function: cubic-bezier(0, 0, 0.15, 1)!important;
+       transform-origin: center;
+       transform: scale3d(1, 1, 1)!important;
+       &.faster {
+         transition-duration: 2s!important;	
+       }
+     }
+     &.top {
+       transform-origin: top;
+     }
+     
+   }
+   .animate-horizontal {
+     transform: scale3d(0, 1, 1)!important; ///horizontal 
+     opacity: 1!important;
+     transform-origin: center;
+     &.on-screen {
+       transition-duration: 2s!important;
+       transition-timing-function: cubic-bezier(0, 0, 0.15, 1)!important;
+       transform: scale3d(1, 1, 1)!important;
+     }
+     &.left {
+       transform-origin: left;
+     }
+     &.right {
+      transform-origin: right;
+    }
+   }
+}
+   
+
+
+/*!
+ * lazy-animation.scss
+ * @version 0.1
+ */
+ 
+ @media (max-width: $large) {
+
+  // default options
+  // distance
+  $lazy-animation-distance-mobile: 5.21rem !default;
+  // delay
+  $lazy-animation-delay-mobile: 0ms !default;
+  // duration
+  $lazy-animation-duration-mobile: 1000ms !default;
+  // scale ratio for zoom
+  $lazy-animation-zoom-in: 0.6 !default;
+  $lazy-animation-zoom-out: $lazy-animation-zoom-in * 2 !default;
+  
+  // 
+  // 
+  // do not change anything from here
+  $animation-effects: fade, zoom-in, zoom-out;
+  
+  // core
+  // 50ms to 3000ms
+  [data-lazy-animation].mobile-fade {
+    @for $i from 1 through 60 {
+      &[data-lazy-animation-duration-mobile='#{$i * 50}'] {
+        transition-duration: #{$i * 50}ms;
+      }
+  
+      &[data-lazy-animation-delay-mobile='#{$i * 50}'] {
+        transition-delay: 0s;
+  
+        &.on-screen {
+          transition-delay: #{$i * 50}ms;
+        }
+      }
+    }
+  }
+  
+  // effects
+  @each $effect in $animation-effects {
+    $fade-effects: (
+      "left": $effect,
+      "right": $effect,
+      "up": $effect,
+      "down": $effect
+    );
+  
+    [data-lazy-animation-mobile^=#{$effect}].mobile-fade {
+      opacity: 0;
+      transition-property: opacity, transform;
+      transition-delay: $lazy-animation-delay-mobile;
+      transition-duration: $lazy-animation-duration-mobile;
+  
+      &.on-screen {
+        opacity: 1;
+        transform: none;
+  
+        @if $effect != fade {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+      }
+    }
+  
+    @each $direction, $effect in $fade-effects {
+      $lazy-animation-zoom: null;
+  
+      @if $effect == zoom-out {
+        $lazy-animation-zoom: $lazy-animation-zoom-out;
+      }
+  
+      @else {
+        $lazy-animation-zoom: $lazy-animation-zoom-in;
+      }
+  
+      @if $effect == fade {
+        [data-lazy-animation=#{$effect}-#{$direction}].mobile-fade {
+          @if $direction == up {
+            transform: translate3d(0, $lazy-animation-distance-mobile, 0);
+          }
+  
+          @else if $direction == down {
+            transform: translate3d(0, -$lazy-animation-distance-mobile, 0);
+          }
+  
+          @else if $direction == right {
+            transform: translate3d(-$lazy-animation-distance-mobile , 0, 0);
+          }
+  
+          @else {
+            transform: translate3d($lazy-animation-distance-mobile, 0, 0);
+          }
+        }
+      }
+  
+      @else if $effect == zoom-in or zoom-out {
+        [data-lazy-animation=#{$effect}-#{$direction}].mobile-fade {
+          @if $direction == up {
+            transform: translate3d(0, $lazy-animation-distance-mobile, 0) scale($lazy-animation-zoom);
+          }
+  
+          @else if $direction == down {
+            transform: translate3d(0, -$lazy-animation-distance-mobile, 0) scale($lazy-animation-zoom);
+          }
+  
+          @else if $direction == right {
+            transform: translate3d(-$lazy-animation-distance-mobile, 0, 0) scale($lazy-animation-zoom);
+          }
+  
+          @else {
+            transform: translate3d($lazy-animation-distance-mobile, 0, 0) scale($lazy-animation-zoom);
+          }
+        }
+      }
+    }
+  }
+  
+  // easings implementations
+  $lazy-animation-easing: (
+    linear: cubic-bezier(.250, .250, .750, .750),
+  
+    ease: cubic-bezier(.250, .100, .250, 1),
+    ease-in: cubic-bezier(.420, 0, 1, 1),
+    ease-out: cubic-bezier(.000, 0, .580, 1),
+    ease-in-out: cubic-bezier(.420, 0, .580, 1),
+  
+    ease-in-back: cubic-bezier(.6, -.28, .735, .045),
+    ease-out-back: cubic-bezier(.175, .885, .32, 1.275),
+    ease-in-out-back: cubic-bezier(.68, -.55, .265, 1.55),
+  
+    ease-in-sine: cubic-bezier(.47, 0, .745, .715),
+    ease-out-sine: cubic-bezier(.39, .575, .565, 1),
+    ease-in-out-sine: cubic-bezier(0, 0, 0.06, 1),
+  
+    ease-in-quad: cubic-bezier(.55, .085, .68, .53),
+    ease-out-quad: cubic-bezier(.25, .46, .45, .94),
+    ease-in-out-quad: cubic-bezier(.455, .03, .515, .955),
+  
+    ease-in-cubic: cubic-bezier(.55, .085, .68, .53),
+    ease-out-cubic: cubic-bezier(.25, .46, .45, .94),
+    ease-in-out-cubic: cubic-bezier(.455, .03, .515, .955),
+  
+    ease-in-quart: cubic-bezier(.55, .085, .68, .53),
+    ease-out-quart: cubic-bezier(0, 0, 0.08, 0.97),
+    ease-in-out-quart: cubic-bezier(0.6, 0, 0.4, 1),
+  );
+  
+  [data-lazy-animation].mobile-fade {
+    @each $key,$val in $lazy-animation-easing {
+      &[data-lazy-animation][data-lazy-animation-easing="#{$key}"] {
+        transition-timing-function: $val;
+      }
+    }
+  }
+  .animate {
+   transform: scale3d(1, 0, 1)!important; ///vertical 
+   opacity: 1!important;
+   &.on-screen {
+     transition-duration: 2s!important;
+     transition-timing-function: cubic-bezier(0, 0, 0.15, 1)!important;
+     transform-origin: center;
+     transform: scale3d(1, 1, 1)!important;
+     &.faster {
+       transition-duration: 2s!important;	
+     }
+   }
+   &.top {
+     transform-origin: top;
+   }
+   
+  }
+  .animate-horizontal {
+   transform: scale3d(0, 1, 1)!important; ///horizontal 
+   opacity: 1!important;
+   transform-origin: center;
+   &.on-screen {
+     transition-duration: 2s!important;
+     transition-timing-function: cubic-bezier(0, 0, 0.15, 1)!important;
+     transform: scale3d(1, 1, 1)!important;
+   }
+   &.left {
+     transform-origin: left;
+   }
+  }
+}
+  
