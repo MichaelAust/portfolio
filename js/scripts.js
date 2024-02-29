@@ -40,8 +40,14 @@ jarallax(document.querySelectorAll('.jarallax'), {
 
 
 var lazyLoadInstance = new LazyLoad({
-  // Your custom settings go here
+  // Ihre benutzerdefinierten Einstellungen gehen hier
+  callback_loaded: function(element) {
+    // Hier wird Ihre Funktion aufgerufen, wenn ein Bild geladen wurde
+    ScrollTrigger.refresh();
+    // Fügen Sie hier Ihre weitere Logik hinzu oder rufen Sie eine Funktion auf
+  }
 });
+
 
 function addOnScreenClass() {
   const elementsWithFade = document.querySelectorAll('[data-lazy-animation]');
@@ -112,7 +118,7 @@ naviToggleElements.forEach(function (naviToggleElement) {
     // Füge die Klasse "is-transitioning" nach 0.7 Sekunden hinzu
     setTimeout(function () {
       naviElement.classList.add("is-transitioning");
-      
+
       // Entferne die Klasse "is-transitioning" nach weiteren 0.7 Sekunden
       setTimeout(function () {
         naviElement.classList.remove("is-transitioning");
@@ -156,23 +162,98 @@ if (document.body.classList.contains('start')) {
       //   y: "70rem",
       // });
 
-       // Berechnung der Höhe des Viewports in Pixeln
-       const vhsec1 = window.innerHeight;
-       const triggerOffset = 65 * vhsec1 / 100; // 65vh in Pixeln
- 
- 
-       $(".sec-1").each(function (index) {
-         let tl = gsap.timeline({
-           scrollTrigger: {
-             trigger: $(this),
-             start: `top+=${triggerOffset}px top`,
-             end: "bottom bottom+=10%",
-             scrub: true,
-           }
-         });
-         tl.from($(".sec-2 .p div"), { opacity: 0.2, duration: 0.2, ease: "power1.out", stagger: { each: 0.4 } });
-       });
-     
+      // Berechnung der Höhe des Viewports in Pixeln
+      const vhsec1 = window.innerHeight;
+      const triggerOffset = 80 * vhsec1 / 100; // 65vh in Pixeln
+
+
+      $(".sec-1").each(function (index) {
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: $(this),
+            start: `top+=${triggerOffset}px top`,
+            end: "bottom bottom+=10%",
+            scrub: true,
+          }
+        });
+        tl.from($(".sec-2 .p div"), {
+          opacity: 0.2,
+          duration: 0.2,
+          ease: "power1.out",
+          stagger: {
+            each: 0.4
+          }
+        });
+      });
+
+      gsap.timeline({
+        scrollTrigger: {
+            trigger: ".sec-3-inner",
+            start: "top bottom",
+            end: "top center",
+            scrub: true // Reibungslose Animation beim Scrollen
+        }
+    })
+    .from('.sec-3 .lines-ct', {
+        width: 0,
+        autoAlpha: 0,
+    });
+    
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: ".sec-3-inner",
+            start: "top+=75% center",
+            end: "bottom center",
+            scrub: true // Reibungslose Animation beim Scrollen
+        }
+    })
+    .to('.sec-3 .lines-ct', {
+        autoAlpha: 0,
+    });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".sec-3-inner",
+        start: "top center",
+        end: "top+=55% center",
+        scrub: true, // Reibungslose Animation beim Scrollen
+
+      }
+    })
+    .from('.usp-ct.one span', {
+      opacity: 0,
+      yPercent: 200,
+      stagger: 0.05, // Versatz zwischen den Animationen der einzelnen Elemente
+    })
+    .to('.usp-ct.one span', {
+      opacity: 0,
+      yPercent: -200,
+      stagger: 0.05, // Versatz zwischen den Animationen der einzelnen Elemente
+    })
+    .from('.sec-3 .lines-ct .line.one .line-inner', {
+      width: 0,
+    }, 0);
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".sec-3-inner",
+        start: "top+=45% center",
+        end: "bottom center",
+        scrub: true, // Reibungslose Animation beim Scrollen
+      }
+    })
+    .from('.usp-ct.two span', {
+      opacity: 0,
+      yPercent: 200,
+      stagger: 0.05, // Versatz zwischen den twon der einzelnen Elemente
+    })
+    .to('.usp-ct.two span', {
+      opacity: 0,
+      yPercent: -200,
+      stagger: 0.05, // Versatz zwischen den Animationen der einzelnen Elemente
+    })
+    .from('.sec-3 .lines-ct .line.two .line-inner', {
+      width: 0,
+    }, 0);
 
 
     },
@@ -194,54 +275,144 @@ if (document.body.classList.contains('start')) {
             scrub: true,
           }
         });
-        tl.from($(".sec-2 .p div"), { opacity: 0.2, duration: 0.2, ease: "power1.out", stagger: { each: 0.4 } });
+        tl.from($(".sec-2 .p div"), {
+          opacity: 0.2,
+          duration: 0.2,
+          ease: "power1.out",
+          stagger: {
+            each: 0.4
+          }
+        });
       });
+      gsap.timeline({
+        scrollTrigger: {
+            trigger: ".sec-3-inner",
+            start: "top center",
+            end: "top top",
+            scrub: true // Reibungslose Animation beim Scrollen
+        }
+    })
+    .from('.sec-3 .lines-ct', {
+        height: 0,
+        autoAlpha: 0,
+    });
+    
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: ".sec-3-inner",
+            start: "top+=75% center",
+            end: "bottom center",
+            scrub: true // Reibungslose Animation beim Scrollen
+        }
+    })
+    .to('.sec-3 .lines-ct', {
+        autoAlpha: 0,
+    });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".sec-3-inner",
+        start: "top top+=33%",
+        end: "top+=55% center",
+        scrub: true, // Reibungslose Animation beim Scrollen
+
+      }
+    })
+    .from('.usp-ct.one span', {
+      opacity: 0,
+      yPercent: 150,
+      stagger: 0.05, // Versatz zwischen den Animationen der einzelnen Elemente
+    })
+    .to('.usp-ct.one span', {
+      opacity: 0,
+      yPercent: -120,
+      stagger: 0.05, // Versatz zwischen den Animationen der einzelnen Elemente
+    })
+    .from('.sec-3 .lines-ct .line.one .line-inner', {
+      height: 0,
+    }, 0);
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".sec-3-inner",
+        start: "top+=45% center",
+        end: "bottom center",
+        scrub: true, // Reibungslose Animation beim Scrollen
+      }
+    })
+    .from('.usp-ct.two span', {
+      opacity: 0,
+      yPercent: 150,
+      stagger: 0.05, // Versatz zwischen den twon der einzelnen Elemente
+    })
+    .to('.usp-ct.two span', {
+      opacity: 0,
+      yPercent: -120,
+      stagger: 0.05, // Versatz zwischen den Animationen der einzelnen Elemente
+    })
+    .from('.sec-3 .lines-ct .line.two .line-inner', {
+      height: 0,
+    }, 0);
+
     },
     ///GSAP Index Desktop END
 
     // GSAP All
     "all": function () {
-     
+
       var sec1 = gsap.timeline({
         scrollTrigger: {
           trigger: ".sec-1-inner",
-          start: "top bottom",
-          end: "bottom top",
+          start: "-10% bottom",
+          end: "bottom -10%",
           scrub: true,
         }
       });
-      
+
       sec1.fromTo(".claim-text span:nth-of-type(1)", {
         x: "-3.5%",
       }, {
         x: "3.5%",
       });
-      
+
       sec1.fromTo(".claim-text span:nth-of-type(2)", {
         x: "2%",
       }, {
         x: "-2%",
       }, 0);
-      
+
       sec1.fromTo(".claim-text span:nth-of-type(3)", {
         x: "-7%",
       }, {
         x: "7%",
       }, 0);
-      
+
       sec1.fromTo(".claim-text span:nth-of-type(4)", {
         x: "7%",
       }, {
         x: "-7%",
       }, 0);
-      
-      sec1.fromTo(".claim-text span:nth-of-type(5)", {
-        x: "2%",
-      }, {
-        x: "-2%",
-      }, 0);
-      
 
+      sec1.fromTo(".claim-text span:nth-of-type(5)", {
+        x: "-3%",
+      }, {
+        x: "3%",
+      }, 0);
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".sec-3-inner",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true, // Reibungslose Animation beim Scrollen
+
+        }
+      })
+      .to('.sec-3 .bg', {
+        backgroundPositionY: "50%", // Hintergrundposition auf -20% setzen
+      });
+
+    
+      
+  
     }
     // GSAP All END
 
@@ -249,7 +420,6 @@ if (document.body.classList.contains('start')) {
   //GSAP
 
 };
-
 
 
 const links = document.querySelectorAll("a");

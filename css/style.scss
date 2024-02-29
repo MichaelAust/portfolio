@@ -32,7 +32,7 @@ $base-font-size: 3.89rem;
 $large-font-size: 0.99rem;
 
 
-$base-line-height: 1.5;
+$base-line-height: 1.44;
 $large-line-height: 1.44;
 
 $base-gap: 5rem;
@@ -42,7 +42,7 @@ $large-base-gap: 0.94rem;
 $large: 759px;
 
 // $padding: 30.56rem;
-$padding: 41.67rem;
+$padding: 27.78rem;
 
 $padding-large: 15.63rem;
 
@@ -1821,24 +1821,9 @@ header {
 main {
     position: relative;
     .sec-1 {
-        // height: 100vh;
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-        padding-bottom: 150vh;
+        overflow: hidden;
         @media (min-width: $large) {
-            padding-bottom: 200vh;
-        }
-        .sec-1-inner {
-            background-color: $light;
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            @media (min-width: $large) {
-                height: auto;
-                padding-block: 15.63rem;            
-            }
+            padding-bottom: $padding-large / 2;
         }
         .claim-text {
             span {
@@ -1898,51 +1883,206 @@ main {
         }
     }
     .sec-2 {
-        background: $dark;
-        height: 240vh;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        @media (min-width: $large) {
-            height: calc(210vh + 62.92rem);
+       
+        .row {
+            // @media (max-width: $large) {
+            //     justify-content: center;
+            //     flex-flow: column-reverse;
+            //     align-items: center;
+            // }
         }
-        
-        .scroll-wrapper {
-            position: sticky;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
+        .text-ct {
+            @media (max-width: $large) {
+                display: flex;
+                gap: 11.94rem;
+            }
+           
         }
-        .intro-text {
-            
-        }
-        .p {
-            color: $light;
-            letter-spacing: -.015em;
-            font-family: $d-font;
-            font-weight: 500;
-            font-size: 6rem;
-            line-height: 1.15em;
-            text-indent: 25.28rem;
-            margin-bottom: 1.5em;
+
+        picture {
+            display: block;
+            @media (max-width: $large) {
+                padding-bottom: $padding / 2;
+            }
             @media (min-width: $large) {
-                font-size: 2.76rem;
-                text-indent: 10.42rem;
-                line-height: 1.05em;
-
+                width: 80%;
+                img {
+                    width: auto;
+                }
             }
-            &:last-of-type {
-                text-indent: 0!important;
-                margin-bottom: 0;
-
+        }
+    }
+    .sec-3 {
+        .sec-3-inner {
+            height: 250vh;
+            @media (min-width: $large) {
+                height: 350vh;            
             }
-            >div {
-                display: inline;
+            .sec-3-scroll {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                width: 100%;
+                .bg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-position-y: 0;
+                    background-repeat: no-repeat;
+                    z-index: -1;                    
+                    &.on-screen {
+                        background-image: url(../images/index/mobile-sec-3-bg.jpg);
+                        @media (min-width: $large) {
+                            background-image: url(../images/index/sec-3-bg.jpg);                        
+                        }
+                    }
+                }
+                .row, .col {
+                    // position: absolute;
+                    // top: 0;
+                    // left: 0;
+                    // width: 100%;
+                    // height: 100%;
+                    position: initial;
+                }
+                .text-ct {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    pointer-events: none;
+                    .usp-ct {
+                        font-size: 13.06rem;
+                        line-height: 1em;
+                        color: $light;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: max-content;
+                        @media (min-width: $large) {
+                            font-size: 7.75rem;
+                            line-height: .9em;
+
+                        }
+                        span {
+                            display: block;
+                            &.sans {
+                                font-family: $d-font;
+                                font-weight: 700;
+                                text-transform: uppercase;
+                            }
+                            &.script {
+                                font-family: $s-font-3;
+                                font-weight: 400;
+                                margin-top: -.1em;
+                                font-size: 14.5rem;
+                                @media (min-width: $large) {
+                                    font-size: 8.27rem;
+                                }
+                            }
+                        }
+                        &.one {
+                            span {
+                                &.sans {
+                                    text-align: right;
+                                    letter-spacing: -0.01em;
+                                }
+                                &.script {
+                                    margin-left: .5em;
+                                }
+                            }
+                        }
+                        &.two {
+                            span {
+                                &.script {
+                                    text-align: right;
+                                    margin-right: .5em;
+                                    @media (min-width: $large) {
+                                        margin-top: .04em;            
+                                        margin-right: 0;                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .lines-ct {
+                    position: fixed;
+                    bottom: 5rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    display: flex;
+                    gap:  4.72rem;
+                    pointer-events: none;
+                    @media (min-width: $large) {
+                        bottom: auto;
+                        top: 50%;
+                        transform: translate(0 ,-50%);
+                        flex-flow: column;
+                        gap: $large-font-size;
+                        left: 9.74rem;
+                    }
+                    .line {
+                        height: 1px;
+                        width: 4.72rem * 3;
+                        background-color: rgba($light, .25);
+                        display: block;
+                        position: relative;
+                        @media (min-width: $large) {
+                            width: 1px;
+                            height: 3.39rem;
+                        }
+                        .line-inner {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: $light;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .sec-4 {
+        h2 {
+            line-height: .7em;
+            padding-top: .2em;
+            text-align: center;
+            font-size: 11.94rem;
+            @media (min-width: $large) {
+                font-size: 8.75rem;
+            }
+            
+            span {
+                display: block;
+                &.sans {
+                    font-family: $d-font;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    letter-spacing: -.015em;
+                    margin-right: 4.72rem;
+                    @media (min-width: $large) {
+                        margin-right: 1.25rem;
+                    }
+                }
+                &.script {
+                    font-family: $s-font-3;
+                    margin-left: 4.72rem;
+                    @media (min-width: $large) {
+                        margin-left: 1.25rem;
+                    }
+
+                  
+                }
             }
         }
     }

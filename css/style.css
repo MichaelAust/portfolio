@@ -144,7 +144,7 @@ main a:not(.ansehen):not(.gallery-btn):not(.round-btn):hover {
 
 body {
   font-size: 3.89rem;
-  line-height: 1.5;
+  line-height: 1.44;
 }
 @media (min-width: 759px) {
   body {
@@ -565,7 +565,7 @@ body:not(.scrolling-up) .back-to-top .arrow, html:not(.fixed) .back-to-top .arro
   }
 }
 .padding-outer {
-  padding: 41.67rem 0;
+  padding: 27.78rem 0;
 }
 @media (min-width: 759px) {
   .padding-outer {
@@ -573,7 +573,7 @@ body:not(.scrolling-up) .back-to-top .arrow, html:not(.fixed) .back-to-top .arro
   }
 }
 .padding-outer.top-only {
-  padding: 41.67rem 0 0;
+  padding: 27.78rem 0 0;
 }
 @media (min-width: 759px) {
   .padding-outer.top-only {
@@ -581,7 +581,7 @@ body:not(.scrolling-up) .back-to-top .arrow, html:not(.fixed) .back-to-top .arro
   }
 }
 .padding-outer.bottom-only {
-  padding: 0 0 41.67rem;
+  padding: 0 0 27.78rem;
 }
 @media (min-width: 759px) {
   .padding-outer.bottom-only {
@@ -1638,24 +1638,11 @@ main {
   position: relative;
 }
 main .sec-1 {
-  padding-bottom: 150vh;
-}
-@media (min-width: 759px) {
-  main .sec-1 {
-    padding-bottom: 200vh;
-  }
-}
-main .sec-1 .sec-1-inner {
-  background-color: #d9d9d9;
-  height: 90vh;
-  display: flex;
-  align-items: center;
   overflow: hidden;
 }
 @media (min-width: 759px) {
-  main .sec-1 .sec-1-inner {
-    height: auto;
-    padding-block: 15.63rem;
+  main .sec-1 {
+    padding-bottom: 7.815rem;
   }
 }
 main .sec-1 .claim-text span {
@@ -1714,55 +1701,204 @@ main .sec-1 .claim-text span:nth-of-type(4) {
     margin-right: 17.5rem;
   }
 }
-main .sec-2 {
-  background: #1D1D1D;
-  height: 240vh;
+@media (max-width: 759px) {
+  main .sec-2 .text-ct {
+    display: flex;
+    gap: 11.94rem;
+  }
+}
+main .sec-2 picture {
+  display: block;
+}
+@media (max-width: 759px) {
+  main .sec-2 picture {
+    padding-bottom: 13.89rem;
+  }
+}
+@media (min-width: 759px) {
+  main .sec-2 picture {
+    width: 80%;
+  }
+  main .sec-2 picture img {
+    width: auto;
+  }
+}
+main .sec-3 .sec-3-inner {
+  height: 250vh;
+}
+@media (min-width: 759px) {
+  main .sec-3 .sec-3-inner {
+    height: 350vh;
+  }
+}
+main .sec-3 .sec-3-inner .sec-3-scroll {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   width: 100%;
+}
+main .sec-3 .sec-3-inner .sec-3-scroll .bg {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  background-position-y: 0;
+  background-repeat: no-repeat;
   z-index: -1;
 }
+main .sec-3 .sec-3-inner .sec-3-scroll .bg.on-screen {
+  background-image: url(../images/index/mobile-sec-3-bg.jpg);
+}
 @media (min-width: 759px) {
-  main .sec-2 {
-    height: calc(210vh + 62.92rem);
+  main .sec-3 .sec-3-inner .sec-3-scroll .bg.on-screen {
+    background-image: url(../images/index/sec-3-bg.jpg);
   }
 }
-main .sec-2 .scroll-wrapper {
-  position: sticky;
+main .sec-3 .sec-3-inner .sec-3-scroll .row, main .sec-3 .sec-3-inner .sec-3-scroll .col {
+  position: initial;
+}
+main .sec-3 .sec-3-inner .sec-3-scroll .text-ct {
+  position: fixed;
   top: 0;
   left: 0;
+  width: 100vw;
   height: 100vh;
-  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
-main .sec-2 .p {
+main .sec-3 .sec-3-inner .sec-3-scroll .text-ct .usp-ct {
+  font-size: 13.06rem;
+  line-height: 1em;
   color: #d9d9d9;
-  letter-spacing: -0.015em;
-  font-family: neue-haas-grotesk-display, sans-serif;
-  font-weight: 500;
-  font-size: 6rem;
-  line-height: 1.15em;
-  text-indent: 25.28rem;
-  margin-bottom: 1.5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: -moz-max-content;
+  width: max-content;
 }
 @media (min-width: 759px) {
-  main .sec-2 .p {
-    font-size: 2.76rem;
-    text-indent: 10.42rem;
-    line-height: 1.05em;
+  main .sec-3 .sec-3-inner .sec-3-scroll .text-ct .usp-ct {
+    font-size: 7.75rem;
+    line-height: 0.9em;
   }
 }
-main .sec-2 .p:last-of-type {
-  text-indent: 0 !important;
-  margin-bottom: 0;
+main .sec-3 .sec-3-inner .sec-3-scroll .text-ct .usp-ct span {
+  display: block;
 }
-main .sec-2 .p > div {
-  display: inline;
+main .sec-3 .sec-3-inner .sec-3-scroll .text-ct .usp-ct span.sans {
+  font-family: neue-haas-grotesk-display, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+main .sec-3 .sec-3-inner .sec-3-scroll .text-ct .usp-ct span.script {
+  font-family: sloop-script-three, serif;
+  font-weight: 400;
+  margin-top: -0.1em;
+  font-size: 14.5rem;
+}
+@media (min-width: 759px) {
+  main .sec-3 .sec-3-inner .sec-3-scroll .text-ct .usp-ct span.script {
+    font-size: 8.27rem;
+  }
+}
+main .sec-3 .sec-3-inner .sec-3-scroll .text-ct .usp-ct.one span.sans {
+  text-align: right;
+  letter-spacing: -0.01em;
+}
+main .sec-3 .sec-3-inner .sec-3-scroll .text-ct .usp-ct.one span.script {
+  margin-left: 0.5em;
+}
+main .sec-3 .sec-3-inner .sec-3-scroll .text-ct .usp-ct.two span.script {
+  text-align: right;
+  margin-right: 0.5em;
+}
+@media (min-width: 759px) {
+  main .sec-3 .sec-3-inner .sec-3-scroll .text-ct .usp-ct.two span.script {
+    margin-top: 0.04em;
+    margin-right: 0;
+  }
+}
+main .sec-3 .sec-3-inner .sec-3-scroll .lines-ct {
+  position: fixed;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4.72rem;
+  pointer-events: none;
+}
+@media (min-width: 759px) {
+  main .sec-3 .sec-3-inner .sec-3-scroll .lines-ct {
+    bottom: auto;
+    top: 50%;
+    transform: translate(0, -50%);
+    flex-flow: column;
+    gap: 0.99rem;
+    left: 9.74rem;
+  }
+}
+main .sec-3 .sec-3-inner .sec-3-scroll .lines-ct .line {
+  height: 1px;
+  width: 14.16rem;
+  background-color: rgba(217, 217, 217, 0.25);
+  display: block;
+  position: relative;
+}
+@media (min-width: 759px) {
+  main .sec-3 .sec-3-inner .sec-3-scroll .lines-ct .line {
+    width: 1px;
+    height: 3.39rem;
+  }
+}
+main .sec-3 .sec-3-inner .sec-3-scroll .lines-ct .line .line-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+}
+main .sec-4 h2 {
+  line-height: 0.7em;
+  padding-top: 0.2em;
+  text-align: center;
+  font-size: 11.94rem;
+}
+@media (min-width: 759px) {
+  main .sec-4 h2 {
+    font-size: 8.75rem;
+  }
+}
+main .sec-4 h2 span {
+  display: block;
+}
+main .sec-4 h2 span.sans {
+  font-family: neue-haas-grotesk-display, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-right: 4.72rem;
+}
+@media (min-width: 759px) {
+  main .sec-4 h2 span.sans {
+    margin-right: 1.25rem;
+  }
+}
+main .sec-4 h2 span.script {
+  font-family: sloop-script-three, serif;
+  margin-left: 4.72rem;
+}
+@media (min-width: 759px) {
+  main .sec-4 h2 span.script {
+    margin-left: 1.25rem;
+  }
 }
 main .ref-sec-1 {
-  padding-bottom: 41.67rem;
+  padding-bottom: 27.78rem;
 }
 @media (min-width: 759px) {
   main .ref-sec-1 {
