@@ -27,7 +27,7 @@ html.lenis {
   transition: 0.3s ease;
 }
 
-#navigation .row .col .navigation-inner nav ul li a span.name .script span, #navigation .row .col .navigation-inner nav ul li a span.name .serif span, #navigation, .quickbar .quickbar-inner .menu .desktop-nav li a > span span {
+main .sec-6 .contact-btn.desktop .circles-ct .fullcircle, main .sec-6 .contact-btn.desktop .circles-ct svg rect, main .sec-6 .contact-btn.desktop .circles-ct, main .sec-6 .contact-btn.desktop span, main .sec-6 .contact-btn.desktop .plane path, #navigation .row .col .navigation-inner nav ul li a span.name .script span, #navigation .row .col .navigation-inner nav ul li a span.name .serif span, #navigation, .quickbar .quickbar-inner .menu .desktop-nav li a > span span {
   transition: 0.7s cubic-bezier(0.95, 0.05, 0.05, 0.95);
 }
 
@@ -90,6 +90,32 @@ main .mb {
 b,
 strong {
   color: #1D1D1D;
+}
+
+.cursor-follow {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: scale(0);
+  width: 6em;
+  height: 6em;
+  border-radius: 100%;
+  background-color: rgba(217, 217, 217, 0.25);
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 759px) {
+  .cursor-follow {
+    display: none;
+  }
+}
+.cursor-follow span {
+  display: block;
+  color: #d9d9d9;
+  font-size: 0.7425rem;
 }
 
 main ul li {
@@ -253,6 +279,9 @@ ol {
     bottom: 0.94rem;
     right: 0.94rem;
   }
+}
+.back-to-top:hover .circle {
+  transform: scale(1.1);
 }
 body:not(.scrolling-up) .back-to-top .circle, html:not(.fixed) .back-to-top .circle {
   opacity: 0;
@@ -565,27 +594,27 @@ body:not(.scrolling-up) .back-to-top .arrow, html:not(.fixed) .back-to-top .arro
   }
 }
 .padding-outer {
-  padding: 27.78rem 0;
+  padding: 30.56rem 0;
 }
 @media (min-width: 759px) {
   .padding-outer {
-    padding: 15.63rem 0;
+    padding: 15.1rem 0;
   }
 }
 .padding-outer.top-only {
-  padding: 27.78rem 0 0;
+  padding: 30.56rem 0 0;
 }
 @media (min-width: 759px) {
   .padding-outer.top-only {
-    padding: 15.63rem 0 0;
+    padding: 15.1rem 0 0;
   }
 }
 .padding-outer.bottom-only {
-  padding: 0 0 27.78rem;
+  padding: 0 0 30.56rem;
 }
 @media (min-width: 759px) {
   .padding-outer.bottom-only {
-    padding: 0 0 15.63rem;
+    padding: 0 0 15.1rem;
   }
 }
 
@@ -1642,7 +1671,7 @@ main .sec-1 {
 }
 @media (min-width: 759px) {
   main .sec-1 {
-    padding-bottom: 7.815rem;
+    padding-bottom: 7.55rem;
   }
 }
 main .sec-1 .claim-text span {
@@ -1702,6 +1731,11 @@ main .sec-1 .claim-text span:nth-of-type(4) {
   }
 }
 @media (max-width: 759px) {
+  main .sec-2 .row {
+    justify-content: center;
+  }
+}
+@media (max-width: 759px) {
   main .sec-2 .text-ct {
     display: flex;
     gap: 11.94rem;
@@ -1712,7 +1746,7 @@ main .sec-2 picture {
 }
 @media (max-width: 759px) {
   main .sec-2 picture {
-    padding-bottom: 13.89rem;
+    padding-bottom: 30.56rem;
   }
 }
 @media (min-width: 759px) {
@@ -1755,7 +1789,8 @@ main .sec-3 .sec-3-inner .sec-3-scroll .bg.on-screen {
     background-image: url(../images/index/sec-3-bg.jpg);
   }
 }
-main .sec-3 .sec-3-inner .sec-3-scroll .row, main .sec-3 .sec-3-inner .sec-3-scroll .col {
+main .sec-3 .sec-3-inner .sec-3-scroll .row,
+main .sec-3 .sec-3-inner .sec-3-scroll .col {
   position: initial;
 }
 main .sec-3 .sec-3-inner .sec-3-scroll .text-ct {
@@ -1828,8 +1863,11 @@ main .sec-3 .sec-3-inner .sec-3-scroll .lines-ct {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
+  justify-content: center;
   gap: 4.72rem;
   pointer-events: none;
+  opacity: 0;
+  width: 0;
 }
 @media (min-width: 759px) {
   main .sec-3 .sec-3-inner .sec-3-scroll .lines-ct {
@@ -1839,6 +1877,8 @@ main .sec-3 .sec-3-inner .sec-3-scroll .lines-ct {
     flex-flow: column;
     gap: 0.99rem;
     left: 9.74rem;
+    width: 1px !important;
+    height: 0;
   }
 }
 main .sec-3 .sec-3-inner .sec-3-scroll .lines-ct .line {
@@ -1866,7 +1906,7 @@ main .sec-4 h2 {
   line-height: 0.7em;
   padding-top: 0.2em;
   text-align: center;
-  font-size: 11.94rem;
+  font-size: 14.72rem;
 }
 @media (min-width: 759px) {
   main .sec-4 h2 {
@@ -1897,12 +1937,214 @@ main .sec-4 h2 span.script {
     margin-left: 1.25rem;
   }
 }
+main .sec-5 .teaser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+@media (min-width: 759px) {
+  main .sec-5 .teaser {
+    height: 110vh;
+  }
+}
+main .sec-5 .teaser .teaser-title {
+  line-height: 0.7em;
+  padding-top: 0.2em;
+  text-align: center;
+  font-size: 14.72rem;
+}
+@media (min-width: 759px) {
+  main .sec-5 .teaser .teaser-title {
+    font-size: 8.13rem;
+  }
+}
+main .sec-5 .teaser .teaser-title span {
+  display: block;
+  color: #d9d9d9;
+  line-height: 0.9em;
+}
+main .sec-5 .teaser .teaser-title span.sans {
+  font-family: neue-haas-grotesk-display, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+main .sec-5 .teaser .teaser-title span.script {
+  font-family: sloop-script-three, serif;
+}
+main .sec-5 .teaser .infos-ct {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 7.22rem;
+  color: #ADADAD;
+}
+@media (min-width: 759px) {
+  main .sec-5 .teaser .infos-ct {
+    bottom: 2.81rem;
+  }
+}
+main .sec-5 .teaser .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+main .sec-5 .teaser.elli .bg.on-screen {
+  background-image: url(../images/index/elli-bg.jpg);
+}
+main .sec-5 .teaser.um .bg.on-screen {
+  background-image: url(../images/index/um-bg.jpg);
+}
+main .sec-5 .teaser.carotta .bg.on-screen {
+  background-image: url(../images/index/carotta-bg.jpg);
+}
+main .sec-6 .contact-title span {
+  display: block;
+  font-size: 11.11rem;
+  line-height: 1em;
+}
+@media (min-width: 759px) {
+  main .sec-6 .contact-title span {
+    font-size: 8.75rem;
+    line-height: 0.94em;
+  }
+}
+main .sec-6 .contact-title span.sans {
+  font-family: neue-haas-grotesk-display, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+main .sec-6 .contact-title span.sans:last-of-type {
+  text-align: right;
+}
+main .sec-6 .contact-title span.script {
+  font-family: sloop-script-three, serif;
+  font-weight: 500;
+  text-align: center;
+}
+main .sec-6 .contact-btn {
+  cursor: pointer;
+}
+main .sec-6 .contact-btn.mobile {
+  display: flex;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-decoration: none;
+  position: relative;
+  padding: 5.56rem 7.78rem;
+  border-radius: 8.61rem;
+  border: 1px solid #1D1D1D;
+  text-transform: uppercase;
+  color: #1D1D1D;
+  margin-top: 5.56rem;
+  margin-left: 10rem;
+  font-size: 3.33rem;
+}
+@media (min-width: 759px) {
+  main .sec-6 .contact-btn.mobile {
+    display: none;
+  }
+}
+main .sec-6 .contact-btn.mobile .plane {
+  width: 3.33rem;
+  margin-right: 2.22rem;
+}
+main .sec-6 .contact-btn.desktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16.46rem;
+  height: 16.46rem;
+  border-radius: 100%;
+  position: relative;
+}
+@media (max-width: 759px) {
+  main .sec-6 .contact-btn.desktop {
+    display: none;
+  }
+}
+@media (min-width: 759px) {
+  main .sec-6 .contact-btn.desktop {
+    margin-top: -8rem;
+    margin-left: 2.6rem;
+  }
+}
+main .sec-6 .contact-btn.desktop .plane {
+  width: 0.891rem;
+  height: 0.891rem;
+  margin-right: 0.48rem;
+}
+main .sec-6 .contact-btn.desktop:hover span {
+  color: #d9d9d9;
+}
+main .sec-6 .contact-btn.desktop:hover .plane path {
+  fill: #d9d9d9;
+}
+main .sec-6 .contact-btn.desktop:hover .circles-ct svg rect {
+  stroke-dashoffset: 1;
+  transition-delay: 0;
+}
+main .sec-6 .contact-btn.desktop:hover .circles-ct .fullcircle {
+  transform: scale(1);
+  transition-delay: 0.1s;
+}
+main .sec-6 .contact-btn.desktop span {
+  color: #1D1D1D;
+  text-transform: uppercase;
+  font-size: 0.891rem;
+  line-height: 1em;
+}
+main .sec-6 .contact-btn.desktop .circles-ct {
+  position: absolute;
+  width: 16.46rem;
+  height: 16.46rem;
+}
+main .sec-6 .contact-btn.desktop .circles-ct svg {
+  width: 16.46rem;
+  height: 16.46rem;
+  position: absolute;
+}
+main .sec-6 .contact-btn.desktop .circles-ct svg rect {
+  fill: none;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  transform-origin: 50% 50%;
+  stroke-width: 1.5px;
+  stroke-dasharray: 1;
+  rx: 100%;
+  ry: 100%;
+  transition-delay: 0.1s;
+  stroke: transparent;
+  stroke-dashoffset: 0;
+  stroke: #1D1D1D;
+}
+main .sec-6 .contact-btn.desktop .circles-ct .fullcircle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1D1D1D;
+  border-radius: 100%;
+  z-index: -1;
+  transform: scale(0);
+}
 main .ref-sec-1 {
-  padding-bottom: 27.78rem;
+  padding-bottom: 30.56rem;
 }
 @media (min-width: 759px) {
   main .ref-sec-1 {
-    padding-bottom: 15.63rem;
+    padding-bottom: 15.1rem;
   }
 }
 main .ref-sec-1 .bg {

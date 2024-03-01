@@ -42,9 +42,9 @@ $large-base-gap: 0.94rem;
 $large: 759px;
 
 // $padding: 30.56rem;
-$padding: 27.78rem;
+$padding: 30.56rem;
 
-$padding-large: 15.63rem;
+$padding-large: 15.1rem;
 
 @media (min-width: $large) {
 
@@ -88,6 +88,7 @@ html.lenis {
 %animated-transform-out {
     transition: 0.7s cubic-bezier(0, 0, 0, 1);
 }
+
 %animated-transform-outlonger {
     transition: 0.8s cubic-bezier(0, 0, 0, 1);
 }
@@ -155,6 +156,32 @@ main {
 b,
 strong {
     color: $dark;
+}
+
+.cursor-follow {
+    @media (max-width: $large) {
+        display: none;
+    }
+
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: scale(0);
+    width: 6em;
+    height: 6em;
+    border-radius: 100%;
+    background-color: rgba($light, .25);
+    backdrop-filter: blur(30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        display: block;
+        color: $light;
+        font-size: calc($large-font-size) * .75;
+    }
+
 }
 
 
@@ -333,11 +360,18 @@ ol {
     align-items: center;
     justify-content: center;
     mix-blend-mode: difference;
+
     @media (min-width: $large) {
         width: 3.3rem;
         height: 3.3rem;
         bottom: $large-base-gap;
         right: $large-base-gap;
+    }
+
+    &:hover {
+        .circle {
+            transform: scale(1.1);
+        }
     }
 
     body:not(.scrolling-up) &,
@@ -347,14 +381,16 @@ ol {
             visibility: hidden;
             transform: scale(0);
         }
+
         .arrow {
             opacity: 0;
             visibility: hidden;
             transform: scale(0);
         }
 
-       
+
     }
+
     .arrow {
         position: absolute;
         margin: 0;
@@ -365,6 +401,7 @@ ol {
         mix-blend-mode: difference;
 
     }
+
     .circle {
         @extend %animated-transform;
         width: 100%;
@@ -822,6 +859,7 @@ main .line.standard {
 
 .page-wrap {
     transition: .5s;
+
     html:not(.open-navi) & {
         transition-delay: .5s;
     }
@@ -1037,22 +1075,22 @@ $large-branding-width: 3.18rem;
                                     // left: 0;
                                     // right: auto;
                                 }
-    
+
                                 .line-inner {
                                     width: 0%;
                                     transition-delay: 0s;
                                 }
-    
+
                                 &:last-of-type {
                                     &:before {
                                         transition-delay: .4s;
-    
+
                                     }
-    
+
                                     .line-inner {
                                         transition-delay: .2s;
                                     }
-    
+
                                 }
                             }
                         }
@@ -1069,6 +1107,7 @@ $large-branding-width: 3.18rem;
 
                     &:before {
                         @extend %animated-transform-outlonger;
+
                         @media (min-width: $large) {
                             content: '';
                             position: absolute;
@@ -1078,8 +1117,9 @@ $large-branding-width: 3.18rem;
                             top: 0;
                             background-color: white;
                             transition-delay: 0s;
+
                             html.open-navi & {
-                                transition-delay: 0s!important;
+                                transition-delay: 0s !important;
                             }
                         }
 
@@ -1087,24 +1127,27 @@ $large-branding-width: 3.18rem;
 
                     &:last-of-type {
                         &:before {
-                                left: auto;
-                                right: 0;
-                                transition-delay: .2s;
+                            left: auto;
+                            right: 0;
+                            transition-delay: .2s;
 
-                                html.open-navi & {
-                                    width: 0;
-                                    left: auto!important;
-                                    right: 0;
-                                }
+                            html.open-navi & {
+                                width: 0;
+                                left: auto !important;
+                                right: 0;
+                            }
                         }
+
                         .line-inner {
                             left: 0;
                             right: auto;
+
                             html.open-navi & {
                                 width: 0;
-                                left: auto!important;
-                                right: 0!important;
+                                left: auto !important;
+                                right: 0 !important;
                             }
+
                             @media (min-width: $large) {
                                 transition-delay: .4s;
 
@@ -1121,8 +1164,9 @@ $large-branding-width: 3.18rem;
                         background-color: white;
                         @extend %animated-transform-outlonger;
                         transition-delay: .2s;
+
                         html.open-navi & {
-                            transition-delay: 0s!important;
+                            transition-delay: 0s !important;
                             width: 0;
                             left: 0;
                             right: auto;
@@ -1637,6 +1681,7 @@ header {
         display: flex;
         align-items: center;
         justify-content: center;
+
         .bg {
             position: absolute;
             top: 0;
@@ -1648,6 +1693,7 @@ header {
             background-image: url(../images/index/header.jpg);
             z-index: -1;
         }
+
         .name {
             span {
                 display: flex;
@@ -1655,6 +1701,7 @@ header {
                 justify-content: center;
                 text-align: center;
                 color: $light;
+
                 &.big {
                     text-align: center;
                     font-size: 33.61rem;
@@ -1662,24 +1709,30 @@ header {
                     font-family: $d-font;
                     font-weight: 700;
                     text-transform: uppercase;
+
                     @media (min-width: $large) {
                         font-size: 17.76rem;
                         margin-top: 5rem;
                     }
+
                     .letter-ct {
                         margin-inline: -.01em;
+
                         &.a {
                             margin-right: -.03em;
                         }
+
                         &.t {
                             margin-left: -.02em;
                         }
+
                         &.comma {
                             margin-left: -.1em;
                         }
                     }
 
                 }
+
                 &.small {
                     text-align: center;
                     font-size: 10.06rem;
@@ -1688,6 +1741,7 @@ header {
                     justify-content: flex-end;
                     margin-right: 12rem;
                     margin-top: -.45em;
+
                     @media (min-width: $large) {
                         font-size: 4.06rem;
                         justify-content: center;
@@ -1700,6 +1754,7 @@ header {
                 }
             }
         }
+
         .passion {
             position: absolute;
             inset: auto auto 3.3%;
@@ -1707,27 +1762,32 @@ header {
             text-align: center;
             text-transform: uppercase;
             color: $light;
+
             @media (min-width: $large) {
                 font-size: 0.94rem;
                 line-height: 1.3em;
                 inset: auto auto 3.5%;
 
             }
+
             span {
                 display: block;
             }
         }
     }
+
     &.project-header {
         @media (min-width: $large) {
             height: 100vh;
             position: relative;
         }
+
         >.row {
             @media (min-width: $large) {
                 height: 100%;
             }
         }
+
         .h1-col {
             @media (min-width: $large) {
                 display: flex;
@@ -1735,6 +1795,7 @@ header {
                 align-items: flex-end;
             }
         }
+
         h1 {
             @media (max-width: $large) {
                 margin-top: 40vh;
@@ -1742,33 +1803,39 @@ header {
                 margin-bottom: 10rem;
                 font-size: 15rem;
             }
+
             @media (min-width: $large) {
                 margin-bottom: 2.8rem;
                 font-size: 8.39rem;
             }
-            
+
             span {
                 display: block;
+
                 &.serif {
                     font-family: $d-font;
                     text-transform: uppercase;
                     font-weight: 700;
                     letter-spacing: -.015em;
                 }
+
                 &.script {
                     font-family: $s-font-3;
                     font-weight: 500;
                     margin-top: -.05em;
+
                     @media (min-width: $large) {
                         margin-left: 13rem;
                     }
-                    body.united-media & {
-                    }
+
+                    body.united-media & {}
                 }
             }
         }
+
         .header-img-ct {
             height: 100vh;
+
             @media (min-width: $large) {
                 position: absolute;
                 right: 0;
@@ -1779,39 +1846,43 @@ header {
 
             .header-img {
                 height: 100%;
+
                 picture {
 
                     height: 100%;
+
                     img {
 
                         height: 100%;
                         object-fit: cover;
                         object-position: center;
+
                         @media (min-width: $large) {
                             transform: translate3d(0, 1, 1);
                         }
                     }
                 }
             }
+
             .desk-overlay {
                 @media (min-width: $large) {
-                    
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background-color: $light;
-                        z-index: 1;
-                        pointer-events: none;
-                        opacity: 1!important;
-                        transform: scale3d(1, 1, 1)!important;
-                        transform-origin: left;
 
-                        &.on-screen {
-                            transform: scale3d(0, 1, 1)!important;
-                        }
-                    
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: $light;
+                    z-index: 1;
+                    pointer-events: none;
+                    opacity: 1 !important;
+                    transform: scale3d(1, 1, 1) !important;
+                    transform-origin: left;
+
+                    &.on-screen {
+                        transform: scale3d(0, 1, 1) !important;
+                    }
+
                 }
             }
         }
@@ -1820,109 +1891,130 @@ header {
 
 main {
     position: relative;
+
     .sec-1 {
         overflow: hidden;
+
         @media (min-width: $large) {
             padding-bottom: $padding-large / 2;
         }
+
         .claim-text {
             span {
                 display: block;
                 color: $dark;
                 font-size: 11.94rem;
                 line-height: 1em;
+
                 @media (min-width: $large) {
                     font-size: 8.07rem;
                     line-height: .9em;
 
                 }
+
                 &.sans {
                     text-transform: uppercase;
                     letter-spacing: -.01em;
                     font-family: $d-font;
                     font-weight: 500;
+
                     @media (min-width: $large) {
-                        font-weight: 700;                    
+                        font-weight: 700;
                     }
                 }
+
                 &.script {
                     font-family: $s-font-3;
                     font-weight: 700;
+
                     @media (min-width: $large) {
-                        font-weight: 500;                    
+                        font-weight: 500;
                     }
                 }
-                &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5) {
+
+                &:nth-of-type(3),
+                &:nth-of-type(4),
+                &:nth-of-type(5) {
                     text-align: right;
                 }
-                &:nth-of-type(1) {
 
-                }
+                &:nth-of-type(1) {}
+
                 &:nth-of-type(2) {
                     margin-left: 18.06rem;
+
                     @media (min-width: $large) {
                         margin-left: 15.63rem;
                     }
                 }
+
                 &:nth-of-type(3) {
                     @media (min-width: $large) {
                         margin-right: 3.59rem;
                     }
                 }
+
                 &:nth-of-type(4) {
                     margin-right: 7.22rem;
+
                     @media (min-width: $large) {
                         margin-right: 17.5rem;
                     }
-                  
+
                 }
-                &:nth-of-type(5) {
-                    
-                }
+
+                &:nth-of-type(5) {}
             }
         }
     }
+
     .sec-2 {
-       
+
         .row {
-            // @media (max-width: $large) {
-            //     justify-content: center;
-            //     flex-flow: column-reverse;
-            //     align-items: center;
-            // }
+            @media (max-width: $large) {
+                justify-content: center;
+            }
         }
+
         .text-ct {
             @media (max-width: $large) {
                 display: flex;
                 gap: 11.94rem;
             }
-           
+
         }
 
         picture {
             display: block;
+
             @media (max-width: $large) {
-                padding-bottom: $padding / 2;
+                padding-bottom: $padding;
             }
+
             @media (min-width: $large) {
                 width: 80%;
+
                 img {
                     width: auto;
                 }
             }
         }
     }
+
     .sec-3 {
         .sec-3-inner {
             height: 250vh;
+
             @media (min-width: $large) {
-                height: 350vh;            
+                height: 350vh;
             }
+
             .sec-3-scroll {
                 position: sticky;
                 top: 0;
                 height: 100vh;
                 width: 100%;
+
                 .bg {
                     position: absolute;
                     top: 0;
@@ -1931,15 +2023,19 @@ main {
                     height: 100%;
                     background-position-y: 0;
                     background-repeat: no-repeat;
-                    z-index: -1;                    
+                    z-index: -1;
+
                     &.on-screen {
                         background-image: url(../images/index/mobile-sec-3-bg.jpg);
+
                         @media (min-width: $large) {
-                            background-image: url(../images/index/sec-3-bg.jpg);                        
+                            background-image: url(../images/index/sec-3-bg.jpg);
                         }
                     }
                 }
-                .row, .col {
+
+                .row,
+                .col {
                     // position: absolute;
                     // top: 0;
                     // left: 0;
@@ -1947,6 +2043,7 @@ main {
                     // height: 100%;
                     position: initial;
                 }
+
                 .text-ct {
                     position: fixed;
                     top: 0;
@@ -1957,6 +2054,7 @@ main {
                     align-items: center;
                     justify-content: center;
                     pointer-events: none;
+
                     .usp-ct {
                         font-size: 13.06rem;
                         line-height: 1em;
@@ -1966,79 +2064,98 @@ main {
                         left: 50%;
                         transform: translate(-50%, -50%);
                         width: max-content;
+
                         @media (min-width: $large) {
                             font-size: 7.75rem;
                             line-height: .9em;
 
                         }
+
                         span {
                             display: block;
+
                             &.sans {
                                 font-family: $d-font;
                                 font-weight: 700;
                                 text-transform: uppercase;
                             }
+
                             &.script {
                                 font-family: $s-font-3;
                                 font-weight: 400;
                                 margin-top: -.1em;
                                 font-size: 14.5rem;
+
                                 @media (min-width: $large) {
                                     font-size: 8.27rem;
                                 }
                             }
                         }
+
                         &.one {
                             span {
                                 &.sans {
                                     text-align: right;
                                     letter-spacing: -0.01em;
                                 }
+
                                 &.script {
                                     margin-left: .5em;
                                 }
                             }
                         }
+
                         &.two {
                             span {
                                 &.script {
                                     text-align: right;
                                     margin-right: .5em;
+
                                     @media (min-width: $large) {
-                                        margin-top: .04em;            
-                                        margin-right: 0;                        
+                                        margin-top: .04em;
+                                        margin-right: 0;
                                     }
                                 }
                             }
                         }
                     }
                 }
+
                 .lines-ct {
                     position: fixed;
                     bottom: 5rem;
                     left: 50%;
                     transform: translateX(-50%);
                     display: flex;
-                    gap:  4.72rem;
+                    justify-content: center;
+                    gap: 4.72rem;
                     pointer-events: none;
+                    opacity: 0;
+                    width: 0;
+
                     @media (min-width: $large) {
                         bottom: auto;
                         top: 50%;
-                        transform: translate(0 ,-50%);
+                        transform: translate(0, -50%);
                         flex-flow: column;
                         gap: $large-font-size;
                         left: 9.74rem;
+                        width: 1px !important;
+                        height: 0;
                     }
+
                     .line {
                         height: 1px;
                         width: 4.72rem * 3;
                         background-color: rgba($light, .25);
                         display: block;
                         position: relative;
+
                         @media (min-width: $large) {
                             width: 1px;
                             height: 3.39rem;
                         }
+
                         .line-inner {
                             position: absolute;
                             top: 0;
@@ -2052,51 +2169,313 @@ main {
             }
         }
     }
+
     .sec-4 {
         h2 {
             line-height: .7em;
             padding-top: .2em;
             text-align: center;
-            font-size: 11.94rem;
+            font-size: 14.72rem;
+
             @media (min-width: $large) {
                 font-size: 8.75rem;
+
             }
-            
+
             span {
                 display: block;
+
                 &.sans {
                     font-family: $d-font;
                     text-transform: uppercase;
                     font-weight: 700;
                     letter-spacing: -.015em;
                     margin-right: 4.72rem;
+
                     @media (min-width: $large) {
                         margin-right: 1.25rem;
                     }
                 }
+
                 &.script {
                     font-family: $s-font-3;
                     margin-left: 4.72rem;
+
                     @media (min-width: $large) {
                         margin-left: 1.25rem;
                     }
 
-                  
+
                 }
             }
         }
     }
+
+    .sec-5 {
+        .teaser {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            position: relative;
+
+            @media (min-width: $large) {
+                height: 110vh;
+            }
+
+            .teaser-title {
+                line-height: .7em;
+                padding-top: .2em;
+                text-align: center;
+                font-size: 14.72rem;
+
+                @media (min-width: $large) {
+                    font-size: 8.13rem;
+
+                }
+
+                span {
+                    display: block;
+                    color: $light;
+                    line-height: .9em;
+
+                    &.sans {
+                        font-family: $d-font;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                        letter-spacing: -.015em;
+                    }
+
+                    &.script {
+                        font-family: $s-font-3;
+                    }
+                }
+            }
+
+            .infos-ct {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 7.22rem;
+                color: $text-dark;
+
+                @media (min-width: $large) {
+                    bottom: 2.81rem
+                }
+            }
+
+            .bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+                z-index: -1;
+            }
+
+            &.elli {
+                .bg.on-screen {
+                    background-image: url(../images/index/elli-bg.jpg);
+                }
+            }
+
+            &.um {
+                .bg.on-screen {
+                    background-image: url(../images/index/um-bg.jpg);
+                }
+            }
+
+            &.carotta {
+                .bg.on-screen {
+                    background-image: url(../images/index/carotta-bg.jpg);
+                }
+            }
+        }
+    }
+
+    .sec-6 {
+        .contact-title {
+            span {
+                display: block;
+                font-size: 11.11rem;
+                line-height: 1em;
+
+                @media (min-width: $large) {
+                    font-size: 8.75rem;
+                    line-height: .94em;
+
+                }
+
+                &.sans {
+                    font-family: $d-font;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    letter-spacing: -.015em;
+
+                    &:last-of-type {
+                        text-align: right;
+                    }
+                }
+
+                &.script {
+                    font-family: $s-font-3;
+                    font-weight: 500;
+                    text-align: center;
+
+                    @media (min-width: $large) {}
+
+                    body.united-media & {}
+                }
+            }
+        }
+
+        .contact-btn {
+            cursor: pointer;
+
+            &.mobile {
+                @media (min-width: $large) {
+                    display: none;
+                }
+
+                display: flex;
+                align-items: center;
+                width: fit-content;
+                text-decoration: none;
+                position: relative;
+                padding: 5.56rem 7.78rem;
+                border-radius: 8.61rem;
+                border: 1px solid $dark;
+                text-transform: uppercase;
+                color: $dark;
+                margin-top: 5.56rem;
+                margin-left: 10rem;
+                font-size: 3.33rem;
+
+                .plane {
+                    width: 3.33rem;
+                    margin-right: 2.22rem;
+                }
+            }
+
+            &.desktop {
+                @media (max-width: $large) {
+                    display: none;
+                }
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 16.46rem;
+                height: 16.46rem;
+                border-radius: 100%;
+                position: relative;
+                @media (min-width: $large) {
+                    margin-top: -8rem;
+                    margin-left: 2.6rem;
+                }
+                .plane {
+                    width: $large-font-size * .9;
+                    height: $large-font-size * .9;
+                    margin-right: 0.48rem;
+                    path {
+                        @extend %animated-transform-inout;
+                    }
+                }
+                &:hover {
+                    span {
+                        color: $light;
+                    }
+                    .plane {
+                        path {
+                            fill: $light;
+                        }
+                    }
+                    .circles-ct {
+                        svg {
+                            rect {
+                                stroke-dashoffset: 1;
+                                transition-delay: 0;
+
+                            }
+                        }
+                        .fullcircle {
+                            transform: scale(1);
+                            transition-delay: .1s;
+                        }
+                    }
+                }
+
+                span {
+                    color: $dark;
+                    text-transform: uppercase;
+                    font-size: $large-font-size * .9;
+                    line-height: 1em;
+                    @extend %animated-transform-inout;
+                }
+
+                .circles-ct {
+                    position: absolute;
+                    width: 16.46rem;
+                    height: 16.46rem;
+                    @extend %animated-transform-inout;
+
+                    svg {
+                        width: 16.46rem;
+                        height: 16.46rem;
+                        position: absolute;
+
+                        rect {
+                            fill: none;
+                            width: calc(100% - 2px);
+                            height: calc(100% - 2px);
+                            transform-origin: 50% 50%;
+                            stroke-width: 1.5px;
+                            stroke-dasharray: 1;
+                            rx: 100%;
+                            ry: 100%;
+                            @extend %animated-transform-inout;
+                            transition-delay: .1s;
+                            stroke: transparent;
+                            stroke-dashoffset: 0;
+                            stroke: $dark;
+
+                        }
+                    }
+                    .fullcircle {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $dark;
+                        border-radius: 100%;
+                        z-index: -1;
+                        transform: scale(0);
+                        @extend %animated-transform-inout;
+                        
+                    }
+                }
+
+            }
+        }
+    }
+
     .ref-sec-1 {
         padding-bottom: $padding;
+
         @media (min-width: $large) {
-            padding-bottom: $padding-large;        
+            padding-bottom: $padding-large;
         }
+
         .bg {
             background-size: cover;
             background-position: center;
             position: relative;
+
             &:before {
-                @media (max-width: $large) {  
+                @media (max-width: $large) {
                     content: '';
                     position: absolute;
                     top: 0;
@@ -2106,21 +2485,26 @@ main {
                     background-color: rgba($dark, .5);
                 }
             }
+
             &.on-screen {
                 background-image: url(/images/united-media/bg/um-bg-1.jpg);
+
                 @media (min-width: $large) {
                     background-image: url(/images/united-media/bg/um-bg-1.jpg);
                 }
             }
         }
     }
+
     .ref-sec-2 {
         position: relative;
         z-index: 1;
         margin-top: -30.56rem;
+
         @media (min-width: $large) {
             margin-top: -9.11rem;
         }
+
         .box {
             background-color: $dark;
             color: $light;
@@ -2128,6 +2512,7 @@ main {
             display: flex;
             flex-flow: column;
             gap: 7.78rem;
+
             @media (min-width: $large) {
                 flex-flow: row;
                 gap: auto;
@@ -2135,9 +2520,11 @@ main {
                 padding: 7.81rem;
                 // margin-right: -2.8rem;
             }
+
             .list-item {
                 span {
                     display: block;
+
                     &.category {
                         color: $text-darker;
                     }
@@ -2145,9 +2532,11 @@ main {
             }
         }
     }
+
     .ref-sec-4 {
         .second-image-col {
             position: relative;
+
             .image-2 {
                 height: auto;
                 display: block;
