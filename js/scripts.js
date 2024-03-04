@@ -354,51 +354,44 @@ if (document.body.classList.contains('start')) {
           height: 0,
         }, 0);
 
-
-      $(".letter-turn").each(function (index) {
-        let listOne = $(this).find(".letter-title.first .letter-ct");
-        let listTwo = $(this).find(".letter-title.second .letter-ct");
-        // Timeline
-        let tl = gsap.timeline({
-          paused: true
-        });
-        tl.to(listOne, {
-          translateY: "-0.2em",
-          rotationY: "-5.7deg",
-          rotationX: "-90deg",
-          stagger: {
-            each: 0.08
-          },
-          ease: "power4.inOut",
-          duration: 0.7
-        });
-        tl.from(
-          listTwo, {
-            translateY: "0.2em",
-            rotationY: "5.7deg",
-            rotationX: "90deg",
-            stagger: {
-              each: 0.08
-            },
-            ease: "power4.inOut",
-            duration: 0.7
-          },
-          0.1
-        );
-        $(this).on("mouseenter", function () {
-          tl.restart();
-        });
-        $(this).on("mouseleave", function () {
-          tl.reverse();
-        });
-      });
-
-
     },
     ///GSAP Index Desktop END
 
     // GSAP All
     "all": function () {
+
+      const vhshutter = window.innerHeight;
+      const triggerOffsetShutterOne = 75 * vhshutter / 100; // 90vh in Pixeln
+      const triggerOffsetShutterTwo = 25 * vhshutter / 100; // 90vh in Pixeln
+      
+      document.querySelectorAll('.transition-sec').forEach((section) => {
+          var shutter = gsap.timeline({
+              scrollTrigger: {
+                  trigger: section,
+                  start: `bottom bottom+=${triggerOffsetShutterOne}px`,
+                  end: "bottom bottom",
+                  scrub: true,
+              }
+          });
+      
+          shutter.to(section.querySelectorAll(".shutter"), {
+              scaleX: 1,
+              stagger: 0.05
+          });
+      
+          gsap.to(section, {
+              autoAlpha: 0,
+              pointerEvents: "none", // Hinzugefügte pointer-events-Eigenschaft
+              scrollTrigger: {
+                  trigger: section,
+                  start: `bottom bottom+=${triggerOffsetShutterTwo}px`,
+                  end: "bottom bottom",
+                  scrub: .2,
+              }
+          });
+      });
+      
+
 
       var sec1 = gsap.timeline({
         scrollTrigger: {
@@ -541,5 +534,29 @@ if (window.innerWidth > 759) { // Bedingung für Fensterbreite größer als 759 
           cursorFollow.style.transition = "transform 0.3s";
           cursorFollow.style.transform = "scale(0)";
       });
+  });
+}
+
+if (window.innerWidth > 759) { // Bedingung für Fensterbreite größer als 759 Pixel
+  // Wähle alle Elemente mit der Klasse ".transition-sec" aus
+  var transitionSecElements = document.querySelectorAll(".transition-sec");
+      
+  // Iteriere über jedes Element und setze seine Höhe als Inline-Style
+  transitionSecElements.forEach(function(element) {
+      var height = element.clientHeight; // Höhe des Elements
+      height += window.innerHeight * 1; // Füge 50vh zur aktuellen Höhe hinzu
+      element.style.height = height + "px"; // Setze die neue Höhe als Inline-Style
+  });
+}
+
+if (window.innerWidth < 759) { // Bedingung für Fensterbreite größer als 759 Pixel
+  // Wähle alle Elemente mit der Klasse ".transition-sec" aus
+  var transitionSecElements = document.querySelectorAll(".transition-sec");
+      
+  // Iteriere über jedes Element und setze seine Höhe als Inline-Style
+  transitionSecElements.forEach(function(element) {
+      var height = element.clientHeight; // Höhe des Elements
+      height += window.innerHeight * .75; // Füge 50vh zur aktuellen Höhe hinzu
+      element.style.height = height + "px"; // Setze die neue Höhe als Inline-Style
   });
 }
