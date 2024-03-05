@@ -2,7 +2,7 @@
  * lazy-animation.scss
  * @version 0.1
  */
-@media (min-width: 1200px) {
+@media (min-width: 760px) {
   [data-lazy-animation]:not(.desk-no-fade)[data-lazy-animation-duration="50"] {
     transition-duration: 50ms;
   }
@@ -547,7 +547,8 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 50ms;
-    transition-duration: 1000ms;
+    transition-duration: 1400ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.1, 0.9);
   }
   [data-lazy-animation^=fade]:not(.desk-no-fade).on-screen {
     opacity: 1;
@@ -569,7 +570,8 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 50ms;
-    transition-duration: 1000ms;
+    transition-duration: 1400ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.1, 0.9);
   }
   [data-lazy-animation^=zoom-in]:not(.desk-no-fade).on-screen {
     opacity: 1;
@@ -592,7 +594,8 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 50ms;
-    transition-duration: 1000ms;
+    transition-duration: 1400ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.1, 0.9);
   }
   [data-lazy-animation^=zoom-out]:not(.desk-no-fade).on-screen {
     opacity: 1;
@@ -669,7 +672,7 @@
     transition-timing-function: cubic-bezier(0, 0, 0.08, 0.97);
   }
   [data-lazy-animation][data-lazy-animation][data-lazy-animation-easing=ease-in-out-quart] {
-    transition-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+    transition-timing-function: cubic-bezier(0.9, 0.1, 0.1, 0.9);
   }
   .animate {
     transform: scale3d(1, 0, 1) !important;
@@ -704,11 +707,20 @@
     transform-origin: right;
   }
 }
+.zoom {
+  transform: scale(0) !important;
+  opacity: 1 !important;
+  transform-origin: center;
+}
+.zoom.on-screen {
+  transform: scale(1) !important;
+}
+
 /*!
  * lazy-animation.scss
  * @version 0.1
  */
-@media (max-width: 1200px) {
+@media (max-width: 760px) {
   [data-lazy-animation].mobile-fade[data-lazy-animation-duration-mobile="50"] {
     transition-duration: 50ms;
   }
@@ -1375,7 +1387,7 @@
     transition-timing-function: cubic-bezier(0, 0, 0.08, 0.97);
   }
   [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-out-quart] {
-    transition-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+    transition-timing-function: cubic-bezier(0.9, 0.1, 0.1, 0.9);
   }
   .animate {
     transform: scale3d(1, 0, 1) !important;

@@ -5,7 +5,7 @@ $dark-grey: #2D2D2D;
 $light: #d9d9d9;
 $cream: #D6D5CD;
 $border: #AEAEAE;
-$border-on-dark: #AEAEAE;
+$border-on-dark: #707070;
 
 $text: #636363;
 $text-dark: #ADADAD;
@@ -392,7 +392,8 @@ ol {
     }
 
     body:not(.scrolling-up) &,
-    html:not(.fixed) & {
+    html:not(.fixed) &, html.open-navi &  {
+        pointer-events: none;
         .circle {
             opacity: 0;
             visibility: hidden;
@@ -894,24 +895,38 @@ $large-branding-width: 3.18rem;
     right: 0;
     width: 0%;
     height: 100%;
-    z-index: 9991;
-    background-color: $border;
     pointer-events: none;
     @extend %animated-transform-inout;
-    transition-delay: .3s;
     @media (min-width: $large) {
         height: 0%;
         width: 100%;
     }
     html.open-navi & {
-        transition-delay: 0s;
         width: 100%;
         @media (min-width: $large) {
             height: 100%;
         
         }
     }
-    
+    &:nth-of-type(1) {
+        background-color: lighten($dark, 50%);
+
+        transition-delay: .3s;
+        z-index: 9991;
+
+        html.open-navi & {
+            transition-delay: 0s;
+        }
+    }
+    &:nth-of-type(2) {
+        background-color: lighten($dark, 25%);
+        transition-delay: .2s;
+        z-index: 9992;
+
+        html.open-navi & {
+            transition-delay: .1s;
+        }
+    } 
 }
 
 .quickbar {
@@ -994,21 +1009,43 @@ $large-branding-width: 3.18rem;
                 li {
                     overflow: hidden;
                     @extend %animated-transform-out;
+                    $initial-delay: 0.4s;
                     $transition-delay-step: 0.05s; // Zeitintervall zwischen den Transition-Delay-Werten
-
+                    
+                    transition-delay: $initial-delay;
+                
                     @for $i from 0 through 10 {
-
                         // Du kannst die Obergrenze anpassen oder entfernen
                         &:nth-child(#{$i}) {
-                            transition-delay: $transition-delay-step * ($i - 1);
-
+                            transition-delay: $initial-delay + $transition-delay-step * ($i - 1);
                         }
                     }
-
+                    
+                    html.open-navi & {
+                        $transition-delay-step: 0.05s; // Zeitintervall zwischen den Transition-Delay-Werten
+                
+                        @for $i from 0 through 10 {
+                            // Du kannst die Obergrenze anpassen oder entfernen
+                            &:nth-child(#{$i}) {
+                                transition-delay: $transition-delay-step * ($i - 1);
+                            }
+                        }
+                    }
+                    html.fixed & {
+                        $transition-delay-step: 0.05s; // Zeitintervall zwischen den Transition-Delay-Werten
+                
+                        @for $i from 0 through 10 {
+                            // Du kannst die Obergrenze anpassen oder entfernen
+                            &:nth-child(#{$i}) {
+                                transition-delay: $transition-delay-step * ($i - 1);
+                            }
+                        }
+                    }
                     html.fixed &,
                     html.open-navi & {
                         transform: translateY(-100%);
                     }
+                   
 
                     a {
                         color: white;
@@ -1073,10 +1110,13 @@ $large-branding-width: 3.18rem;
 
                 width: 1px;
                 height: 175%;
-                background-color: white;
+                background-color: $border;
                 margin-inline: 1.77rem;
                 @extend %animated-transform-out;
-
+                transition-delay: .5s;
+                html.open-navi & {
+                    transition-delay: 0s,
+                }
                 html.open-navi &,
                 html.fixed & {
                     height: 0;
@@ -1316,8 +1356,9 @@ $large-branding-width: 3.18rem;
         transform: translateY(100%);
     }
 
-    transition-delay: .15s;
-    html:not(.open-navi) & {
+    transition-delay: .1s;
+    html.open-navi & {
+        transition-delay: .2s;
     }
 
     html.open-navi & {
@@ -1368,7 +1409,7 @@ $large-branding-width: 3.18rem;
                         li {
                             overflow: hidden;
                             $transition-delay-step-li: 0.1s; // Zeitintervall zwischen den Transition-Delay-Werten
-                            $initial-delay-li: 0.3s; // Zeitintervall zwischen den Transition-Delay-Werten
+                            $initial-delay-li: 0.5s; // Zeitintervall zwischen den Transition-Delay-Werten
 
                             @for $i from 0 through 10 {
 
@@ -1554,7 +1595,7 @@ $large-branding-width: 3.18rem;
                     .line {
                         width: 100%;
                         height: 1px;
-                        background-color: $border;
+                        background-color: $border-on-dark;
                         margin-bottom: 3.89rem * 2;
                         transition: .9s cubic-bezier(0, 0, 0, 1);
                         transform-origin: right;
@@ -1620,7 +1661,7 @@ $large-branding-width: 3.18rem;
                             display: block;
 
                             html.open-navi & {
-                                transition-delay: .6s;
+                                transition-delay: .8s;
                             }
 
                             html:not(.open-navi) & {
@@ -1649,7 +1690,7 @@ $large-branding-width: 3.18rem;
                             html.open-navi & {
                                 $transition-delay: 0.05s; // Initialer Wert für das Transition-Delay
 
-                                $initial-delay: 0.6s; // Initialer Wert für das Transition-Delay
+                                $initial-delay: 0.9s; // Initialer Wert für das Transition-Delay
 
                                 @for $i from 0 through 10 {
 
@@ -1675,8 +1716,8 @@ $large-branding-width: 3.18rem;
                                 @extend %animated-transform-out;
 
                                 @media (min-width: $large) {
-                                    width: 1.88rem;
-                                    height: 1.88rem;
+                                    width: 2rem;
+                                    height: 2rem;
 
                                 }
 
@@ -1691,8 +1732,8 @@ $large-branding-width: 3.18rem;
                                     height: 4.17rem;
 
                                     @media (min-width: $large) {
-                                        width: 1.09rem;
-                                        height: 1.09rem;
+                                        width: 1rem;
+                                        height: 1rem;
                                     }
                                 }
                             }
@@ -1934,7 +1975,7 @@ main {
         }
 
         .claim-text {
-            span {
+            >div {
                 display: block;
                 color: $dark;
                 font-size: 11.94rem;
@@ -1998,6 +2039,10 @@ main {
                 }
 
                 &:nth-of-type(5) {}
+                span {
+                    display: inline-block;
+                    transform-origin: bottom right;
+                }
             }
         }
     }
@@ -2208,8 +2253,8 @@ main {
     }
 
     .sec-4 {
-        padding-top: 30vh;
-        padding-bottom: 15vh;
+        padding-top: 35vh;
+        padding-bottom: 10vh;
         @media (min-width: $large) {
             padding-top: 33vh;
             padding-bottom: 15vh;
@@ -2319,19 +2364,31 @@ main {
 
             &.elli {
                 .bg.on-screen {
-                    background-image: url(../images/index/elli-bg.jpg);
+                    background-image: url(../images/index/elli-bg-mobile.jpg);
+
+                    @media (min-width: $large) {
+                        background-image: url(../images/index/elli-bg.jpg);
+                    }
                 }
             }
 
             &.um {
                 .bg.on-screen {
-                    background-image: url(../images/index/um-bg.jpg);
+                    background-image: url(../images/index/um-bg-mobile.jpg);
+
+                    @media (min-width: $large) {
+                        background-image: url(../images/index/um-bg.jpg);
+                    }
                 }
             }
 
             &.carotta {
                 .bg.on-screen {
-                    background-image: url(../images/index/carotta-bg.jpg);
+                    background-image: url(../images/index/carotta-bg-mobile.jpg);
+
+                    @media (min-width: $large) {
+                        background-image: url(../images/index/carotta-bg.jpg);
+                    }
                 }
             }
         }
@@ -2631,7 +2688,11 @@ footer {}
     }
 }
 .trans-sec-after {
-    margin-top: -100vh;
+    margin-top: -150vh;
+    .trans-sec-after-inner {
+        position: sticky;
+        top: 0;
+    }
 }
 
 .navi-add-row {
@@ -2669,7 +2730,42 @@ footer {}
             background-color: $border;
             margin-inline: 0.94rem;
             display: block;
+            height: 100%;
         }
     }
 }
 
+.no-of {
+    overflow: hidden;
+}
+
+.device-rotation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    background-color: $light;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    z-index: 9999999;
+    font-size: calc($base-font-size / 2);
+    gap: 2rem;
+    display: none;
+    body.landscape & {
+        display: flex;
+    }
+    .logo {
+        height: 6rem;
+        svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            path {
+                fill: $dark;
+            }
+        }
+    }
+}

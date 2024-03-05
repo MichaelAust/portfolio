@@ -11,9 +11,13 @@ requestAnimationFrame(raf);
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
-    lenis.scrollTo(this.getAttribute('href'))
+    let scrollOffset = 0;
+    if (this.hasAttribute('data-trans-link')) {
+      scrollOffset = window.innerHeight * .75; 
+    }
+    lenis.scrollTo(this.getAttribute('href'), { offset: scrollOffset });
   });
-})
+});
 
 
 // Textarea-Element auswählen
@@ -60,6 +64,25 @@ function addOnScreenClass() {
       rect.top < (window.innerHeight || document.documentElement.clientHeight)
     ) {
       element.classList.add('on-screen');
+    }
+  });
+
+  const lazyTriggers = document.querySelectorAll('[data-lazy-trigger]');
+  lazyTriggers.forEach(trigger => {
+    const targetSelector = trigger.getAttribute('data-lazy-trigger');
+    if (targetSelector) {
+      const targetElement = document.querySelector(targetSelector);
+      if (targetElement) {
+        const rect = targetElement.getBoundingClientRect();
+        if (
+          rect.bottom > 0 &&
+          rect.right > 0 &&
+          rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
+          rect.top < (window.innerHeight || document.documentElement.clientHeight)
+        ) {
+          trigger.classList.add('on-screen');
+        }
+      }
     }
   });
 }
@@ -149,42 +172,7 @@ if (document.body.classList.contains('start')) {
     ///GSAP Index Mobile START
 
     "(max-width: 760px)": function () {
-      // var headerScrollMobile = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: "header",
-      //     start: "top top",
-      //     end: "bottom -15%",
-      //     scrub: true,
-      //   }
-      // });
-      // headerScrollMobile.to("header .elli img", {
-      //   scale: 1.15,
-      //   y: "70rem",
-      // });
 
-      // Berechnung der Höhe des Viewports in Pixeln
-      const vhsec1 = window.innerHeight;
-      const triggerOffset = 80 * vhsec1 / 100; // 65vh in Pixeln
-
-
-      $(".sec-1").each(function (index) {
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: $(this),
-            start: `top+=${triggerOffset}px top`,
-            end: "bottom bottom+=10%",
-            scrub: true,
-          }
-        });
-        tl.from($(".sec-2 .p div"), {
-          opacity: 0.2,
-          duration: 0.2,
-          ease: "power1.out",
-          stagger: {
-            each: 0.4
-          }
-        });
-      });
 
       gsap.timeline({
           scrollTrigger: {
@@ -261,29 +249,7 @@ if (document.body.classList.contains('start')) {
 
     ///GSAP Index Desktop
     "(min-width: 760px)": function () {
-      // Berechnung der Höhe des Viewports in Pixeln
-      const vhsec1 = window.innerHeight;
-      const triggerOffset = 140 * vhsec1 / 100; // 90vh in Pixeln
-
-
-      $(".sec-1").each(function (index) {
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: $(this),
-            start: `top+=${triggerOffset}px top`,
-            end: "bottom bottom+=25%",
-            scrub: true,
-          }
-        });
-        tl.from($(".sec-2 .p div"), {
-          opacity: 0.2,
-          duration: 0.2,
-          ease: "power1.out",
-          stagger: {
-            each: 0.4
-          }
-        });
-      });
+   
       gsap.timeline({
           scrollTrigger: {
             trigger: ".sec-3-inner",
@@ -361,8 +327,8 @@ if (document.body.classList.contains('start')) {
     "all": function () {
 
       const vhshutter = window.innerHeight;
-      const triggerOffsetShutterOne = 75 * vhshutter / 100; // 90vh in Pixeln
-      const triggerOffsetShutterTwo = 25 * vhshutter / 100; // 90vh in Pixeln
+      const triggerOffsetShutterOne = 100 * vhshutter / 100; // 90vh in Pixeln
+      const triggerOffsetShutterTwo = 50 * vhshutter / 100; // 90vh in Pixeln
       
       document.querySelectorAll('.transition-sec').forEach((section) => {
           var shutter = gsap.timeline({
@@ -376,18 +342,19 @@ if (document.body.classList.contains('start')) {
       
           shutter.to(section.querySelectorAll(".shutter"), {
               scaleX: 1,
-              stagger: 0.05
+              stagger: 0.05,
+              
           });
       
           gsap.to(section, {
               autoAlpha: 0,
-              pointerEvents: "none", // Hinzugefügte pointer-events-Eigenschaft
+              pointerEvents: "none",
               scrollTrigger: {
                   trigger: section,
-                  start: `bottom bottom+=${triggerOffsetShutterTwo}px`,
-                  end: "bottom bottom",
-                  scrub: .2,
-              }
+                  start: `bottom bottom+=${triggerOffsetShutterTwo / 1.5}px`,
+                  end: `bottom bottom`,
+                  scrub: true,
+                }
           });
       });
       
@@ -402,34 +369,34 @@ if (document.body.classList.contains('start')) {
         }
       });
 
-      sec1.fromTo(".claim-text span:nth-of-type(1)", {
+      sec1.fromTo(".claim-text div:nth-of-type(1)", {
         x: "-3.5%",
       }, {
         x: "3.5%",
       });
 
-      sec1.fromTo(".claim-text span:nth-of-type(2)", {
+      sec1.fromTo(".claim-text div:nth-of-type(2)", {
         x: "2%",
       }, {
         x: "-2%",
       }, 0);
 
-      sec1.fromTo(".claim-text span:nth-of-type(3)", {
-        x: "-7%",
+      sec1.fromTo(".claim-text div:nth-of-type(3)", {
+        x: "-1%",
       }, {
-        x: "7%",
+        x: "1%",
       }, 0);
 
-      sec1.fromTo(".claim-text span:nth-of-type(4)", {
+      sec1.fromTo(".claim-text div:nth-of-type(4)", {
         x: "7%",
       }, {
         x: "-7%",
       }, 0);
 
-      sec1.fromTo(".claim-text span:nth-of-type(5)", {
-        x: "-3%",
+      sec1.fromTo(".claim-text div:nth-of-type(5)", {
+        x: "-5%",
       }, {
-        x: "3%",
+        x: "5%",
       }, 0);
       gsap.timeline({
           scrollTrigger: {
@@ -444,15 +411,52 @@ if (document.body.classList.contains('start')) {
           backgroundPositionY: "50%", // Hintergrundposition auf -20% setzen
         });
 
+        // var sec4Span1 = gsap.timeline({
+        //   scrollTrigger: {
+        //     trigger: ".sec-4 h2", // Trigger auf den ersten Span setzen
+        //     start: "top bottom",
+        //     end: "center 40%",
+        //     scrub: .1,
+        //   }
+        // });
+        
+        // sec4Span1.from(".sec-4 h2 span:nth-of-type(1)", {
+        //   x: "-12%",
+        // });
+        
+        // var sec4Span2 = gsap.timeline({
+        //   scrollTrigger: {
+        //     trigger: ".sec-4 h2", // Trigger auf den zweiten Span setzen
+        //     start: "top bottom",
+        //     end: "center 40%",
+        //     scrub: .1,
+        //   }
+        // });
+        
+        // sec4Span2.from(".sec-4 h2 span:nth-of-type(2)", {
+        //   x: "7%",
+        // });
 
+      //   gsap.utils.toArray('.letter-ct').forEach(function(ct) {
+      //     gsap.from(ct.querySelectorAll('span'), {
+      //         opacity: 0,
+      //         duration: .7,
+      //         stagger: 0.05,
+      //         ease: 'power4.inOut',
+      //         toggleActions: "play pause reverse reset",
+      //         scrollTrigger: {
+      //             trigger: '.letter-trigger',
+      //             start: 'top 90%',
 
+      //         }
+      //     });
+      // });
 
     }
     // GSAP All END
 
   });
   //GSAP
-
 };
 
 // Event-Handler für das Resize-Ereignis des Fensters
@@ -465,33 +469,33 @@ function handleResize() {
 window.addEventListener('resize', handleResize);
 
 
-const links = document.querySelectorAll("a");
-links.forEach(link => {
-  link.addEventListener("click", e => {
-    if (
-      !link.hash.startsWith("#") &&
-      link.href.startsWith(location.origin) &&
-      (link.target !== "_blank" || e.ctrlKey || e.metaKey) && // Überprüfung des neuen Tabs
-      !link.classList.contains("lightbox-zoom-image") &&
-      !link.classList.contains("cms-file") && // Überprüfung der Klasse "cms-file"
-      e.button !== 1 && // Überprüfung des Mausrads
-      !(e.altKey || (e.buttons === 1 && e.altKey)) && // Überprüfung der Alt-Taste
-      !e.ctrlKey // Überprüfung der Ctrl-Taste
-    ) {
-      // Füge die Klasse "is-trans" zum HTML-Element hinzu
-      document.documentElement.classList.add("is-trans");
+// const links = document.querySelectorAll("a");
+// links.forEach(link => {
+//   link.addEventListener("click", e => {
+//     if (
+//       !link.hash.startsWith("#") &&
+//       link.href.startsWith(location.origin) &&
+//       (link.target !== "_blank" || e.ctrlKey || e.metaKey) && // Überprüfung des neuen Tabs
+//       !link.classList.contains("lightbox-zoom-image") &&
+//       !link.classList.contains("cms-file") && // Überprüfung der Klasse "cms-file"
+//       e.button !== 1 && // Überprüfung des Mausrads
+//       !(e.altKey || (e.buttons === 1 && e.altKey)) && // Überprüfung der Alt-Taste
+//       !e.ctrlKey // Überprüfung der Ctrl-Taste
+//     ) {
+//       // Füge die Klasse "is-trans" zum HTML-Element hinzu
+//       document.documentElement.classList.add("is-trans");
 
-      // Füge einen Timeout von 300 Millisekunden (0,3 Sekunden) hinzu
-      setTimeout(() => {
-        // Hier kannst du die Seite wechseln, nachdem die Verzögerung abgelaufen ist
-        window.location.href = link.href;
-      }, 300);
+//       // Füge einen Timeout von 300 Millisekunden (0,3 Sekunden) hinzu
+//       setTimeout(() => {
+//         // Hier kannst du die Seite wechseln, nachdem die Verzögerung abgelaufen ist
+//         window.location.href = link.href;
+//       }, 300);
 
-      // Verhindere das Standardverhalten des Links (z.B. das Navigieren zu einer neuen Seite)
-      e.preventDefault();
-    }
-  });
-});
+//       // Verhindere das Standardverhalten des Links (z.B. das Navigieren zu einer neuen Seite)
+//       e.preventDefault();
+//     }
+//   });
+// });
 
 
 if (window.innerWidth > 759) { // Bedingung für Fensterbreite größer als 759 Pixel
@@ -537,7 +541,6 @@ if (window.innerWidth > 759) { // Bedingung für Fensterbreite größer als 759 
   });
 }
 
-if (window.innerWidth > 759) { // Bedingung für Fensterbreite größer als 759 Pixel
   // Wähle alle Elemente mit der Klasse ".transition-sec" aus
   var transitionSecElements = document.querySelectorAll(".transition-sec");
       
@@ -547,16 +550,33 @@ if (window.innerWidth > 759) { // Bedingung für Fensterbreite größer als 759 
       height += window.innerHeight * 1; // Füge 50vh zur aktuellen Höhe hinzu
       element.style.height = height + "px"; // Setze die neue Höhe als Inline-Style
   });
+
+  // Wähle alle Elemente mit der Klasse ".trans-sec-after" aus
+var transSecAfterElements = document.querySelectorAll(".trans-sec-after");
+  
+// Iteriere über jedes Element und setze seine Höhe als Inline-Style
+transSecAfterElements.forEach(function(element) {
+    var height = element.clientHeight; // Höhe des Elements
+    height += window.innerHeight * 0.75; // Füge 50vh zur aktuellen Höhe hinzu
+    element.style.height = height + "px"; // Setze die neue Höhe als Inline-Style
+});
+
+function checkOrientation() {
+  const body = document.querySelector("body");
+  if (window.matchMedia("(orientation: portrait)").matches) {
+    body.classList.remove("landscape");
+    body.classList.add("portrait");
+  } else {
+    body.classList.remove("portrait");
+    body.classList.add("landscape");
+  }
 }
 
-if (window.innerWidth < 759) { // Bedingung für Fensterbreite größer als 759 Pixel
-  // Wähle alle Elemente mit der Klasse ".transition-sec" aus
-  var transitionSecElements = document.querySelectorAll(".transition-sec");
-      
-  // Iteriere über jedes Element und setze seine Höhe als Inline-Style
-  transitionSecElements.forEach(function(element) {
-      var height = element.clientHeight; // Höhe des Elements
-      height += window.innerHeight * .75; // Füge 50vh zur aktuellen Höhe hinzu
-      element.style.height = height + "px"; // Setze die neue Höhe als Inline-Style
-  });
-}
+// Event-Listener für Änderungen der Bildschirmausrichtung
+window.addEventListener("orientationchange", checkOrientation);
+
+// Event-Listener für Änderungen der Fenstergröße
+window.addEventListener("resize", checkOrientation);
+
+// Überprüfen der Bildschirmausrichtung beim Laden der Seite
+checkOrientation();

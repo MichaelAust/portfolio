@@ -2,7 +2,7 @@
  * lazy-animation.scss
  * @version 0.1
  */
- $large: 1200px;
+ $large: 760px;
 @media (min-width: $large) {
 
    // default options
@@ -11,7 +11,7 @@
    // delay
    $lazy-animation-delay: 50ms !default;
    // duration
-   $lazy-animation-duration: 1000ms !default;
+   $lazy-animation-duration: 1400ms !default;
    // scale ratio for zoom
    $lazy-animation-zoom-in: 0.6 !default;
    $lazy-animation-zoom-out: $lazy-animation-zoom-in * 2 !default;
@@ -53,7 +53,8 @@
        transition-property: opacity, transform;
        transition-delay: $lazy-animation-delay;
        transition-duration: $lazy-animation-duration;
-   
+        transition-timing-function: cubic-bezier(0, 0, 0.1, 0.9),
+        ;
        &.on-screen {
          opacity: 1;
          transform: none;
@@ -144,8 +145,8 @@
    
      ease-in-quart: cubic-bezier(.55, .085, .68, .53),
      ease-out-quart: cubic-bezier(0, 0, 0.08, 0.97),
-     ease-in-out-quart: cubic-bezier(0.6, 0, 0.4, 1),
-   );
+     ease-in-out-quart: cubic-bezier(.9, .1, .1, .9),
+     );
    
    [data-lazy-animation] {
      @each $key,$val in $lazy-animation-easing {
@@ -188,7 +189,15 @@
     }
    }
 }
-   
+.zoom {
+  transform: scale(0)!important; ///horizontal 
+  opacity: 1!important;
+  transform-origin: center;
+  &.on-screen {
+    transform: scale(1)!important; ///horizontal 
+
+  }
+}
 
 
 /*!
@@ -337,7 +346,7 @@
   
     ease-in-quart: cubic-bezier(.55, .085, .68, .53),
     ease-out-quart: cubic-bezier(0, 0, 0.08, 0.97),
-    ease-in-out-quart: cubic-bezier(0.6, 0, 0.4, 1),
+    ease-in-out-quart: cubic-bezier(.9, .1, .1, .9),
   );
   
   [data-lazy-animation].mobile-fade {
@@ -377,5 +386,6 @@
      transform-origin: left;
    }
   }
+ 
 }
   
