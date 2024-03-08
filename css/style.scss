@@ -2256,8 +2256,8 @@ main {
         padding-top: 35vh;
         padding-bottom: 10vh;
         @media (min-width: $large) {
-            padding-top: 33vh;
-            padding-bottom: 15vh;
+            padding-top: 35vh;
+            padding-bottom: 10vh;
         }
         h2 {
             line-height: .7em;
@@ -2755,7 +2755,14 @@ footer {}
     gap: 2rem;
     display: none;
     body.landscape & {
-        display: flex;
+        @media (max-width: $large) {
+            display: flex;
+        }
+    }
+    body.portrait & {
+        @media (min-width: $large) {
+            display: flex;
+        }
     }
     .logo {
         height: 6rem;
@@ -2768,4 +2775,16 @@ footer {}
             }
         }
     }
+}
+
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $light;
+    z-index: 999999;
+    pointer-events: none;
+    opacity: 0;
 }
