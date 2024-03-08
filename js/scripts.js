@@ -1,166 +1,300 @@
-let lenis = new Lenis({
-  duration: 1.2,
-})
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    let scrollOffset = 0;
-    if (this.hasAttribute('data-trans-link')) {
-      scrollOffset = window.innerHeight * .75; 
-    }
-    lenis.scrollTo(this.getAttribute('href'), { offset: scrollOffset });
-  });
-});
+initPageTransitions();
 
 
-// Textarea-Element auswählen
-const textarea = document.querySelector('textarea');
+// function pageTransition() {
+//   let tl = gsap.timeline();
 
-// Überprüfen, ob ein Textarea-Element vorhanden ist
-if (textarea) {
-  // Event-Listener hinzufügen, der bei Änderungen im Textarea aufgerufen wird
-  textarea.addEventListener('input', function () {
-    // Überprüfen, ob das Scrollen notwendig ist
-    if (textarea.scrollHeight > textarea.clientHeight) {
-      // Scrollbalken vorhanden, data-lenis-prevent hinzufügen
-      textarea.setAttribute('data-lenis-prevent', '');
-    } else {
-      // Kein Scrollbalken vorhanden, data-lenis-prevent entfernen (falls vorhanden)
-      textarea.removeAttribute('data-lenis-prevent');
-    }
+//   tl.to(".page-transition", {
+//     duration: .3,
+//     autoAlpha: 1,
+//   });
+
+//   tl.to(".page-transition", {
+//     duration: .3,
+//     autoAlpha: 0,
+//   });
+// }
+
+function pageTransitionIn() {
+  let tl = gsap.timeline();
+
+  tl.to(".page-transition", {
+    duration: .4,
+    autoAlpha: 1,
   });
 }
 
-jarallax(document.querySelectorAll('.jarallax'), {
-  speed: 0.3,
-});
+function pageTransitionOut() {
+  let tl = gsap.timeline();
 
-
-var lazyLoadInstance = new LazyLoad({
-  // Ihre benutzerdefinierten Einstellungen gehen hier
-  callback_loaded: function (element) {
-    // Hier wird Ihre Funktion aufgerufen, wenn ein Bild geladen wurde
-    ScrollTrigger.refresh();
-    // Fügen Sie hier Ihre weitere Logik hinzu oder rufen Sie eine Funktion auf
-  }
-});
-
-
-function addOnScreenClass() {
-  const elementsWithFade = document.querySelectorAll('[data-lazy-animation]');
-  elementsWithFade.forEach(element => {
-    const rect = element.getBoundingClientRect();
-    if (
-      rect.bottom > 0 &&
-      rect.right > 0 &&
-      rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
-      rect.top < (window.innerHeight || document.documentElement.clientHeight)
-    ) {
-      element.classList.add('on-screen');
-    }
+  tl.to(".page-transition", {
+    duration: .4,
+    autoAlpha: 0,
   });
+}
 
-  const lazyTriggers = document.querySelectorAll('[data-lazy-trigger]');
-  lazyTriggers.forEach(trigger => {
-    const targetSelector = trigger.getAttribute('data-lazy-trigger');
-    if (targetSelector) {
-      const targetElement = document.querySelector(targetSelector);
-      if (targetElement) {
-        const rect = targetElement.getBoundingClientRect();
-        if (
-          rect.bottom > 0 &&
-          rect.right > 0 &&
-          rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
-          rect.top < (window.innerHeight || document.documentElement.clientHeight)
-        ) {
-          trigger.classList.add('on-screen');
+
+function delay(n) {
+  n = n || 0;
+  return new Promise((done) => {
+    setTimeout(() => {
+      done();
+    }, n);
+  });
+}
+
+function initPageTransitions() {
+
+     // scroll to the top of the page
+     barba.hooks.afterEnter(() => {
+      window.scrollTo(0, 0);
+   });
+
+   barba.init({
+    prevent: ({ el }) => {
+      // Überprüfen, ob der Link ein Anker-Tag ist
+      return el.tagName === 'A' && el.getAttribute('href').startsWith('#');
+  },
+    transitions: [{
+      name: 'default',
+      once(data) {
+        // do something once on the initial page load
+        initScript();
+      },
+      async leave(data) {
+        pageTransitionIn(data.current);
+        await delay(400);
+        data.current.container.remove();
+      },
+      async enter(data) {
+        // animate loading screen away
+        pageTransitionOut(data.next);
+      },
+      async beforeEnter(data) {
+        ScrollTrigger.getAll().forEach(t => t.kill());
+        initScript();
+      },
+      afterLeave(data) {
+        // Überprüfe, ob das HTML-Element die Klasse 'open-navi' hat und entferne sie
+        const htmlElement = document.querySelector('html');
+        if (htmlElement.classList.contains('open-navi')) {
+          htmlElement.classList.remove('open-navi');
         }
       }
+    },
+    {
+      name: 'self',
+      once(data) {
+        // do something once on the initial page load
+        initScript();
+      },
+      async leave(data) {
+        pageTransitionIn(data.current);
+        await delay(400);
+        data.current.container.remove();
+      },
+      async enter(data) {
+        // animate loading screen away
+        pageTransitionOut(data.next);
+      },
+      async beforeEnter(data) {
+        initScript();
+      },
+      afterLeave(data) {
+        // Überprüfe, ob das HTML-Element die Klasse 'open-navi' hat und entferne sie
+        const htmlElement = document.querySelector('html');
+        if (htmlElement.classList.contains('open-navi')) {
+          htmlElement.classList.remove('open-navi');
+        }
+      }
+    }]
+  });
+  
+}  
+
+
+
+
+
+
+/**
+ * Fire all scripts on page load
+ */
+function initScript() {
+  console.log("Initializing scripts...");
+
+  checkDeviceOrientation();
+  initializeLenisScrolling();
+  initializeJarallaxScrolling();
+  addOnScreen();
+  scrollDirection();
+  naviToggle();
+  htmlFixed();
+  lazyLoadImagesAndRefreshScrollTrigger();
+  followCursor();
+  setTransitionSectionHeights();
+  initializeGSAPAnimations();
+}
+
+
+
+function initializeLenisScrolling() {
+  let lenis = new Lenis({
+    duration: 1.2,
+    wheelMultiplier: .9,
+  })
+  
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  
+  requestAnimationFrame(raf);
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      let scrollOffset = 0;
+      if (this.hasAttribute('data-trans-link')) {
+        scrollOffset = window.innerHeight * .75; 
+      }
+      lenis.scrollTo(this.getAttribute('href'), { offset: scrollOffset });
+    });
+  });
+  
+  
+  // Textarea-Element auswählen
+  const textarea = document.querySelector('textarea');
+  
+  // Überprüfen, ob ein Textarea-Element vorhanden ist
+  if (textarea) {
+    // Event-Listener hinzufügen, der bei Änderungen im Textarea aufgerufen wird
+    textarea.addEventListener('input', function () {
+      // Überprüfen, ob das Scrollen notwendig ist
+      if (textarea.scrollHeight > textarea.clientHeight) {
+        // Scrollbalken vorhanden, data-lenis-prevent hinzufügen
+        textarea.setAttribute('data-lenis-prevent', '');
+      } else {
+        // Kein Scrollbalken vorhanden, data-lenis-prevent entfernen (falls vorhanden)
+        textarea.removeAttribute('data-lenis-prevent');
+      }
+    });
+  }
+}
+
+function initializeJarallaxScrolling() {
+  jarallax(document.querySelectorAll('.jarallax'), {
+    speed: 0.3,
+  });
+}
+  
+function lazyLoadImagesAndRefreshScrollTrigger() {
+  var lazyLoadInstance = new LazyLoad({
+    callback_loaded: function (element) {
+      ScrollTrigger.refresh();
     }
   });
 }
 
-window.addEventListener('load', function () {
-  addOnScreenClass();
-  window.addEventListener('scroll', addOnScreenClass);
 
-  // MutationObserver für dynamische Änderungen am DOM
-  const observer = new MutationObserver(function () {
+function addOnScreen() {
+  function addOnScreenClass() {
+    const elementsWithFade = document.querySelectorAll('[data-lazy-animation]');
+    elementsWithFade.forEach(element => {
+      const rect = element.getBoundingClientRect();
+      if (
+        rect.bottom > 0 &&
+        rect.right > 0 &&
+        rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
+        rect.top < (window.innerHeight || document.documentElement.clientHeight)
+      ) {
+        element.classList.add('on-screen');
+      }
+    });
+  
+    const lazyTriggers = document.querySelectorAll('[data-lazy-trigger]');
+    lazyTriggers.forEach(trigger => {
+      const targetSelector = trigger.getAttribute('data-lazy-trigger');
+      if (targetSelector) {
+        const targetElement = document.querySelector(targetSelector);
+        if (targetElement) {
+          const rect = targetElement.getBoundingClientRect();
+          if (
+            rect.bottom > 0 &&
+            rect.right > 0 &&
+            rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
+            rect.top < (window.innerHeight || document.documentElement.clientHeight)
+          ) {
+            trigger.classList.add('on-screen');
+          }
+        }
+      }
+    });
+  }
+  
+  window.addEventListener('load', function () {
     addOnScreenClass();
-  });
-
-  // Starte Beobachtung für Änderungen am DOM
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-});
-
-
-
-const bodyElement = document.body;
-
-function ScrollDir(elm) {
-  let lastScrollTop = 0;
-
-  document.addEventListener('scroll', function () {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-      elm.classList.remove('scrolling-up');
-      elm.classList.add('scrolling-down');
-    } else if (scrollTop < lastScrollTop) {
-      elm.classList.remove('scrolling-down');
-      elm.classList.add('scrolling-up');
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    window.addEventListener('scroll', addOnScreenClass);
+    const observer = new MutationObserver(function () {
+      addOnScreenClass();
+    });
+      observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   });
 }
-ScrollDir(bodyElement);
 
-// Finde alle Elemente mit der Klasse "navi-toggle"
+function scrollDirection() {
+  const bodyElement = document.body;
+  
+  function ScrollDir(elm) {
+    let lastScrollTop = 0;
+  
+    document.addEventListener('scroll', function () {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+      if (scrollTop > lastScrollTop) {
+        elm.classList.remove('scrolling-up');
+        elm.classList.add('scrolling-down');
+      } else if (scrollTop < lastScrollTop) {
+        elm.classList.remove('scrolling-down');
+        elm.classList.add('scrolling-up');
+      }
+  
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+  }
+  ScrollDir(bodyElement);
+}
+
+function naviToggle() {
 const naviToggleElements = document.querySelectorAll('[data-toggle-nav]');
-
-// Füge einen Klick-Eventlistener zu jedem navi-toggle Element hinzu
 naviToggleElements.forEach(function (naviToggleElement) {
   naviToggleElement.addEventListener("click", function () {
-    // Finde das HTML-Element, dem die Klasse "open-navi" zugeordnet ist
     var naviElement = document.querySelector('html');
-
-    // Toggle die Klasse "open-navi"
     naviElement.classList.toggle("open-navi");
-
-    // Füge die Klasse "is-transitioning" nach 0.7 Sekunden hinzu
     setTimeout(function () {
       naviElement.classList.add("is-transitioning");
-
-      // Entferne die Klasse "is-transitioning" nach weiteren 0.7 Sekunden
       setTimeout(function () {
         naviElement.classList.remove("is-transitioning");
       }, 800);
     });
   });
 });
+}
 
+function htmlFixed() {
+  var e = document.documentElement.scrollTop,
+    d = document.querySelector("html");
+  50 < e && d.classList.add("fixed"),
+    window.addEventListener("scroll", function (e) {
+      var t = document.documentElement.scrollTop;
+      document.querySelector("html").classList.contains("edge") && (t = document.querySelector("html").scrollTop),
+        50 < t ? d.classList.add("fixed") : d.classList.remove("fixed")
+    })
+}
 
-
-var e = document.documentElement.scrollTop,
-  d = document.querySelector("html");
-50 < e && d.classList.add("fixed"),
-  window.addEventListener("scroll", function (e) {
-    var t = document.documentElement.scrollTop;
-    document.querySelector("html").classList.contains("edge") && (t = document.querySelector("html").scrollTop),
-      50 < t ? d.classList.add("fixed") : d.classList.remove("fixed")
-  })
-
+function initializeGSAPAnimations() {
 
 // GSAP Start
 
@@ -456,59 +590,24 @@ if (document.body.classList.contains('start')) {
     // GSAP All END
 
   });
-  //GSAP
 };
-
-// Event-Handler für das Resize-Ereignis des Fensters
-function handleResize() {
-  // Aktualisiere ScrollTrigger
-  ScrollTrigger.refresh();
 }
 
-// Hinzufügen des Event-Handlers zum "resize"-Ereignis des Fensters
-window.addEventListener('resize', handleResize);
-
-
-// const links = document.querySelectorAll("a");
-// links.forEach(link => {
-//   link.addEventListener("click", e => {
-//     if (
-//       !link.hash.startsWith("#") &&
-//       link.href.startsWith(location.origin) &&
-//       (link.target !== "_blank" || e.ctrlKey || e.metaKey) && // Überprüfung des neuen Tabs
-//       !link.classList.contains("lightbox-zoom-image") &&
-//       !link.classList.contains("cms-file") && // Überprüfung der Klasse "cms-file"
-//       e.button !== 1 && // Überprüfung des Mausrads
-//       !(e.altKey || (e.buttons === 1 && e.altKey)) && // Überprüfung der Alt-Taste
-//       !e.ctrlKey // Überprüfung der Ctrl-Taste
-//     ) {
-//       // Füge die Klasse "is-trans" zum HTML-Element hinzu
-//       document.documentElement.classList.add("is-trans");
-
-//       // Füge einen Timeout von 300 Millisekunden (0,3 Sekunden) hinzu
-//       setTimeout(() => {
-//         // Hier kannst du die Seite wechseln, nachdem die Verzögerung abgelaufen ist
-//         window.location.href = link.href;
-//       }, 300);
-
-//       // Verhindere das Standardverhalten des Links (z.B. das Navigieren zu einer neuen Seite)
-//       e.preventDefault();
-//     }
-//   });
-// });
-
-
-if (window.innerWidth > 759) { // Bedingung für Fensterbreite größer als 759 Pixel
+function followCursor() {
+  // Überprüfe, ob das erforderliche HTML-Element vorhanden ist
   const cursorFollow = document.querySelector(".cursor-follow");
-  const span = cursorFollow.querySelector("span");
-  let posX = 0;
-  let posY = 0;
-  let mouseX = 0;
-  let mouseY = 0;
+  if (!cursorFollow) return; // Beende die Funktion, wenn das Element nicht gefunden wurde
 
-  const delay = 0.1; // Adjust the delay time as needed
+  if (window.innerWidth > 759) {
+    const span = cursorFollow.querySelector("span");
+    let posX = 0;
+    let posY = 0;
+    let mouseX = 0;
+    let mouseY = 0;
 
-  function followCursor() {
+    const delay = 0.1;
+
+    function followCursor() {
       const distX = mouseX - posX;
       const distY = mouseY - posY;
       posX += distX * delay;
@@ -518,65 +617,75 @@ if (window.innerWidth > 759) { // Bedingung für Fensterbreite größer als 759 
       cursorFollow.style.top = posY + "px";
 
       requestAnimationFrame(followCursor);
-  }
+    }
 
-  document.addEventListener("mousemove", function(e) {
+    document.addEventListener("mousemove", function (e) {
       mouseX = e.clientX;
       mouseY = e.clientY;
-  });
+    });
 
-  followCursor();
+    followCursor();
 
-  // Add event listener to elements with data-show-cursor attribute
-  const elementsToShowCursor = document.querySelectorAll("[data-show-cursor]");
-  elementsToShowCursor.forEach(element => {
-      element.addEventListener("mouseover", function() {
-          cursorFollow.style.transition = "transform 0.3s";
-          cursorFollow.style.transform = "scale(1)";
+    const elementsToShowCursor = document.querySelectorAll("[data-show-cursor]");
+    elementsToShowCursor.forEach(element => {
+      element.addEventListener("mouseover", function () {
+        cursorFollow.style.transition = "transform 0.3s";
+        cursorFollow.style.transform = "scale(1)";
       });
-      element.addEventListener("mouseleave", function() {
-          cursorFollow.style.transition = "transform 0.3s";
-          cursorFollow.style.transform = "scale(0)";
+      element.addEventListener("mouseleave", function () {
+        cursorFollow.style.transition = "transform 0.3s";
+        cursorFollow.style.transform = "scale(0)";
       });
-  });
+    });
+  }
 }
 
-  // Wähle alle Elemente mit der Klasse ".transition-sec" aus
-  var transitionSecElements = document.querySelectorAll(".transition-sec");
-      
+
+function setTransitionSectionHeights() {
+    // Wähle alle Elemente mit der Klasse ".transition-sec" aus
+    var transitionSecElements = document.querySelectorAll(".transition-sec");
+        
+    // Iteriere über jedes Element und setze seine Höhe als Inline-Style
+    transitionSecElements.forEach(function(element) {
+        var height = element.clientHeight; // Höhe des Elements
+        height += window.innerHeight * 1; // Füge 50vh zur aktuellen Höhe hinzu
+        element.style.height = height + "px"; // Setze die neue Höhe als Inline-Style
+    });
+  
+    // Wähle alle Elemente mit der Klasse ".trans-sec-after" aus
+  var transSecAfterElements = document.querySelectorAll(".trans-sec-after");
+    
   // Iteriere über jedes Element und setze seine Höhe als Inline-Style
-  transitionSecElements.forEach(function(element) {
+  transSecAfterElements.forEach(function(element) {
       var height = element.clientHeight; // Höhe des Elements
-      height += window.innerHeight * 1; // Füge 50vh zur aktuellen Höhe hinzu
+      height += window.innerHeight * 0.75; // Füge 50vh zur aktuellen Höhe hinzu
       element.style.height = height + "px"; // Setze die neue Höhe als Inline-Style
   });
 
-  // Wähle alle Elemente mit der Klasse ".trans-sec-after" aus
-var transSecAfterElements = document.querySelectorAll(".trans-sec-after");
-  
-// Iteriere über jedes Element und setze seine Höhe als Inline-Style
-transSecAfterElements.forEach(function(element) {
-    var height = element.clientHeight; // Höhe des Elements
-    height += window.innerHeight * 0.75; // Füge 50vh zur aktuellen Höhe hinzu
-    element.style.height = height + "px"; // Setze die neue Höhe als Inline-Style
-});
-
-function checkOrientation() {
-  const body = document.querySelector("body");
-  if (window.matchMedia("(orientation: portrait)").matches) {
-    body.classList.remove("landscape");
-    body.classList.add("portrait");
-  } else {
-    body.classList.remove("portrait");
-    body.classList.add("landscape");
-  }
 }
 
-// Event-Listener für Änderungen der Bildschirmausrichtung
-window.addEventListener("orientationchange", checkOrientation);
+function checkDeviceOrientation() {
+  // Code to check device orientation...
+  function checkOrientation() {
+    const body = document.querySelector("body");
+    if (window.matchMedia("(orientation: portrait)").matches) {
+      body.classList.remove("landscape");
+      body.classList.add("portrait");
+    } else {
+      body.classList.remove("portrait");
+      body.classList.add("landscape");
+    }
+  }
+  
+  // Event-Listener für Änderungen der Bildschirmausrichtung
+  window.addEventListener("orientationchange", checkOrientation);
+  
+  // Event-Listener für Änderungen der Fenstergröße
+  window.addEventListener("resize", checkOrientation);
+  
+  // Überprüfen der Bildschirmausrichtung beim Laden der Seite
+  checkOrientation();
+}
 
-// Event-Listener für Änderungen der Fenstergröße
-window.addEventListener("resize", checkOrientation);
 
-// Überprüfen der Bildschirmausrichtung beim Laden der Seite
-checkOrientation();
+
