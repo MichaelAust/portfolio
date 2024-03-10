@@ -4,44 +4,19 @@
   CustomEase.create("custom-ease", ".9, .1, .1, .9");
  });
 
+ let scroll;
+ let transitionOffset = 1000;
 
 initPageTransitions();
 
 function initLoader() {
   let tl = gsap.timeline();
-  tl.set(".quickbar",{
-    y: "100%",
-    autoAlpha: 0,
- });
 
-  tl.set(".page-transition .transition-overlay",{
-    yPercent: "100%",
-    top: "0",
-    bottom: "auto",
- });
+  tl.call(function() {
+    pageTransitionOut();
+    scroll.start();
+  }, null, .1);
 
-  tl.to(".page-transition .transition-overlay:nth-of-type(1)", {
-    duration: .8,
-    height: "0%",
-    ease: "custom-ease",
-  }, 0.2);
-  
-  tl.to(".page-transition .transition-overlay:nth-of-type(2)", {
-    duration: 0.8,
-    height: "0%",
-    ease: "custom-ease",
-  }, 0.3);
-  tl.to(".page-transition .transition-overlay:nth-of-type(3)", {
-    duration: 0.8,
-    height: "0%",
-    ease: "custom-ease",
-  }, 0.4);
-  tl.to(".quickbar", {
-    duration: 1.5,
-    y: "0%",
-    ease: Expo.easeOut,
-    autoAlpha: 1,
-  }, 0.6);
 }
 
 function pageTransitionIn() {
@@ -116,58 +91,13 @@ function pageTransitionOut() {
 function initPageTransitions() {
 
   history.scrollRestoration = "manual";
-
-
-  barba.init({
-    prevent: ({
-      el
-    }) => {
-      return el.tagName === 'A' && el.getAttribute('href').startsWith('#');
-    },
-    sync: true,
-    transitions: [{
-      name: 'default',
-      once(data) {
-        initSmoothScroll(data.next.container);
-        initScript();
-        initLoader();
-
-      },
-      async leave(data) {
-        pageTransitionIn(data.current);
-        await delay(1000);
-        scroll.destroy();
-        data.current.container.remove();
-      },
-      async enter(data) {
-        pageTransitionOut(data.next);
-      },
-      async beforeEnter(data) {
-        ScrollTrigger.getAll().forEach(t => t.kill());
-        initSmoothScroll(data.next.container);
-        initScript();
-        // Fügen Sie hier zusätzlichen Code hinzu, um vor dem Eintritt in die Seite Anpassungen vorzunehmen
-
-      }
-    },
-    {
-      name: 'self',
-      async leave(data) {
-        pageTransitionIn(data.current);
-        await delay(1000);
-        scroll.destroy();
-        data.current.container.remove();
-      },
-      async enter(data) {
-         pageTransitionOut(data.next);
-      },
-      async beforeEnter(data) {
-        ScrollTrigger.getAll().forEach(t => t.kill());
-        initSmoothScroll(data.next.container);
-        initScript();
-      }
-   },]
+  barba.hooks.beforeLeave(() => {
+    document.querySelector('html').classList.add('is-trans');
   });
+  barba.hooks.after(() => {
+    document.querySelector('html').classList.remove('is-trans');
+  });
+
   barba.hooks.afterEnter(() => {
     const htmlElement = document.querySelector('html');
     if (htmlElement.classList.contains('open-navi')) {
@@ -200,6 +130,59 @@ function initPageTransitions() {
     window.scrollTo(0, 0);
     ScrollTrigger.refresh();
   });
+
+
+
+  barba.init({
+    prevent: ({
+      el
+    }) => {
+      return el.tagName === 'A' && el.getAttribute('href').startsWith('#');
+    },
+    sync: true,
+    transitions: [{
+      name: 'default',
+      once(data) {
+        initSmoothScroll(data.next.container);
+        initScript();
+        initLoader();
+      },
+      async leave(data) {
+        pageTransitionIn(data.current);
+        await delay(transitionOffset);
+        scroll.destroy();
+        data.current.container.remove();
+      },
+      async enter(data) {
+        pageTransitionOut(data.next);
+      },
+      async beforeEnter(data) {
+        ScrollTrigger.getAll().forEach(t => t.kill());
+        initSmoothScroll(data.next.container);
+        initScript();
+        // Fügen Sie hier zusätzlichen Code hinzu, um vor dem Eintritt in die Seite Anpassungen vorzunehmen
+
+      }
+    },
+    {
+      name: 'self',
+      async leave(data) {
+        pageTransitionIn(data.current);
+        await delay(transitionOffset);
+        scroll.destroy();
+        data.current.container.remove();
+      },
+      async enter(data) {
+         pageTransitionOut(data.next);
+      },
+      async beforeEnter(data) {
+        ScrollTrigger.getAll().forEach(t => t.kill());
+        initSmoothScroll(data.next.container);
+        initScript();
+      }
+   },]
+  });
+
 
   function initSmoothScroll(container) {
 
@@ -413,9 +396,6 @@ function htmlFixed() {
 function initializeGSAPAnimations() {
 
   // GSAP Start
-
-
-  if (document.body.classList.contains('start')) {
 
     //GSAP Mobile Start
     ScrollTrigger.matchMedia({
@@ -706,7 +686,6 @@ function initializeGSAPAnimations() {
       // GSAP All END
 
     });
-  };
 }
 
 function followCursor() {

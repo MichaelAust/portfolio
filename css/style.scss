@@ -897,6 +897,9 @@ $large-branding-width: 3.18rem;
     height: 100%;
     pointer-events: none;
     @extend %animated-transform-inout;
+    html.is-trans & {
+        transition: none!important;
+    }
     @media (min-width: $large) {
         height: 0%;
         width: 100%;
@@ -1351,6 +1354,9 @@ $large-branding-width: 3.18rem;
     transform: translateX(100%);
     @extend %animated-transform-inout;
     overflow: auto;
+    html.is-trans & {
+        transition: none!important;
+    }
 
     @media (min-width: $large) {
         transform: translateY(100%);

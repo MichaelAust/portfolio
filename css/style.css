@@ -687,6 +687,9 @@ main .line.standard {
   height: 100%;
   pointer-events: none;
 }
+html.is-trans .navi-overlay {
+  transition: none !important;
+}
 @media (min-width: 759px) {
   .navi-overlay {
     height: 0%;
@@ -1145,6 +1148,9 @@ html.open-navi .quickbar .quickbar-inner .menu .x .circle {
   transform: translateX(100%);
   overflow: auto;
   transition-delay: 0.1s;
+}
+html.is-trans #navigation {
+  transition: none !important;
 }
 @media (min-width: 759px) {
   #navigation {
