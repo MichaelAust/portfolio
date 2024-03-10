@@ -24,7 +24,7 @@ html.lenis {
   pointer-events: none;
 }
 
-#navigation .row .col .navigation-inner .nav-info-ct .socials-ct .social a:hover, .quickbar .quickbar-inner .branding, .quickbar, .back-to-top .circle, .back-to-top .arrow, html {
+#navigation .row .col .navigation-inner .nav-info-ct .socials-ct .social a:hover, .quickbar .quickbar-inner .branding, .back-to-top .circle, .back-to-top .arrow, html {
   transition: 0.3s ease;
 }
 
@@ -1596,11 +1596,16 @@ html:not(.open-navi) #navigation .row .col .navigation-inner .nav-info-ct .socia
 }
 
 header.index-header {
+  background-color: #1D1D1D;
   height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1 !important;
+}
+header.index-header .header-inner {
+  display: block;
 }
 header.index-header .bg {
   position: absolute;
@@ -1666,7 +1671,9 @@ header.index-header .name span.small {
 header.index-header .passion {
   position: absolute;
   inset: auto auto 3.3%;
-  margin: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 4%;
   text-align: center;
   text-transform: uppercase;
   color: #d9d9d9;
@@ -1675,7 +1682,6 @@ header.index-header .passion {
   header.index-header .passion {
     font-size: 0.94rem;
     line-height: 1.3em;
-    inset: auto auto 3.5%;
   }
 }
 header.index-header .passion span {
@@ -2130,6 +2136,7 @@ main .teaser .bg {
   background-size: cover;
   background-position: center;
   z-index: -1;
+  background-color: #AEAEAE;
 }
 main .teaser.elli .bg.on-screen {
   background-image: url(../images/index/elli-bg-mobile.jpg);
@@ -2503,14 +2510,25 @@ main .ref-sec-4 .second-image-col .image-2 {
   fill: #1D1D1D;
 }
 
-.page-transition {
+.page-transition .transition-overlay {
   position: fixed;
-  top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
   background-color: #d9d9d9;
-  z-index: 999999;
+  z-index: 9999999;
   pointer-events: none;
-  opacity: 0;
+  opacity: 1;
+  height: 100%;
+}
+.page-transition .transition-overlay:nth-of-type(1) {
+  background-color: #1D1D1D;
+  z-index: 9999993;
+}
+.page-transition .transition-overlay:nth-of-type(2) {
+  background-color: #5d5d5d;
+  z-index: 999992;
+}
+.page-transition .transition-overlay:nth-of-type(3) {
+  background-color: #9d9d9d;
+  z-index: 999991;
 }/*# sourceMappingURL=style.css.map */

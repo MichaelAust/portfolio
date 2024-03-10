@@ -211,9 +211,9 @@
   // distance
   $lazy-animation-distance-mobile: 5.21rem !default;
   // delay
-  $lazy-animation-delay-mobile: 0ms !default;
+  $lazy-animation-delay: 0ms !default;
   // duration
-  $lazy-animation-duration-mobile: 1000ms !default;
+  $lazy-animation-duration: 1000ms !default;
   // scale ratio for zoom
   $lazy-animation-zoom-in: 0.6 !default;
   $lazy-animation-zoom-out: $lazy-animation-zoom-in * 2 !default;
@@ -227,11 +227,11 @@
   // 50ms to 3000ms
   [data-lazy-animation].mobile-fade {
     @for $i from 1 through 60 {
-      &[data-lazy-animation-duration-mobile='#{$i * 50}'] {
+      &[data-lazy-animation-duration='#{$i * 50}'] {
         transition-duration: #{$i * 50}ms;
       }
   
-      &[data-lazy-animation-delay-mobile='#{$i * 50}'] {
+      &[data-lazy-animation-delay='#{$i * 50}'] {
         transition-delay: 0s;
   
         &.on-screen {
@@ -250,11 +250,11 @@
       "down": $effect
     );
   
-    [data-lazy-animation-mobile^=#{$effect}].mobile-fade {
+    [data-lazy-animation^=#{$effect}].mobile-fade {
       opacity: 0;
       transition-property: opacity, transform;
-      transition-delay: $lazy-animation-delay-mobile;
-      transition-duration: $lazy-animation-duration-mobile;
+      transition-delay: $lazy-animation-delay;
+      transition-duration: $lazy-animation-duration;
   
       &.on-screen {
         opacity: 1;

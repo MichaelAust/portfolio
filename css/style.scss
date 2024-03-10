@@ -935,7 +935,7 @@ $large-branding-width: 3.18rem;
     left: 0;
     width: 100%;
     z-index: 99999;
-    @extend %animated-transform;
+    // @extend %animated-transform;
     mix-blend-mode: difference;
 
     html.open-navi & {
@@ -1750,12 +1750,16 @@ $large-branding-width: 3.18rem;
 
 header {
     &.index-header {
+        background-color: $dark;
         height: 100vh;
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-
+        opacity: 1!important;
+        .header-inner {
+            display: block;
+        }
         .bg {
             position: absolute;
             top: 0;
@@ -1832,7 +1836,9 @@ header {
         .passion {
             position: absolute;
             inset: auto auto 3.3%;
-            margin: auto;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 4%;
             text-align: center;
             text-transform: uppercase;
             color: $light;
@@ -1840,8 +1846,6 @@ header {
             @media (min-width: $large) {
                 font-size: 0.94rem;
                 line-height: 1.3em;
-                inset: auto auto 3.5%;
-
             }
 
             span {
@@ -2360,6 +2364,7 @@ main {
                 background-size: cover;
                 background-position: center;
                 z-index: -1;
+                background-color: $border;
             }
 
             &.elli {
@@ -2778,13 +2783,27 @@ footer {}
 }
 
 .page-transition {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: $light;
-    z-index: 999999;
-    pointer-events: none;
-    opacity: 0;
+    .transition-overlay {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        background-color: $light;
+        z-index: 9999999;
+        pointer-events: none;
+        opacity: 1;
+        height: 100%;
+        &:nth-of-type(1) {
+            background-color: $dark;
+            z-index: 9999993;
+        }
+        &:nth-of-type(2) {
+            background-color: lighten($dark, 25%);
+            z-index: 999992;
+        }
+        &:nth-of-type(3) {
+            background-color: lighten($dark, 50%);
+            z-index: 999991;
+
+        }  
+    }
 }
