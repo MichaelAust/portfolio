@@ -28,19 +28,12 @@
 </head>
 
 <body class="project united-media" data-barba="wrapper">
-    <div class="page-transition"></div>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <div class="page-transition">
+        <div class="transition-overlay"></div>
+        <div class="transition-overlay"></div>
+        <div class="transition-overlay"></div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/@barba/core"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/jarallax@2/dist/jarallax.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.5/dist/lazyload.min.js"></script>
-
-    <script src="js/scripts.js"></script>
 
 
     <div data-barba="container" data-barba-namespace="project">
@@ -53,7 +46,7 @@
                         <nav>
                             <ul>
                                 <li class="nav-item home">
-                                    <a href="#home" data-toggle-nav title="Go to Home" class="home">
+                                    <a href="index.html#home"  title="Go to Home" class="home">
                                         <span class="name">
                                             <span class="serif">
                                                 <span>H</span>
@@ -72,7 +65,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item about">
-                                    <a href="#about" data-toggle-nav title="Go to about" class="about">
+                                    <a href="index.html#about"  title="Go to about" class="about">
                                         <span class="name">
                                             <span class="serif">
                                                 <span>A</span>
@@ -94,7 +87,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item work">
-                                    <a href="#work" data-toggle-nav data-trans-link title="Go to work" class="work">
+                                    <a href="index.html#work"  data-trans-link title="Go to work" class="work">
                                         <span class="name">
                                             <span class="serif">
                                                 <span class="mr">W</span>
@@ -114,7 +107,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item contact">
-                                    <a href="#contact" data-toggle-nav data-trans-link title="Go to contact"
+                                    <a href="index.html#contact"  data-trans-link title="Go to contact"
                                         class="contact">
                                         <span class="name">
                                             <span class="serif">
@@ -308,8 +301,7 @@
             </footer>
         </div>
         <div class="quickbar">
-            <div class="quickbar-inner" data-lazy-animation="fade-down" data-lazy-animation-delay-mobile="450"
-                data-lazy-animation-delay="450">
+            <div class="quickbar-inner">
                 <div>
                     <a href="/" class="branding" title="Zur Startseite">
                         <svg width="36" height="25" viewBox="0 0 36 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -327,7 +319,7 @@
                     <div class="menu">
                         <ul class="desktop-nav">
                             <li>
-                                <a href="#" title="Go to home section">
+                                <a href="index.html" title="Go to home section">
                                     <span>
                                         <span>H</span>
                                         <span>o</span>
@@ -344,7 +336,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#about" title="Go to about section">
+                                <a href="index.html#about" title="Go to about section">
                                     <span>
                                         <span>A</span>
                                         <span>b</span>
@@ -363,7 +355,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#work" title="Go to work section">
+                                <a href="index.html#work" title="Go to work section">
                                     <span>
                                         <span>W</span>
                                         <span>o</span>
@@ -379,7 +371,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#contact" title="Go to contact section">
+                                <a href="index.html#contact" title="Go to contact section">
                                     <span>
                                         <span>C</span>
                                         <span>o</span>
@@ -437,6 +429,8 @@
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+
     <script src="https://unpkg.com/@barba/core"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/jarallax@2/dist/jarallax.min.js"></script>
@@ -445,5 +439,4 @@
 
     <script src="js/scripts.js"></script>
 </body>
-
 </html>

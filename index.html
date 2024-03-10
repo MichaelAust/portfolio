@@ -28,7 +28,11 @@
 </head>
 
 <body class="start" data-barba="wrapper">
-    <div class="page-transition"></div>
+    <div class="page-transition">
+        <div class="transition-overlay"></div>
+        <div class="transition-overlay"></div>
+        <div class="transition-overlay"></div>
+    </div>
 
     
     <div data-barba="container" data-barba-namespace="home">
@@ -173,42 +177,44 @@
         <div class="page-wrap">
 
 
-            <header class="index-header jarallax" id="home" >
+            <header class="index-header jarallax mobile-fade" id="home" >
+                <div class="header-inner">
+                    
                 <div class="name">
                     <span class="big">
-                        <span class="letter-ct a" data-lazy-animation="fade-up" data-lazy-animation-delay="400">A</span>
-                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="500" class="letter-ct">u</span>
-                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="600" class="letter-ct">s</span>
-                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="700" class="letter-ct t">t</span>
-                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="800"
-                            class="letter-ct comma">,</span>
+                        <span class="letter-ct a mobile-fade" data-lazy-animation="fade-up" data-lazy-animation-delay="600">A</span>
+                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="700" class="letter-ct mobile-fade">u</span>
+                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="800" class="letter-ct mobile-fade">s</span>
+                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="900" class="letter-ct mobile-fade t">t</span>
+                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1000"
+                            class="letter-ct mobile-fade comma">,</span>
                     </span>
                     <span class="small">
-                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="800" class="letter-ct">M</span>
-                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="850" class="letter-ct">i</span>
-                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="900" class="letter-ct">c</span>
-                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1000" class="letter-ct">h</span>
-                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1100" class="letter-ct">a</span>
-                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1150" class="letter-ct">e</span>
-                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1200" class="letter-ct">l</span>
+                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1000" class="letter-ct mobile-fade">M</span>
+                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1050" class="letter-ct mobile-fade">i</span>
+                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1100" class="letter-ct mobile-fade">c</span>
+                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1150" class="letter-ct mobile-fade">h</span>
+                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1200" class="letter-ct mobile-fade">a</span>
+                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1250" class="letter-ct mobile-fade">e</span>
+                        <span data-lazy-animation="fade-up" data-lazy-animation-delay="1300" class="letter-ct mobile-fade">l</span>
                     </span>
                 </div>
                 <div class="passion">
-                    <span data-lazy-animation="fade-up" data-lazy-trigger="header"
-                        data-lazy-animation-delay="900">Webdesigner</span>
-                    <span data-lazy-animation="fade-up" data-lazy-trigger="header" data-lazy-animation-delay="1050">&
+                    <span class="mobile-fade" data-lazy-animation="fade-up" data-lazy-trigger="header"
+                        data-lazy-animation-delay="1200">Webdesigner</span>
+                    <span class="mobile-fade" data-lazy-animation="fade-up" data-lazy-trigger="header" data-lazy-animation-delay="1250">&
                         Developer</span>
                 </div>
-                <div class="bg jarallax-img"></div>
+                <div class="bg jarallax-img" ></div>
             </header>
             <main>
-                <!-- <div class="padding-outer">
+                <div class="padding-outer">
                     <div class="row">
                         <div class="col">
-                            <a href="united-media.html">United-Media</a>
+                            <a href="united-media.html" class="line-link">United-Media</a>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <div class="sec-1 padding-outer" id="about">
                     <div class="sec-1-inner">
 
@@ -327,16 +333,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="trans-sec-after" id="work">
+                <div class="trans-sec-after" id="work" data-trans-id>
                     <div class="trans-sec-after-inner">
                         <div class="sec-4">
                             <div class="row">
                                 <div class="col">
                                     <h2>
-                                        <span class="script">Selected</span>
+                                        <span class="script" data-lazy-animation="fade-right">Selected</span>
                                         <span class="sans">Work</span>
                                     </h2>
-
+                                    
                                 </div>
                             </div>
                         </div>
@@ -348,7 +354,13 @@
                             <div class="infos-ct">
                                 <span>Tattoo Artist</span>
                             </div>
-                            <div class="bg jarallax-img" data-lazy-animation></div>
+                            <!-- <div class="bg lazy jarallax-img"
+                             data-bgset="images/index/elli-bg-mobile.jpg 760w, images/index/elli-bg.jpg 1200w" data-sizes="auto"></div> -->
+                                
+                            <picture class="bg jarallax-img">
+                                <source media="(min-width: 760px)" data-srcset="images/index/elli-bg.jpg" />
+                                <img alt="Referenzbild" class="lazy" data-src="images/index/elli-bg.jpg"  />
+                            </picture>
                         </a>
                     </div>
                 </div>
@@ -407,7 +419,7 @@
                 </div>
                 <div class="trans-sec-after">
                     <div class="trans-sec-after-inner">
-                        <div class="sec-6 no-of" id="contact">
+                        <div class="sec-6 no-of" id="contact" data-trans-id>
                             <div class="row title-row">
                                 <div class="col large-9 large-prefix-2">
                                     <h3 class="contact-title">
@@ -498,7 +510,7 @@
 
 
         <div class="quickbar">
-            <div class="quickbar-inner" data-lazy-animation="fade-down" data-lazy-animation-delay="1300">
+            <div class="quickbar-inner">
                 <div>
                     <a href="/" class="branding" title="Zur Startseite">
                         <svg width="36" height="25" viewBox="0 0 36 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -609,7 +621,7 @@
                 </div>
             </div>
         </div>
-        <a href="#home" title="Back to top" class="back-to-top">
+        <a href="#home" title="Back to top" class="back-to-top no-barba">
             <svg xmlns="http://www.w3.org/2000/svg" width="14.37" height="16.166" viewBox="0 0 14.37 16.166"
                 class="arrow">
                 <path id="arrow-up"
@@ -642,6 +654,8 @@
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+
     <script src="https://unpkg.com/@barba/core"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jarallax@2/dist/jarallax.min.js"></script>
