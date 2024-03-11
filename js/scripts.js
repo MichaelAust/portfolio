@@ -1,8 +1,6 @@
- // use a script tag or an external JS file
- document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(ScrollTrigger,CustomEase)
   CustomEase.create("custom-ease", ".9, .1, .1, .9");
- });
+
 
  let scroll;
  let transitionOffset = 1000;
@@ -33,25 +31,32 @@ function pageTransitionIn() {
   autoAlpha: 0,
 });
   tl.to(".page-transition .transition-overlay:nth-of-type(3)", {
-    duration: .8,
+    duration: .7,
     height: "100%",
     ease: "custom-ease",
   }, 0);
   
   tl.to(".page-transition .transition-overlay:nth-of-type(2)", {
-    duration: 0.8,
+    duration: .7,
     height: "100%",
     ease: "custom-ease",
   }, 0.1);
   tl.to(".page-transition .transition-overlay:nth-of-type(1)", {
-    duration: 0.8,
+    duration: .7,
     height: "100%",
     ease: "custom-ease",
   }, 0.2);
+  tl.call(function() {
+    scroll.stop();
+ }, null, 0);
 }
 
 function pageTransitionOut() {
   let tl = gsap.timeline();
+  tl.call(function() {
+    scroll.start();
+ }, null, 0);
+
   tl.set(".quickbar",{
     y: "100%",
     autoAlpha: 0,
@@ -64,24 +69,25 @@ function pageTransitionOut() {
  });
 
   tl.to(".page-transition .transition-overlay:nth-of-type(1)", {
-    duration: .8,
+    duration: .7,
     height: "0%",
     ease: "custom-ease",
   });
   
   tl.to(".page-transition .transition-overlay:nth-of-type(2)", {
-    duration: 0.8,
+    duration: .7,
     height: "0%",
     ease: "custom-ease",
   }, 0.1);
   tl.to(".page-transition .transition-overlay:nth-of-type(3)", {
-    duration: 0.8,
+    duration: .7,
     height: "0%",
     ease: "custom-ease",
   }, 0.2);
   tl.to(".quickbar", {
-    duration: .8,
+    duration: 1.6,
     y: "0%",
+    ease: "Expo.EaseOut",
     autoAlpha: 1,
   }, 0.4);
 }
@@ -91,6 +97,8 @@ function pageTransitionOut() {
 function initPageTransitions() {
 
   history.scrollRestoration = "manual";
+
+  
   barba.hooks.beforeLeave(() => {
     document.querySelector('html').classList.add('is-trans');
   });
@@ -99,10 +107,16 @@ function initPageTransitions() {
   });
 
   barba.hooks.afterEnter(() => {
+     // Scrollen Sie zum Seitenanfang, wenn keine interne Verlinkung vorliegt
+     window.scrollTo(0, 0);
+     ScrollTrigger.refresh();
+
     const htmlElement = document.querySelector('html');
     if (htmlElement.classList.contains('open-navi')) {
       htmlElement.classList.remove('open-navi');
     }
+
+   
 
     // Überprüfen, ob die neue URL einen internen Link enthält
     if (window.location.hash) {
@@ -126,9 +140,7 @@ function initPageTransitions() {
       }
     }
     
-    // Scrollen Sie zum Seitenanfang, wenn keine interne Verlinkung vorliegt
-    window.scrollTo(0, 0);
-    ScrollTrigger.refresh();
+    
   });
 
 
@@ -140,6 +152,8 @@ function initPageTransitions() {
       return el.tagName === 'A' && el.getAttribute('href').startsWith('#');
     },
     sync: true,
+    debug: true,
+    timeout: 7000,
     transitions: [{
       name: 'default',
       once(data) {
@@ -160,7 +174,6 @@ function initPageTransitions() {
         ScrollTrigger.getAll().forEach(t => t.kill());
         initSmoothScroll(data.next.container);
         initScript();
-        // Fügen Sie hier zusätzlichen Code hinzu, um vor dem Eintritt in die Seite Anpassungen vorzunehmen
 
       }
     },
@@ -215,6 +228,7 @@ function initLenis() {
   });
 
   gsap.ticker.lagSmoothing(0);
+  
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();

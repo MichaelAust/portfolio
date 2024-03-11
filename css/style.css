@@ -29,7 +29,7 @@ html.lenis {
 }
 
 main .sec-6 .contact-btn.desktop .circles-ct .fullcircle, main .sec-6 .contact-btn.desktop .circles-ct svg rect, main .sec-6 .contact-btn.desktop .circles-ct, main .sec-6 .contact-btn.desktop span, main .sec-6 .contact-btn.desktop .plane path, #navigation .row .col .navigation-inner nav ul li a span.name .script span, #navigation .row .col .navigation-inner nav ul li a span.name .serif span, #navigation, .quickbar .quickbar-inner .menu .desktop-nav li a > span span, .navi-overlay {
-  transition: 0.8s cubic-bezier(0.9, 0.1, 0.1, 0.9);
+  transition: 0.7s cubic-bezier(0.9, 0.1, 0.1, 0.9);
 }
 
 #navigation .row .col .navigation-inner .nav-info-ct .socials-ct .social a, #navigation .row .col .navigation-inner .nav-info-ct .socials-ct .social, #navigation .row .col .navigation-inner .nav-info-ct .mail span, #navigation .row .col .navigation-inner .nav-info-ct .mail:before, .quickbar .quickbar-inner .menu .x .circle, .quickbar .quickbar-inner .menu .x .line:nth-of-type(2), .quickbar .quickbar-inner .menu .x .line, .quickbar .quickbar-inner .menu .hamburger, .quickbar .quickbar-inner .menu .div-line, .quickbar .quickbar-inner .menu .desktop-nav li, .line-link:before {
@@ -59,6 +59,8 @@ body,
 html {
   width: 100%;
   min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
 }
 
 * {
@@ -1744,8 +1746,10 @@ header.project-header h1 span.script {
     margin-left: 13rem;
   }
 }
-header.project-header .header-img-ct {
-  height: 100vh;
+@media (max-width: 759px) {
+  header.project-header .header-img-ct {
+    display: none;
+  }
 }
 @media (min-width: 759px) {
   header.project-header .header-img-ct {
@@ -2317,6 +2321,13 @@ main .sec-6 .contact-btn.desktop .circles-ct .fullcircle {
 main .ref-sec-1 {
   padding-bottom: 30.56rem;
 }
+@media (max-width: 759px) {
+  main .ref-sec-1 {
+    height: 103vh;
+    display: flex;
+    align-items: center;
+  }
+}
 @media (min-width: 759px) {
   main .ref-sec-1 {
     padding-bottom: 15.1rem;
@@ -2326,25 +2337,6 @@ main .ref-sec-1 .bg {
   background-size: cover;
   background-position: center;
   position: relative;
-}
-@media (max-width: 759px) {
-  main .ref-sec-1 .bg:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(29, 29, 29, 0.5);
-  }
-}
-main .ref-sec-1 .bg.on-screen {
-  background-image: url(/images/united-media/bg/um-bg-1.jpg);
-}
-@media (min-width: 759px) {
-  main .ref-sec-1 .bg.on-screen {
-    background-image: url(/images/united-media/bg/um-bg-1.jpg);
-  }
 }
 main .ref-sec-2 {
   position: relative;
