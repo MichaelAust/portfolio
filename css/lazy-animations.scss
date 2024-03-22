@@ -11,7 +11,7 @@
    // delay
    $lazy-animation-delay: 50ms !default;
    // duration
-   $lazy-animation-duration: 1400ms !default;
+   $lazy-animation-duration: 1000ms !default;
    // scale ratio for zoom
    $lazy-animation-zoom-in: 0.6 !default;
    $lazy-animation-zoom-out: $lazy-animation-zoom-in * 2 !default;
@@ -213,7 +213,7 @@
   // delay
   $lazy-animation-delay-mobile: 0ms !default;
   // duration
-  $lazy-animation-duration-mobile: 1200ms !default;
+  $lazy-animation-duration-mobile: 1000ms !default;
   // scale ratio for zoom
   $lazy-animation-zoom-in: 0.6 !default;
   $lazy-animation-zoom-out: $lazy-animation-zoom-in * 2 !default;

@@ -547,7 +547,7 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 50ms;
-    transition-duration: 1400ms;
+    transition-duration: 1000ms;
     transition-timing-function: cubic-bezier(0, 0, 0.1, 0.9);
   }
   [data-lazy-animation^=fade]:not(.desk-no-fade).on-screen {
@@ -570,7 +570,7 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 50ms;
-    transition-duration: 1400ms;
+    transition-duration: 1000ms;
     transition-timing-function: cubic-bezier(0, 0, 0.1, 0.9);
   }
   [data-lazy-animation^=zoom-in]:not(.desk-no-fade).on-screen {
@@ -594,7 +594,7 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 50ms;
-    transition-duration: 1400ms;
+    transition-duration: 1000ms;
     transition-timing-function: cubic-bezier(0, 0, 0.1, 0.9);
   }
   [data-lazy-animation^=zoom-out]:not(.desk-no-fade).on-screen {
@@ -1265,7 +1265,7 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 0ms;
-    transition-duration: 1200ms;
+    transition-duration: 1000ms;
   }
   [data-lazy-animation^=fade].mobile-fade.on-screen {
     opacity: 1;
@@ -1287,7 +1287,7 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 0ms;
-    transition-duration: 1200ms;
+    transition-duration: 1000ms;
   }
   [data-lazy-animation^=zoom-in].mobile-fade.on-screen {
     opacity: 1;
@@ -1310,7 +1310,7 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 0ms;
-    transition-duration: 1200ms;
+    transition-duration: 1000ms;
   }
   [data-lazy-animation^=zoom-out].mobile-fade.on-screen {
     opacity: 1;

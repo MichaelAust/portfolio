@@ -42,6 +42,80 @@
         <div class="cursor-follow">
             <span>View</span>
         </div>
+        <div class="contact-popup close" data-lenis-prevent>
+            <div class="popup-inner">
+                <div class="x" data-toggle-contact>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="text-ct">
+                    <div class="title h1">
+                        <span class="sans">Get In</span>
+                        <span class="script">Touch</span>
+                    </div>
+                    <div class="form-ct">
+                        <form action="deine_action.php" method="post">
+                            <div class="field-ct">
+    
+                                <label for="name">Your name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="field-ct">
+    
+                                <label for="email"> Your email adress</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="field-ct">
+    
+                                <label for="nachricht">What can i help you with?</label>
+                                <textarea id="nachricht" name="nachricht" required></textarea>
+                            </div>
+                            <div class="field-ct dse-ct">
+                                <input type="checkbox" id="datenschutz" name="Datenschutz"
+                                    value="akzeptiert" required="">
+                                <label for="datenschutz" class="dse checkbox ">
+                                    <span>
+
+                                        I've accepted the <a title="See privacy policy" class="line-link shown" href="/datenschutzerklaerung.html">privacy policy</a>.*</label>
+                                </span>
+                            </div>
+                            <div class="submit-ct">
+                                <input type="submit" value="Submit message">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="dark-bg"></div>
+                </div>
+                <div class="img-ct">
+                    <div class="img-inner">
+                            <div class="socials-ct">
+                                <div class="social">
+                                    <a href="https://www.instagram.com/aust.design/" class="instagram"
+                                        target="_blank">
+                                        <img src="images/layout/instagram-dark.svg" alt="Instagram-Icon">
+                                    </a>
+                                </div>
+                                <div class="social">
+                                    <a href="https://www.awwwards.com/aust.design/" class="awwwards">
+                                        <img src="images/layout/awwwards-dark.svg" alt="Awwwards-Icon">
+                                    </a>
+                                </div>
+                                <div class="social">
+                                    <a href="https://www.linkedin.com/in/michael-aust-0943232a2/" class="linkedin">
+                                        <img src="images/layout/linkedin-dark.svg" alt="LinkedIn-Icon">
+                                    </a>
+                                </div>
+
+                            </div>
+                        <p>You can als contact me at
+                            <a href="mailto:hey@aust.design" title="Send me an email" class="line-link shown">hey@aust.design</a></p>
+                    </div>
+                    <div class="bg light-bg"></div>
+                </div>
+
+            </div>
+        </div>
 
         <div id="navigation" data-lenis-prevent>
             <div class="row">
@@ -111,7 +185,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item contact">
-                                    <a href="#contact" data-toggle-nav data-trans-link title="Go to contact"
+                                    <a href="#" data-toggle-contact title="Go to contact"
                                         class="contact">
                                         <span class="name">
                                             <span class="serif">
@@ -177,7 +251,7 @@
         <div class="page-wrap">
 
 
-            <header class="index-header jarallax mobile-fade" id="home" >
+            <header class="index-header jarallax mobile-fade" id="home">
                 <div class="header-inner">
                     
                 <div class="name">
@@ -201,8 +275,8 @@
                 </div>
                 <div class="passion">
                     <span class="mobile-fade" data-lazy-animation="fade-up" data-lazy-trigger="header"
-                        data-lazy-animation-delay="900" data-lazy-animation-delay-mobile="900">Webdesigner</span>
-                    <span class="mobile-fade" data-lazy-animation="fade-up" data-lazy-trigger="header" data-lazy-animation-delay="1000" data-lazy-animation-delay-mobile="1000">&
+                        data-lazy-animation-delay="800" data-lazy-animation-delay-mobile="800">Webdesigner</span>
+                    <span class="mobile-fade" data-lazy-animation="fade-up" data-lazy-trigger="header" data-lazy-animation-delay="900" data-lazy-animation-delay-mobile="900">&
                         Developer</span>
                 </div>
                 <div class="bg jarallax-img" ></div>
@@ -433,7 +507,7 @@
                                 </div>
                                 <div class="col large-10 large-prefix-2">
                                     <div>
-                                        <div class="contact-btn mobile" data-open-contact>
+                                        <div class="contact-btn mobile" data-toggle-contact>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18.003"
                                                 class="plane" viewBox="0 0 18 18.003">
                                                 <path id="paper-plane-o"
@@ -443,7 +517,7 @@
 
                                             Open Contact Form
                                         </div>
-                                        <div class="contact-btn desktop" data-open-contact>
+                                        <div class="contact-btn desktop" data-toggle-contact>
                                             <div class="span" data-lazy-animation="fade"
                                                 data-lazy-animation-easing="ease-in-out-quart"
                                                 data-lazy-animation-delay="500">
