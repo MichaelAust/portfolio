@@ -203,9 +203,6 @@ a {
 }
 
 main {
-
-    p,
-    ul,
     .mb {
         margin-bottom: calc($base-font-size * 1.5);
 
@@ -394,6 +391,11 @@ ol {
     margin-left: -$base-gap;
     max-width: calc(100% + $base-gap * 2);
     width: calc(100% + $base-gap * 2);
+    @media (min-width: $large) {
+        margin-left: -$large-base-gap;
+        max-width: calc(100% + $large-base-gap * 2);
+        width: calc(100% + $large-base-gap * 2);
+    }
 
 }
 
@@ -905,7 +907,16 @@ main .line.standard {
 .no-mb {
     margin-bottom: 0 !important;
 }
-
+.no-mb-large {
+    @media (min-width: $large) {
+        margin-bottom: 0 !important;
+    }
+}
+.no-mb-default {
+    @media (max-width: $large) {
+        margin-bottom: 0 !important;
+    }
+}
 
 /// Helpers End
 
@@ -2378,6 +2389,7 @@ main {
         height: 100vh;
         width: 100%;
         position: relative;
+        
 
         @media (min-width: $large) {
             height: 110vh;
@@ -2706,12 +2718,12 @@ main {
         }
 
         .box {
-            background-color: $dark;
             color: $light;
             padding: 30.56rem 15.28rem;
             display: flex;
             flex-flow: column;
             gap: 7.78rem;
+            position: relative;
 
             @media (min-width: $large) {
                 flex-flow: row;
@@ -2729,6 +2741,16 @@ main {
                         color: $text-darker;
                     }
                 }
+            }
+            .box-bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $dark;
+                z-index: -1;
+                
             }
         }
     }
@@ -2978,15 +3000,15 @@ footer {}
         }
 
         .content-wrapper {
+            width: 100%;
+            min-height: 100%;
+             position: absolute;
+                top: 0;
+                bottom: 0;
             @media (min-width: $large) {
                 display: flex;
                 flex-flow: row;
                 align-items: stretch;
-                width: 100%;
-                min-height: 100%;
-                position: absolute;
-                top: 0;
-                bottom: 0;
             }
         }
 
@@ -3006,7 +3028,8 @@ footer {}
             opacity: 0;
             visibility: hidden;
             transform: scale(0);
-
+            top: 7rem;
+            right: 9rem;
             @media (min-width: $large) {
                 top: 3.8rem;
                 right: 3.8rem;
@@ -3651,6 +3674,206 @@ form {
         &:hover {
             background-color: $light;
             color: $dark;
+        }
+    }
+}
+
+.project-main {
+    .dual-screen-ct {
+        picture {
+            display: block;
+            &:first-of-type {
+
+                margin-bottom: $padding / 2;
+                @media (min-width: $large) {
+                    margin-bottom: $padding-large / 2;        
+                }
+            }
+        }
+    }
+    .gallery-sec-1 {
+        picture {
+            display: block;
+            &.mb {
+                margin-bottom: $base-gap;
+                @media (min-width: $large) {
+                    margin-bottom: $large-base-gap * 2;            
+                }
+            }
+        }
+        .triangle-img-ct {
+            display: flex;
+            gap: $base-gap;
+            @media (min-width: $large) {
+                gap: $large-base-gap * 2;
+
+            }
+            .first-triangle-img {
+                max-width: 60%;
+                margin-left: auto;
+                margin-right: 0;
+
+                @media (min-width: $large) {
+                }
+            }
+            .third-triangle-img {
+                margin-top: 26rem;
+                @media (min-width: $large) {
+                    margin-top: 24.79em;
+                }
+            }
+        }
+    }
+    .overlay-screen-sec {
+        .row {
+            @media (max-width: $large) {
+                .col {
+                    padding: 0!important;
+                }
+            }
+        }
+        .first-img {
+            display: block;
+            margin-bottom: -6rem;
+            @media (min-width: $large) {
+             margin-bottom: -7.55rem;
+            }
+        }
+    }
+    .ref-link-sec {
+        .ref-link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80rem;
+            height: 80rem;
+            border-radius: 100%;
+            position: relative;
+            margin-inline: auto;
+            margin-bottom: calc(-80rem / 2);
+
+
+            @media (min-width: $large) {
+                width: 23.23rem;
+                height: 23.23rem;
+                margin-bottom: calc(-23.23rem / 2);
+            }
+            .span {
+                display: flex;
+                align-items: center;
+                z-index: 2;
+
+            }
+            .arrow {
+                width: $base-font-size * 1;
+                height: $base-font-size * 1;
+                margin-right: 0.8rem;
+                @media (min-width: $large) {
+                    width: $large-font-size * 1;
+                    height: $large-font-size * 1;
+                    margin-right: 0.4rem;
+
+                }
+
+                path {
+                    @extend %animated-transform-inout;
+                }
+            }
+
+            &:hover {
+               
+
+               
+
+                .circles-ct {
+                    svg {
+                        rect {
+                            stroke-dashoffset: 1;
+                            transition-delay: 0;
+
+                        }
+                    }
+
+                    .fullcircle {
+                        transition-delay: .1s;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+            span {
+                color: $light;
+                text-transform: uppercase;
+                font-size: $base-font-size * .8;
+                line-height: 1em;
+                @extend %animated-transform-inout;
+                @media (min-width: $large) {
+                    font-size: $large-font-size * .8;
+
+                }
+            }
+
+            .circles-ct {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                @extend %animated-transform-inout;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+
+                    rect {
+                        fill: none;
+                        width: calc(100% - 2px);
+                        height: calc(100% - 2px);
+                        transform-origin: 50% 50%;
+                        stroke-width: 1.5px;
+                        stroke-dasharray: 1;
+                        rx: 100%;
+                        ry: 100%;
+                        @extend %animated-transform-inout;
+                        transition-delay: .1s;
+                        stroke: transparent;
+                        stroke-dashoffset: 0;
+                        stroke: $border;
+
+                    }
+                }
+
+                .fullcircle {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width:70%;
+                    height:70%;
+                    background-color: $dark;
+                    border-radius: 100%;
+                    z-index: -1;
+                    transform: scale(1) translate(-50%, -50%);
+
+                    @extend %animated-transform-inout;
+                    z-index: 1;
+
+
+                }
+            }
+        }
+    }
+    .below-ref-link-sec {
+        padding-top: $padding * 1.5;
+        @media (min-width: $large) {
+            padding-top: $padding-large * 1.5;
+        }
+    }
+    .mockup-sec {
+        .mockup-img {
+            height: 109.72rem;
+            @media (min-width: $large) {
+                height: 57.29rem;
+            }
         }
     }
 }

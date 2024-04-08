@@ -45,7 +45,7 @@ form .field-ct:not(.dse-ct) textarea, form .field-ct:not(.dse-ct) label, .contac
   transition: 0.3s ease;
 }
 
-.contact-popup .popup-inner .img-ct .bg, .contact-popup .popup-inner .text-ct .dark-bg, main .sec-6 .contact-btn.desktop .circles-ct .fullcircle, main .sec-6 .contact-btn.desktop .circles-ct svg rect, main .sec-6 .contact-btn.desktop .circles-ct, main .sec-6 .contact-btn.desktop span, main .sec-6 .contact-btn.desktop .plane path, #navigation .row .col .navigation-inner nav ul li a span.name .script span, #navigation .row .col .navigation-inner nav ul li a span.name .serif span, #navigation, .quickbar .quickbar-inner .menu .desktop-nav li a > span span, .navi-overlay {
+.project-main .ref-link-sec .ref-link-btn .circles-ct .fullcircle, .project-main .ref-link-sec .ref-link-btn .circles-ct svg rect, .project-main .ref-link-sec .ref-link-btn .circles-ct, .project-main .ref-link-sec .ref-link-btn span, .project-main .ref-link-sec .ref-link-btn .arrow path, .contact-popup .popup-inner .img-ct .bg, .contact-popup .popup-inner .text-ct .dark-bg, main .sec-6 .contact-btn.desktop .circles-ct .fullcircle, main .sec-6 .contact-btn.desktop .circles-ct svg rect, main .sec-6 .contact-btn.desktop .circles-ct, main .sec-6 .contact-btn.desktop span, main .sec-6 .contact-btn.desktop .plane path, #navigation .row .col .navigation-inner nav ul li a span.name .script span, #navigation .row .col .navigation-inner nav ul li a span.name .serif span, #navigation, .quickbar .quickbar-inner .menu .desktop-nav li a > span span, .navi-overlay {
   transition: 0.7s cubic-bezier(0.9, 0.1, 0.1, 0.9);
 }
 
@@ -127,14 +127,10 @@ a {
   width: 0%;
 }
 
-main p,
-main ul,
 main .mb {
   margin-bottom: 5.415rem;
 }
 @media (min-width: 759px) {
-  main p,
-  main ul,
   main .mb {
     margin-bottom: 1.425rem;
   }
@@ -298,6 +294,13 @@ ol {
   margin-left: -5rem;
   max-width: calc(100% + 10rem);
   width: calc(100% + 10rem);
+}
+@media (min-width: 759px) {
+  .row:not(.full-width) .row {
+    margin-left: -0.94rem;
+    max-width: calc(100% + 1.88rem);
+    width: calc(100% + 1.88rem);
+  }
 }
 
 .back-to-top {
@@ -706,6 +709,18 @@ main .line.standard {
 
 .no-mb {
   margin-bottom: 0 !important;
+}
+
+@media (min-width: 759px) {
+  .no-mb-large {
+    margin-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 759px) {
+  .no-mb-default {
+    margin-bottom: 0 !important;
+  }
 }
 
 .navi-overlay {
@@ -2375,12 +2390,12 @@ main .ref-sec-2 {
   }
 }
 main .ref-sec-2 .box {
-  background-color: #1D1D1D;
   color: #d9d9d9;
   padding: 30.56rem 15.28rem;
   display: flex;
   flex-flow: column;
   gap: 7.78rem;
+  position: relative;
 }
 @media (min-width: 759px) {
   main .ref-sec-2 .box {
@@ -2395,6 +2410,15 @@ main .ref-sec-2 .box .list-item span {
 }
 main .ref-sec-2 .box .list-item span.category {
   color: #858585;
+}
+main .ref-sec-2 .box .box-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1D1D1D;
+  z-index: -1;
 }
 main .ref-sec-4 .second-image-col {
   position: relative;
@@ -2614,16 +2638,18 @@ html.open-contact .contact-popup:before {
     max-height: 94%;
   }
 }
+.contact-popup .popup-inner .content-wrapper {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
 @media (min-width: 759px) {
   .contact-popup .popup-inner .content-wrapper {
     display: flex;
     flex-flow: row;
     align-items: stretch;
-    width: 100%;
-    min-height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
   }
 }
 .contact-popup .popup-inner .x {
@@ -2637,6 +2663,8 @@ html.open-contact .contact-popup:before {
   opacity: 0;
   visibility: hidden;
   transform: scale(0);
+  top: 7rem;
+  right: 9rem;
 }
 @media (min-width: 759px) {
   .contact-popup .popup-inner .x {
@@ -3250,4 +3278,170 @@ form select {
 form input[type=submit]:hover {
   background-color: #d9d9d9;
   color: #1D1D1D;
+}
+
+.project-main .dual-screen-ct picture {
+  display: block;
+}
+.project-main .dual-screen-ct picture:first-of-type {
+  margin-bottom: 15.28rem;
+}
+@media (min-width: 759px) {
+  .project-main .dual-screen-ct picture:first-of-type {
+    margin-bottom: 7.55rem;
+  }
+}
+.project-main .gallery-sec-1 picture {
+  display: block;
+}
+.project-main .gallery-sec-1 picture.mb {
+  margin-bottom: 5rem;
+}
+@media (min-width: 759px) {
+  .project-main .gallery-sec-1 picture.mb {
+    margin-bottom: 1.88rem;
+  }
+}
+.project-main .gallery-sec-1 .triangle-img-ct {
+  display: flex;
+  gap: 5rem;
+}
+@media (min-width: 759px) {
+  .project-main .gallery-sec-1 .triangle-img-ct {
+    gap: 1.88rem;
+  }
+}
+.project-main .gallery-sec-1 .triangle-img-ct .first-triangle-img {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: 0;
+}
+.project-main .gallery-sec-1 .triangle-img-ct .third-triangle-img {
+  margin-top: 26rem;
+}
+@media (min-width: 759px) {
+  .project-main .gallery-sec-1 .triangle-img-ct .third-triangle-img {
+    margin-top: 24.79em;
+  }
+}
+@media (max-width: 759px) {
+  .project-main .overlay-screen-sec .row .col {
+    padding: 0 !important;
+  }
+}
+.project-main .overlay-screen-sec .first-img {
+  display: block;
+  margin-bottom: -6rem;
+}
+@media (min-width: 759px) {
+  .project-main .overlay-screen-sec .first-img {
+    margin-bottom: -7.55rem;
+  }
+}
+.project-main .ref-link-sec .ref-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80rem;
+  height: 80rem;
+  border-radius: 100%;
+  position: relative;
+  margin-inline: auto;
+  margin-bottom: -40rem;
+}
+@media (min-width: 759px) {
+  .project-main .ref-link-sec .ref-link-btn {
+    width: 23.23rem;
+    height: 23.23rem;
+    margin-bottom: -11.615rem;
+  }
+}
+.project-main .ref-link-sec .ref-link-btn .span {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+.project-main .ref-link-sec .ref-link-btn .arrow {
+  width: 3.61rem;
+  height: 3.61rem;
+  margin-right: 0.8rem;
+}
+@media (min-width: 759px) {
+  .project-main .ref-link-sec .ref-link-btn .arrow {
+    width: 0.95rem;
+    height: 0.95rem;
+    margin-right: 0.4rem;
+  }
+}
+.project-main .ref-link-sec .ref-link-btn:hover .circles-ct svg rect {
+  stroke-dashoffset: 1;
+  transition-delay: 0;
+}
+.project-main .ref-link-sec .ref-link-btn:hover .circles-ct .fullcircle {
+  transition-delay: 0.1s;
+  width: 100%;
+  height: 100%;
+}
+.project-main .ref-link-sec .ref-link-btn span {
+  color: #d9d9d9;
+  text-transform: uppercase;
+  font-size: 2.888rem;
+  line-height: 1em;
+}
+@media (min-width: 759px) {
+  .project-main .ref-link-sec .ref-link-btn span {
+    font-size: 0.76rem;
+  }
+}
+.project-main .ref-link-sec .ref-link-btn .circles-ct {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.project-main .ref-link-sec .ref-link-btn .circles-ct svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.project-main .ref-link-sec .ref-link-btn .circles-ct svg rect {
+  fill: none;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  transform-origin: 50% 50%;
+  stroke-width: 1.5px;
+  stroke-dasharray: 1;
+  rx: 100%;
+  ry: 100%;
+  transition-delay: 0.1s;
+  stroke: transparent;
+  stroke-dashoffset: 0;
+  stroke: #AEAEAE;
+}
+.project-main .ref-link-sec .ref-link-btn .circles-ct .fullcircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 70%;
+  background-color: #1D1D1D;
+  border-radius: 100%;
+  z-index: -1;
+  transform: scale(1) translate(-50%, -50%);
+  z-index: 1;
+}
+.project-main .below-ref-link-sec {
+  padding-top: 45.84rem;
+}
+@media (min-width: 759px) {
+  .project-main .below-ref-link-sec {
+    padding-top: 22.65rem;
+  }
+}
+.project-main .mockup-sec .mockup-img {
+  height: 109.72rem;
+}
+@media (min-width: 759px) {
+  .project-main .mockup-sec .mockup-img {
+    height: 57.29rem;
+  }
 }/*# sourceMappingURL=style.css.map */

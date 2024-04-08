@@ -547,8 +547,8 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 50ms;
-    transition-duration: 1000ms;
-    transition-timing-function: cubic-bezier(0, 0, 0.1, 0.9);
+    transition-duration: 1200ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.05, 0.95);
   }
   [data-lazy-animation^=fade]:not(.desk-no-fade).on-screen {
     opacity: 1;
@@ -570,8 +570,8 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 50ms;
-    transition-duration: 1000ms;
-    transition-timing-function: cubic-bezier(0, 0, 0.1, 0.9);
+    transition-duration: 1200ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.05, 0.95);
   }
   [data-lazy-animation^=zoom-in]:not(.desk-no-fade).on-screen {
     opacity: 1;
@@ -594,8 +594,8 @@
     opacity: 0;
     transition-property: opacity, transform;
     transition-delay: 50ms;
-    transition-duration: 1000ms;
-    transition-timing-function: cubic-bezier(0, 0, 0.1, 0.9);
+    transition-duration: 1200ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.05, 0.95);
   }
   [data-lazy-animation^=zoom-out]:not(.desk-no-fade).on-screen {
     opacity: 1;
@@ -679,8 +679,8 @@
     opacity: 1 !important;
   }
   .animate.on-screen {
-    transition-duration: 2s !important;
-    transition-timing-function: cubic-bezier(0, 0, 0.15, 1) !important;
+    transition-duration: 1.3s !important;
+    transition-timing-function: cubic-bezier(0, 0, 0.05, 0.95) !important;
     transform-origin: center;
     transform: scale3d(1, 1, 1) !important;
   }
@@ -1388,34 +1388,5 @@
   }
   [data-lazy-animation].mobile-fade[data-lazy-animation][data-lazy-animation-easing=ease-in-out-quart] {
     transition-timing-function: cubic-bezier(0.9, 0.1, 0.1, 0.9);
-  }
-  .animate {
-    transform: scale3d(1, 0, 1) !important;
-    opacity: 1 !important;
-  }
-  .animate.on-screen {
-    transition-duration: 2s !important;
-    transition-timing-function: cubic-bezier(0, 0, 0.15, 1) !important;
-    transform-origin: center;
-    transform: scale3d(1, 1, 1) !important;
-  }
-  .animate.on-screen.faster {
-    transition-duration: 2s !important;
-  }
-  .animate.top {
-    transform-origin: top;
-  }
-  .animate-horizontal {
-    transform: scale3d(0, 1, 1) !important;
-    opacity: 1 !important;
-    transform-origin: center;
-  }
-  .animate-horizontal.on-screen {
-    transition-duration: 2s !important;
-    transition-timing-function: cubic-bezier(0, 0, 0.15, 1) !important;
-    transform: scale3d(1, 1, 1) !important;
-  }
-  .animate-horizontal.left {
-    transform-origin: left;
   }
 }/*# sourceMappingURL=lazy-animations.css.map */

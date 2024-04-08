@@ -219,7 +219,6 @@
   function initLenis() {
     scroll = new Lenis({
       duration: 1.3,
-      wheelMultiplier: .9,
     })
 
     scroll.on('scroll', ScrollTrigger.update);
@@ -310,7 +309,7 @@
       elementsWithFade.forEach(element => {
         const rect = element.getBoundingClientRect();
         if (
-          rect.bottom > 0 &&
+          rect.bottom > 50 && // Änderung hier: Prüfe, ob das Element mindestens 50px unterhalb des Viewports liegt
           rect.right > 0 &&
           rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
           rect.top < (window.innerHeight || document.documentElement.clientHeight)
@@ -318,7 +317,7 @@
           element.classList.add('on-screen');
         }
       });
-
+  
       const lazyTriggers = document.querySelectorAll('[data-lazy-trigger]');
       lazyTriggers.forEach(trigger => {
         const targetSelector = trigger.getAttribute('data-lazy-trigger');
@@ -327,7 +326,7 @@
           if (targetElement) {
             const rect = targetElement.getBoundingClientRect();
             if (
-              rect.bottom > 0 &&
+              rect.bottom > 50 && // Änderung hier: Prüfe, ob das Element mindestens 50px unterhalb des Viewports liegt
               rect.right > 0 &&
               rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
               rect.top < (window.innerHeight || document.documentElement.clientHeight)
@@ -338,7 +337,7 @@
         }
       });
     }
-
+  
     window.addEventListener('load', function () {
       addOnScreenClass();
       window.addEventListener('scroll', addOnScreenClass);
@@ -351,10 +350,11 @@
       });
     });
   }
+  
 
   function initializeJarallaxScrolling() {
     jarallax(document.querySelectorAll('.jarallax'), {
-      speed: 0.4,
+      speed: 0.7,
     });
   }
 

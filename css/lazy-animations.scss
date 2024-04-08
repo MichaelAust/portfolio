@@ -11,7 +11,7 @@
    // delay
    $lazy-animation-delay: 50ms !default;
    // duration
-   $lazy-animation-duration: 1000ms !default;
+   $lazy-animation-duration: 1200ms !default;
    // scale ratio for zoom
    $lazy-animation-zoom-in: 0.6 !default;
    $lazy-animation-zoom-out: $lazy-animation-zoom-in * 2 !default;
@@ -53,7 +53,7 @@
        transition-property: opacity, transform;
        transition-delay: $lazy-animation-delay;
        transition-duration: $lazy-animation-duration;
-        transition-timing-function: cubic-bezier(0, 0, 0.1, 0.9),
+        transition-timing-function: cubic-bezier(0, 0, 0.05, 0.95),
         ;
        &.on-screen {
          opacity: 1;
@@ -159,8 +159,8 @@
      transform: scale3d(1, 0, 1)!important; ///vertical 
      opacity: 1!important;
      &.on-screen {
-       transition-duration: 2s!important;
-       transition-timing-function: cubic-bezier(0, 0, 0.15, 1)!important;
+       transition-duration: 1.3s!important;
+       transition-timing-function: cubic-bezier(0, 0, 0.05, .95)!important;
        transform-origin: center;
        transform: scale3d(1, 1, 1)!important;
        &.faster {
@@ -356,36 +356,36 @@
       }
     }
   }
-  .animate {
-   transform: scale3d(1, 0, 1)!important; ///vertical 
-   opacity: 1!important;
-   &.on-screen {
-     transition-duration: 2s!important;
-     transition-timing-function: cubic-bezier(0, 0, 0.15, 1)!important;
-     transform-origin: center;
-     transform: scale3d(1, 1, 1)!important;
-     &.faster {
-       transition-duration: 2s!important;	
-     }
-   }
-   &.top {
-     transform-origin: top;
-   }
+  // .animate {
+  //  transform: scale3d(1, 0, 1)!important; ///vertical 
+  //  opacity: 1!important;
+  //  &.on-screen {
+  //    transition-duration: 2s!important;
+  //    transition-timing-function: cubic-bezier(0, 0, 0.15, 1)!important;
+  //    transform-origin: center;
+  //    transform: scale3d(1, 1, 1)!important;
+  //    &.faster {
+  //      transition-duration: 2s!important;	
+  //    }
+  //  }
+  //  &.top {
+  //    transform-origin: top;
+  //  }
    
-  }
-  .animate-horizontal {
-   transform: scale3d(0, 1, 1)!important; ///horizontal 
-   opacity: 1!important;
-   transform-origin: center;
-   &.on-screen {
-     transition-duration: 2s!important;
-     transition-timing-function: cubic-bezier(0, 0, 0.15, 1)!important;
-     transform: scale3d(1, 1, 1)!important;
-   }
-   &.left {
-     transform-origin: left;
-   }
-  }
+  // }
+  // .animate-horizontal {
+  //  transform: scale3d(0, 1, 1)!important; ///horizontal 
+  //  opacity: 1!important;
+  //  transform-origin: center;
+  //  &.on-screen {
+  //    transition-duration: 2s!important;
+  //    transition-timing-function: cubic-bezier(0, 0, 0.15, 1)!important;
+  //    transform: scale3d(1, 1, 1)!important;
+  //  }
+  //  &.left {
+  //    transform-origin: left;
+  //  }
+  // }
  
 }
   
