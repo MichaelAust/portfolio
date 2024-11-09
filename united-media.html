@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="css/normalize.css" media="screen">
     <link rel="stylesheet" href="css/style.css" media="screen">
     <link rel="stylesheet" href="css/lazy-animations.css" media="screen">
-    <link href="https://cdn.jsdelivr.net/npm/jarallax@2/dist/jarallax.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/jarallax@2/dist/jarallax.min.css" rel="stylesheet"> -->
 </head>
 
 <body class="project united-media" data-barba="wrapper">
@@ -46,7 +46,7 @@
                         <nav>
                             <ul>
                                 <li class="nav-item home">
-                                    <a href="index.html#home" title="Go to Home" class="home">
+                                    <a href="#home" data-toggle-nav title="Go to Home" class="home">
                                         <span class="name">
                                             <span class="serif">
                                                 <span>H</span>
@@ -65,7 +65,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item about">
-                                    <a href="index.html#about"  title="Go to about" class="about">
+                                    <a href="#about" data-toggle-nav title="Go to about" class="about">
                                         <span class="name">
                                             <span class="serif">
                                                 <span>A</span>
@@ -87,7 +87,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item work">
-                                    <a href="index.html#work"  data-trans-link title="Go to work" class="work">
+                                    <a href="#work" data-toggle-nav data-trans-link title="Go to work" class="work">
                                         <span class="name">
                                             <span class="serif">
                                                 <span class="mr">W</span>
@@ -107,7 +107,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item contact">
-                                    <a href="index.html#contact"  data-trans-link title="Go to contact"
+                                    <a href="#" data-toggle-contact title="Go to contact"
                                         class="contact">
                                         <span class="name">
                                             <span class="serif">
@@ -145,7 +145,8 @@
                                 <div class="socials-ct">
                                     <div class="social">
 
-                                        <a href="#" class="instagram">
+                                        <a href="https://www.instagram.com/aust.design/" class="instagram"
+                                            target="_blank">
                                             <img src="images/layout/instagram.svg" alt="Instagram-Icon">
                                         </a>
                                     </div>
@@ -177,17 +178,17 @@
                 <div class="row">
                     <div class="col h1-col">
                         <h1>
-                            <span class="serif mobile-fade" data-lazy-animation="fade-up" data-lazy-animation-delay="400" data-lazy-animation-delay-mobile="400">United</span>
-                            <span class="script mobile-fade" data-lazy-animation="fade-up" data-lazy-animation-delay="550" data-lazy-animation-delay-mobile="550">Media</span>
+                            <span class="serif mobile-fade" data-lazy-animation="fade-up" data-lazy-animation-delay="550" data-lazy-animation-delay-mobile="400">United</span>
+                            <span class="script mobile-fade" data-lazy-animation="fade-up" data-lazy-animation-delay="700" data-lazy-animation-delay-mobile="550">Media</span>
                         </h1>
                     </div>
                 </div>
-                <div class="header-img-ct mobile-fade"  data-lazy-animation="fade-up" data-lazy-animation-delay="550" data-lazy-animation-delay-mobile="700">
-                    <div class="header-img jarallax " >
-                        <picture class="jarallax-img">
+                <div class="header-img-ct project-header-img-ct mobile-fade desk-no-fade"  data-lazy-animation="fade-up" data-lazy-animation-delay="550" data-lazy-animation-delay-mobile="700">
+                    <div class="header-img relative"  data-lazy-animation="fade" data-lazy-animation-delay="0">
+                        <picture class="bg">
                             <source media="(min-width: 760px)" data-srcset="images/united-media/um-header.jpg" />
-                            <img alt="Referenzbild" class="lazy mobile-fade"
-                                data-src="/images/united-media/um-header.jpg" 
+                            <img alt="Referenzbild" class="mobile-fade"
+                                src="/images/united-media/um-header.jpg" 
                                 />
                         </picture>
                     </div>
@@ -196,26 +197,30 @@
             </header>
             <main class="project-main">
                 <div class="ref-sec-1-ct mobile-fade desk-no-fade" data-lazy-animation-mobile="fade-up" data-lazy-animation="fade-up" data-lazy-animation-delay-mobile="700">
-                    <div class="ref-sec-1 jarallax " >
+                    <div class="ref-sec-1 relative" >
                         <div class="padding-outer">
-                            <div class="row center break-right">
-                                <div class="col large-10 animate"  data-lazy-animation="fade">
+                            <div class="row center">
+                                <div class="col large-8">
                                     <picture >
                                         <source media="(min-width: 760px)"
                                             data-srcset="images/united-media/screens/um-screen-1.jpg" />
-                                        <img alt="Referenzbild" class="lazy"
+                                        <img alt="Referenzbild" class="lazy"  src="images/layout/placeholder.jpg"
                                             data-src="images/united-media/screens/um-screen-1.jpg" />
                                     </picture>
                                 </div>
                             </div>
                         </div>
-                        <picture class="bg jarallax-img">
+                        <!-- <picture class="bg jarallax-img">
                             <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-1.jpg" />
-                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-1-small.jpg" src="images/united-media/bg/um-bg-1-ph.jpg"  />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-1-small.jpg"  src="images/layout/placeholder.jpg"  />
+                        </picture> -->
+                        <picture class="bg " data-parallax-strength="2.5" data-parallax-height="0.5">
+                            <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-1.jpg" />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-1-small.jpg"  src="images/layout/placeholder.jpg" data-parallax-target />
                         </picture>
                     </div>
                 </div>
-                <div class="ref-sec-2">
+                <div class="ref-info-sec">
                     <div class="row center">
                         <div class="col large-10">
                             <div class="box">
@@ -224,44 +229,24 @@
                                     <span class="name" data-lazy-animation="fade-up" data-lazy-animation-delay="100">United Media</span>
                                 </div>
                                 <div class="list-item">
-                                    <span class="category" data-lazy-animation="fade-up" data-lazy-animation-delay="200">Year</span>
-                                    <span class="name" data-lazy-animation="fade-up" data-lazy-animation-delay="300">2023</span>
+                                    <span class="category" data-lazy-animation="fade-up" data-lazy-animation-delay="200">Industry</span>
+                                    <span class="name" data-lazy-animation="fade-up" data-lazy-animation-delay="300">Webdesign Agency</span>
                                 </div>
                                 <div class="list-item">
                                     <span class="category" data-lazy-animation="fade-up" data-lazy-animation-delay="400">Services</span>
-                                    <span class="name" data-lazy-animation="fade-up" data-lazy-animation-delay="500">Webdesign, Social Media, Video Production</span>
+                                    <span class="name" data-lazy-animation="fade-up" data-lazy-animation-delay="500"><a href="#webdesign" title="Scroll to webdesign section" class="line-link shown">Webdesign</a>, <a href="#socialmedia" title="Scroll to social media section" class="line-link shown">Social Media</a>,  <a href="#video" title="Scroll to video production section" class="line-link shown">Video Production</a></span>
                                 </div>
+                                
                                 <div class="list-item">
-                                    <span class="category" data-lazy-animation="fade-up" data-lazy-animation-delay="600">Industry</span>
-                                    <span class="name" data-lazy-animation="fade-up" data-lazy-animation-delay="700">Webdesign Agency</span>
+                                    <span class="category" data-lazy-animation="fade-up" data-lazy-animation-delay="600">Year</span>
+                                    <span class="name" data-lazy-animation="fade-up" data-lazy-animation-delay="700">2023</span>
                                 </div>
                                 <div class="box-bg animate top" data-lazy-animation="fade"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="ref-sec-3 padding-outer">
-                    <div class="row">
-                        <div class="col large-2 large-prefix-2" data-lazy-animation="fade-up">
-                            <p class="mb"><b>Objective</b> </p>
-                        </div>
-                        <div class="col large-3" data-lazy-animation="fade-up" data-lazy-animation-delay="200">
-                            <p class="mb no-mb-large">As Anastasiia says: “Each project is a small life”. We pursue the same approach in our work. So we did our best to reflect Anastasiia’s cozy and stylish interior design into
-                                web. On the site we used muted colors and shapes that resonate with the designer's
-                                projects. As Anastasiia says: “Each project is a small life”. We pursue the same approach in our work. So we did our best to reflect Anastasiia’s cozy and stylish interior design into
-                                web. On the site we used muted colors and shapes that resonate with the designer's
-                                projects.</p>
-                        </div>
-                        <div class="col large-3" data-lazy-animation="fade-up" data-lazy-animation-delay="400">
-                            <p >As Anastasiia says: “Each project is a small life”. We pursue the same approach in our work. So we did our best to reflect Anastasiia’s cozy and stylish interior design into
-                                web. On the site we used muted colors and shapes that resonate with the designer's
-                                projects. As Anastasiia says: “Each project is a small life”. We pursue the same approach in our work. So we did our best to reflect Anastasiia’s cozy and stylish interior design into
-                                web. On the site we used muted colors and shapes that resonate with the designer's
-                                projects.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="ref-sec-4 gallery-sec-1">
+                <!-- <div class="ref-dual-img-sec gallery-sec-1">
                     <div class="row">
                         <div class="col large-8 large-prefix-2">
                             <div class="triangle-img-ct">
@@ -270,12 +255,12 @@
                                         <source media="(min-width: 760px)" srcset="images/united-media/images/um-gallery-1.jpg" />
                                         <img alt="Referenzbild" class="lazy" data-src="images/united-media/images/um-gallery-1-small.jpg" src="images/united-media/images/um-gallery-1-ph.jpg" />
                                     </picture>
-                            <picture class="second-triangle-img par-elm" data-speed="0.1">
+                            <picture class="second-triangle-img  speed-slow" data-speed="0.1">
                                 <source media="(min-width: 760px)" srcset="images/united-media/images/um-gallery-2.jpg" />
                                 <img alt="Referenzbild" data-src="images/united-media/images/um-gallery-2-small.jpg" class="lazy" src="images/united-media/images/um-gallery-2-ph.jpg" />
                             </picture>
                                 </div>
-                                <div class="bottom par-elm">
+                                <div class="bottom ">
                                     <picture class="third-triangle-img">
                                         <source media="(min-width: 760px)" srcset="images/united-media/images/um-gallery-3.jpg" />
                                         <img alt="Referenzbild" data-src="images/united-media/images/um-gallery-3-small.jpg" class="lazy" src="images/united-media/images/um-gallery-3-ph.jpg"/>
@@ -286,7 +271,7 @@
                             
                       
                     </div>
-                </div>
+                </div> -->
                 <div class="ref-sec-5 padding-outer">
                     <div class="row">
                         <div class="col large-2 large-prefix-2" data-lazy-animation="fade-up">
@@ -336,49 +321,57 @@
                             </div>
                         </div>
                     </div>
-                    <div class="padding-outer jarallax below-ref-link-sec">
+                    <div class="padding-outer below-ref-link-sec relative" id="webdesign">
                         <div class="row center">
                             <div class="col large-9">
                                 <div class="dual-screen-ct">
                                     <picture>
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-1.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-1-small.jpg" class="lazy" src="images/united-media/screens/um-screen-1-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-1-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                                     <picture>
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-2.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-2-small.jpg" class="lazy" src="images/united-media/screens/um-screen-2-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-2-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                                 </div>
                             </div>
                         </div>
-                        <picture class="bg jarallax-img">
+                        <!-- <picture class="bg jarallax-img">
                             <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-2.jpg" />
-                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-2-small.jpg" src="images/united-media/bg/um-bg-2-ph.jpg"  />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-2-small.jpg"  src="images/layout/placeholder.jpg"  />
+                        </picture> -->
+                        <picture class="bg " data-parallax-strength="2.5" data-parallax-height="0.5">
+                            <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-2.jpg" />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-2-small.jpg"  src="images/layout/placeholder.jpg" data-parallax-target />
                         </picture>
                     </div>
                 </div>
-                <div class="ref-sec-7 padding-outer overlay-screen-sec">
+                <div class="ref-sec-7 padding-outer ref-overlay-screen-sec">
                     <div class="row">
                         <div class="col default-10 default-prefix-2 large-8 large-prefix-4">
                             <picture class="first-img ">
                                 <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-3.jpg" />
-                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-3-small.jpg" class="lazy" src="images/united-media/screens/um-screen-3-ph.jpg"/>
+                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-3-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                             </picture>
                         </div>
                         <div class="col default-10 large-8">
-                            <picture class="">
+                            <picture class="second-img">
                                 <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-4.jpg" />
-                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-4-small.jpg" class="lazy" src="images/united-media/screens/um-screen-4-ph.jpg"/>
+                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-4-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                             </picture>
                         </div>
                     </div>
                 </div>
-                <div class="ref-sec-8 mockup-sec jarallax">
+                <div class="ref-sec-8 mockup-sec relative">
                     <div class="mockup-img taller" >
-                        <picture class="bg jarallax-img">
+                        <picture class="bg " data-parallax-strength="2.5" data-parallax-height="0.5">
                             <source media="(min-width: 760px)" data-srcset="images/united-media/screens/mockup-1.jpg" />
-                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/screens/mockup-1-small.png" src="images/united-media/screens/mockup-1-ph.jpg"  />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/screens/mockup-1-small.jpg"  src="images/layout/placeholder.jpg" data-parallax-target />
                         </picture>
+                        <!-- <picture class="bg jarallax-img">
+                            <source media="(min-width: 760px)" data-srcset="images/united-media/screens/mockup-1.jpg" />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/screens/mockup-1-small.png"  src="images/layout/placeholder.jpg">
+                        </picture> -->
                     </div>
                 </div>
                 <div class="ref-sec-9 padding-outer">
@@ -386,34 +379,38 @@
                         <div class="col large-10">
                             <picture>
                                 <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-5.jpg" />
-                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-5-small.jpg" class="lazy" src="images/united-media/screens/um-screen-5-ph.jpg"/>
+                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-5-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                             </picture>
                         </div>
                     </div>
                 </div>
-                <div class="ref-sec-10 padding-outer jarallax">
+                <div class="ref-sec-10 padding-outer relative">
                     <div class="row center">
                         <div class="col large-9">
                             <picture>
                                 <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-6.jpg" />
-                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-6-small.jpg" class="lazy" src="images/united-media/screens/um-screen-6-ph.jpg"/>
+                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-6-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                             </picture>
                         </div>
                     </div>
-                    <picture class="bg jarallax-img">
+                    <picture class="bg " data-parallax-strength="2.5" data-parallax-height="0.5">
                         <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-3.jpg" />
-                        <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-3-small.jpg" src="images/united-media/bg/um-bg-3-ph.jpg"  />
+                        <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-3-small.jpg"  src="images/layout/placeholder.jpg" data-parallax-target />
                     </picture>
+                    <!-- <picture class="bg jarallax-img">
+                        <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-3.jpg" />
+                        <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-3-small.jpg"  src="images/layout/placeholder.jpg"  />
+                    </picture> -->
                 </div>
-                <div class="ref-sec-11 padding-outer">
+                <div class="ref-extra-info-sec padding-outer">
                     <div class="row">
                         <div class="col large-3 large-prefix-1">
                             <div class="extra-text-ct">
 
-                                <p class="mb">
-                                    <b>Quality Interactions and Animations</b>
+                                <p class="mb" data-lazy-animation="fade-up">
+                                    <b >Quality Interactions and Animations</b>
                                 </p>
-                                <p>As Anastasiia says: “Each project is a small life”. We pursue the same approach in our work. So we did our best to reflect Anastasiia’s cozy and stylish interior design into
+                                <p data-lazy-animation="fade-up" data-lazy-animation-delay="200"> As Anastasiia says: “Each project is a small life”. We pursue the same approach in our work. So we did our best to reflect Anastasiia’s cozy and stylish interior design into
                                     web. On the site we used muted colors and shapes that resonate with the designer's
                                     projects. As Anastasiia says: “Each project is a small life”. We pursue the same approach in our work. So we did our best to reflect Anastasiia’s cozy and stylish interior design into
                                     web. On the site we used muted colors and shapes that resonate with the designer's
@@ -424,92 +421,96 @@
                     <div class="dual-img-ct">
                         <picture>
                             <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-7.jpg" />
-                            <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-7-small.jpg" class="lazy" src="images/united-media/screens/um-screen-7-ph.jpg"/>
+                            <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-7-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                         </picture>
                         <div class="picture ">
 
-                            <picture class="bg">
+                            <picture>
                                 <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-4.jpg" />
-                                <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-4-small.jpg" src="images/united-media/bg/um-bg-4-ph.jpg"  />
+                                <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-4-small.jpg"  src="images/layout/placeholder.jpg"  />
                             </picture>
                         </div>
                             
                     </div>
                 </div>
                 <div class="ref-sec-12">
-                    <div class="padding-outer jarallax">
+                    <div class="padding-outer relative">
                         <div class="row center">
                             <div class="col large-9">
                                 <div class="dual-screen-ct">
                                     <picture>
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-8.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-8-small.jpg" class="lazy" src="images/united-media/screens/um-screen-8-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-8-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                                     <picture>
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-9.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-9-small.jpg" class="lazy" src="images/united-media/screens/um-screen-9-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-9-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                                 </div>
                             </div>
                         </div>
-                        <picture class="bg jarallax-img">
+                        <picture class="bg " data-parallax-strength="2.5" data-parallax-height="0.5">
                             <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-5.jpg" />
-                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-5-small.jpg" src="images/united-media/bg/um-bg-5-ph.jpg"  />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-5-small.jpg"  src="images/layout/placeholder.jpg" data-parallax-target />
                         </picture>
+                        <!-- <picture class="bg jarallax-img">
+                            <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-5.jpg" />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-5-small.jpg"  src="images/layout/placeholder.jpg"  />
+                        </picture> -->
                     </div>
                 </div>
-                <div class="ref-sec-13 padding-outer triple-mobile-sec">
+                <div class=" padding-outer triple-mobile-sec ver-1">
                     <div class="row middle">
                         <div class="col default-6 large-3 large-prefix-1">
                             <picture class="first-img ">
                                 <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-11.jpg" />
-                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-11-small.jpg" class="lazy" src="images/united-media/screens/um-screen-11-ph.jpg"/>
+                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-11-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                             </picture>
                         </div>
                         <div class="col default-6 large-4">
                             <picture class="second-img">
                                 <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-12.jpg" />
-                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-12-small.jpg" class="lazy" src="images/united-media/screens/um-screen-12-ph.jpg"/>
+                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-12-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                             </picture>
                         </div>
                         <div class="col default-6 large-3">
                             <picture class="third-img ">
                                 <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-13.jpg" />
-                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-13-small.jpg" class="lazy" src="images/united-media/screens/um-screen-13-ph.jpg"/>
+                                <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-13-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                             </picture>
                         </div>
                     </div>
                 </div>
-                <div class="ref-sec-14">
-                    <div class="padding-outer jarallax">
+                <div class="ref-mobile-right-sec">
+                    <div class="padding-outer relative">
                         <div class="row">
                             <div class="col default-8 default-prefix-2 large-3 large-prefix-6">
                                     <picture>
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-10.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-10-small.jpg" class="lazy" src="images/united-media/screens/um-screen-10-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-10-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                             </div>
                         </div>
-                        <picture class="bg jarallax-img">
+                        <picture class="bg " data-parallax-strength="2.5" data-parallax-height="0.5">
                             <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-6.jpg" />
-                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-6-small.jpg" src="images/united-media/bg/um-bg-6-ph.jpg"  />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-6-small.jpg"  src="images/layout/placeholder.jpg" data-parallax-target />
                         </picture>
                     </div>
                 </div>
 
-                <div class="ref-sec-15">
-                    <div class="padding-outer">
+                <div class="ref-dual-mobile-sec">
+                    <div class="padding-outer relative">
                         <div class="row center">
                             <div class="col default-6 large-3">
-                                    <picture>
+                                    <picture class="first-img">
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-15.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-15-small.jpg" class="lazy" src="images/united-media/screens/um-screen-15-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-15-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                             </div>
                             <div class="col default-6 large-3 large-prefix-1">
                                 <picture class="second-img">
                                     <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-16.jpg" />
-                                    <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-16-small.jpg" class="lazy" src="images/united-media/screens/um-screen-16-ph.jpg"/>
+                                    <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-16-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                 </picture>
                         </div>
                         </div>
@@ -517,22 +518,26 @@
                     </div>
                 </div>
                 <div class="ref-sec-16">
-                    <div class="padding-outer jarallax">
+                    <div class="padding-outer relative">
                         <div class="row center">
                             <div class="col default-8 large-3">
                                     <picture>
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-screen-14.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-14-small.jpg" class="lazy" src="images/united-media/screens/um-screen-14-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-screen-14-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                             </div>
                         </div>
-                        <picture class="bg jarallax-img">
+                        <picture class="bg " data-parallax-strength="2.5" data-parallax-height="0.5">
                             <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-7.jpg" />
-                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-7-small.jpg" src="images/united-media/bg/um-bg-7-ph.jpg"  />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-7-small.jpg"  src="images/layout/placeholder.jpg" data-parallax-target />
                         </picture>
+                        <!-- <picture class="bg jarallax-img">
+                            <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-7.jpg" />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-7-small.jpg"  src="images/layout/placeholder.jpg"  />
+                        </picture> -->
                     </div>
                 </div>
-                <div class="extra-service-sec dark-bg padding-outer">
+                <div class="extra-service-sec dark-bg padding-outer" id="social-media">
                     <div class="row">
                         <div class="col large-11 large-prefix-1">
                             <h2 class="headline">
@@ -555,24 +560,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="dark-bg triple-mobile-sec social">
+                <div class="dark-bg triple-mobile-sec ver-2 social">
                     <div class="row between">
                                 <div class="col default-6 large-3 large-prefix-1">
                                     <picture class="first-img">
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-sm-1.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-1-small.jpg" class="lazy" src="images/united-media/screens/um-sm-1-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-1-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                                 </div>
                                 <div class="col default-6 large-3">
                                     <picture class="second-img">
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-sm-2.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-2-small.jpg" class="lazy" src="images/united-media/screens/um-sm-2-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-2-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                                 </div>
                                 <div class="col default-6 large-3 large-suffix-1">
                                     <picture class="third-img">
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-sm-3.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-3-small.jpg" class="lazy" src="images/united-media/screens/um-sm-3-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-3-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                                 </div>
 
@@ -583,18 +588,22 @@
                                 <div class="col default-10 large-6">
                                     <picture class="first-img">
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-sm-4.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-4-small.jpg" class="lazy" src="images/united-media/screens/um-sm-4-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-4-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                                 </div>
 
                     </div>
                 </div>
-                <div class="mockup-sec jarallax">
+                <div class="mockup-sec relative">
                     <div class="mockup-img " >
-                        <picture class="bg jarallax-img">
+                        <picture class="bg " data-parallax-strength="2.5" data-parallax-height="0.5">
                             <source media="(min-width: 760px)" data-srcset="images/united-media/screens/mockup-2.jpg" />
-                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/screens/mockup-2-small.jpg" src="images/united-media/screens/mockup-2-ph.jpg"  />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/screens/mockup-2-small.jpg"  src="images/layout/placeholder.jpg" data-parallax-target />
                         </picture>
+                        <!-- <picture class="bg jarallax-img">
+                            <source media="(min-width: 760px)" data-srcset="images/united-media/screens/mockup-2.jpg" />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/screens/mockup-2-small.jpg"  src="images/layout/placeholder.jpg">
+                        </picture> -->
                     </div>
                 </div>
                 <div class="padding-outer sm-posts-sec dark-bg">
@@ -602,34 +611,38 @@
                         <div class="col default-10 large-5 large-prefix-1">
                             <picture class="first-img mb no-mb-large">
                                 <source media="(min-width: 760px)" srcset="images/united-media/screens/um-sm-5.jpg" />
-                                <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-5-small.jpg" class="lazy" src="images/united-media/screens/um-sm-5-ph.jpg"/>
+                                <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-5-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                             </picture>
                         </div>
                         <div class="col default-10 default-prefix-2 large-5 large-prefix-0">
-                            <picture>
+                            <picture class="second-img">
                                 <source media="(min-width: 760px)" srcset="images/united-media/screens/um-sm-6.jpg" />
-                                <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-6-small.jpg" class="lazy" src="images/united-media/screens/um-sm-6-ph.jpg"/>
+                                <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-6-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                             </picture>
                         </div>
                     </div>
                 </div>
                 <div class="">
-                    <div class="padding-outer jarallax">
+                    <div class="padding-outer relative">
                         <div class="row center">
-                            <div class="col default-8 large-5">
+                            <div class="col default-10 large-5">
                                     <picture>
                                         <source media="(min-width: 760px)" srcset="images/united-media/screens/um-sm-7.jpg" />
-                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-7-small.jpg" class="lazy" src="images/united-media/screens/um-sm-7-ph.jpg"/>
+                                        <img alt="Referenzbild" data-src="images/united-media/screens/um-sm-7-small.jpg" class="lazy"  src="images/layout/placeholder.jpg"/>
                                     </picture>
                             </div>
                         </div>
-                        <picture class="bg jarallax-img">
+                        <picture class="bg " data-parallax-strength="2.5" data-parallax-height="0.5">
                             <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-8.jpg" />
-                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-8-small.jpg" src="images/united-media/bg/um-bg-8-ph.jpg"  />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-8-small.jpg"  src="images/layout/placeholder.jpg" data-parallax-target />
                         </picture>
+                        <!-- <picture class="bg jarallax-img">
+                            <source media="(min-width: 760px)" data-srcset="images/united-media/bg/um-bg-8.jpg" />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/um-bg-8-small.jpg"  src="images/layout/placeholder.jpg"  />
+                        </picture> -->
                     </div>
                 </div>
-                <div class="extra-service-sec padding-outer">
+                <div class="extra-service-sec padding-outer" id="video">
                     <div class="row">
                         <div class="col large-11 large-prefix-1">
                             <h2 class="headline">
@@ -652,10 +665,103 @@
                         </div>
                     </div>
                 </div>
-            </main>
-            <footer>
+                <div class="video-teaser-sec footer-trigger">
+                    <a href="https://www.united-media.de/" target="_blank" class="video-link block padding-outer relative">
+                        <div class="row center">
+                            <div class="col default-10 large-6">
+                                <div class="video-ct">
+                                    <video id="responsive-video" class="lazy" autoplay playsinline loop muted>
+                                        <source id="video-source" type="video/mp4" data-src-mobile="images/united-media/video/um-video-teaser-mobile.mp4" data-src-desktop="images/united-media/video/um-video-teaser.mp4" />
+                                      </video>
+                                </div>
+                            </div>
+                        </div>
+                        <picture class="bg " data-parallax-strength="2.5" data-parallax-height="0.5">
+                            <source media="(min-width: 760px)" data-srcset="images/united-media/bg/video-production-bg.jpg" />
+                            <img alt="Referenzbild" class="lazy" data-src="images/united-media/bg/video-production-bg-small.jpg" src="images/united-media/bg/video-production-bg-ph.jpg" data-parallax-target />
+                        </picture>
+                        <div class="marquee" data-marquee-target data-marquee-duplicate="3" data-marquee-direction="left" data-marquee-status="normal" data-marquee-speed="25" data-marquee-scroll-speed="10">
+                            <div class="marquee-scroll">
+                                <div class="marquee-content">
 
+                                        <span class="list-item">Watch</span>
+                                        <div class="line"> 
+                                            <div class="arrow"></div>
+                                            <div class="arrow"></div>
+                                        </div>
+                                        <span class="list-item">Watch</span>
+                                        <div class="line">
+                                            <div class="arrow"></div>
+                                            <div class="arrow"></div>
+                                        </div>
+                                        <span class="list-item">Watch</span>
+                                        <div class="line">
+                                            <div class="arrow"></div>
+                                            <div class="arrow"></div>
+                                        </div>
+                                        <span class="list-item">Watch</span>
+                                        <div class="line">
+                                            <div class="arrow"></div>
+                                            <div class="arrow"></div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </main>
+            <footer class="project-footer">
+                <div  class="next-project-sec relative">
+                    <a href="times-event.html" class="next-project-link" data-show-cursor>
+                        <div class="text-ct">
+                            <span class="next-project">Next Project</span>
+                            <div class="project-name gen-headline">
+                                <span class="sans">Times</span>
+                                <span class="script">Event</span>
+                            </div>
+                        </div>
+                    </a>
+                <div class="bottom-footer">
+                    <div class="row">
+                        <div class="col">
+                            <div class="bottom-footer-ct">
+                                <a href="index.html#work" title="Go to work section" class="line-link all-projects">
+                                    <img src="../images/layout/dots.svg" alt="Dots-Icon">
+                                        All Projects
+                                </a>
+                                <div class="navi-add-ct">
+                                    <div data-lazy-trigger="contact" data-lazy-animation="fade-right"
+                                        data-lazy-animation-delay="500">
+
+                                        <a href="imprint.html" title="See imprint" class="line-link">Imprint</a>
+                                    </div>
+                                    <div data-lazy-trigger="contact" data-lazy-animation="fade-right"
+                                        data-lazy-animation-delay="400">
+
+                                        <div class="line"></div>
+                                    </div>
+                                    <div data-lazy-trigger="contact" data-lazy-animation="fade-right"
+                                        data-lazy-animation-delay="300">
+
+                                        <a href="privacy-policy.html" title="See privacy policy"
+                                            class="line-link">Privacy Policy</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <picture class="bg ">
+                    <source media="(min-width: 760px)" data-srcset="images/index/times-bg.jpg" />
+                    <img alt="Referenzbild" class="lazy" data-src="images/index/times-bg-mobile.jpg" src="images/layout/placeholder.jpg" />
+                </picture>
+            </div>
             </footer>
+        </div>
+        
+        <div class="cursor-follow">
+            <span>View</span>
         </div>
         <div class="quickbar">
             <div class="quickbar-inner">
@@ -728,7 +834,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#contact" title="Go to contact section">
+                                <span class="a" data-toggle-contact title="Go to contact section">
                                     <span>
                                         <span>C</span>
                                         <span>o</span>
@@ -769,6 +875,86 @@
                 </div>
             </div>
         </div>
+        <div class="contact-popup close" data-lenis-prevent>
+            <div class="popup-inner">
+
+                <div class="x" data-toggle-contact>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="content-wrapper">
+                    <div class="text-ct">
+                        <div class="title h1">
+                            <span class="sans">Get In</span>
+                            <span class="script">Touch</span>
+                        </div>
+                        <div class="form-ct">
+                            <form action="deine_action.php" method="post">
+                                <div class="dual-field-ct">
+    
+                                    <div class="field-ct">
+                                        
+                                        <label for="name">Your name</label>
+                                        <input type="text" id="name" name="name" required>
+                                    </div>
+                                    <div class="field-ct">
+                                        
+                                        <label for="email"> Your email adress</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="field-ct">
+        
+                                    <label for="nachricht">What can i help you with?</label>
+                                    <textarea id="nachricht" name="nachricht" required></textarea>
+                                </div>
+                                <div class="field-ct dse-ct">
+                                    <input type="checkbox" id="datenschutz" name="Datenschutz"
+                                        value="akzeptiert" required="">
+                                    <label for="datenschutz" class="dse checkbox ">
+                                        <span>
+    
+                                            I've accepted the <a title="See privacy policy" class="line-link shown" href="/datenschutzerklaerung.html">privacy policy</a>.*</label>
+                                    </span>
+                                </div>
+                                <div class="submit-ct">
+                                    <input type="submit" value="Submit message">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="dark-bg"></div>
+                    </div>
+                    <div class="img-ct">
+                        <div class="img-inner">
+                                <div class="socials-ct">
+                                    <div class="social">
+                                        <a href="https://www.instagram.com/aust.design/" class="instagram"
+                                            target="_blank">
+                                            <img src="images/layout/instagram-dark.svg" alt="Instagram-Icon">
+                                        </a>
+                                    </div>
+                                    <div class="social">
+                                        <a href="https://www.awwwards.com/aust.design/" class="awwwards">
+                                            <img src="images/layout/awwwards-dark.svg" alt="Awwwards-Icon">
+                                        </a>
+                                    </div>
+                                    <div class="social">
+                                        <a href="https://www.linkedin.com/in/michael-aust-0943232a2/" class="linkedin">
+                                            <img src="images/layout/linkedin-dark.svg" alt="LinkedIn-Icon">
+                                        </a>
+                                    </div>
+    
+                                </div>
+                            <p>You can als contact me at
+                                <a href="mailto:hey@aust.design" title="Send me an email" class="line-link shown">hey@aust.design</a></p>
+                        </div>
+                        <div class="bg light-bg"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <a href="#header" title="Back to top" class="back-to-top">
             <svg xmlns="http://www.w3.org/2000/svg" width="14.37" height="16.166" viewBox="0 0 14.37 16.166"
                 class="arrow">
@@ -783,7 +969,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://unpkg.com/@barba/core@2.9.7"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.5/dist/lazyload.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 
