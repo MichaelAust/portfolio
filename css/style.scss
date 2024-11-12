@@ -915,11 +915,11 @@ h6,
     display: block;
     text-rendering: optimizeLegibility;
     hyphens: auto;
-    font-weight: 300;
+    // font-weight: 300;
     font-family: $d-font;
     line-height: 1em;
     color: $dark;
-
+    font-size: inherit;
     /* Use this to let headlines break in Chrome Desktop
     body.platformWindows.chrome &, body.platformLinux.chrome & {
         word-break: break-all;
@@ -1928,14 +1928,14 @@ header {
             height: 100%;
             background-size: cover;
             background-position: center 25%;
-            background-image: url(../images/index/header.jpg);
+            // background-image: url(../images/index/header.jpg);
             z-index: -1;
-            @media (min-width: 761px) {
-                background-image: url(../images/index/header-1920.jpg);
-            }
-            @media (min-width: 1921px) {
-                background-image: url(../images/index/header-2560.jpg);
-            }
+            // @media (min-width: 761px) {
+            //     background-image: url(../images/index/header-1920.jpg);
+            // }
+            // @media (min-width: 1921px) {
+            //     background-image: url(../images/index/header-2560.jpg);
+            // }
         }
 
 
@@ -4310,6 +4310,16 @@ form {
                 padding-top: 9rem;
             }
         }
+        .left-col {
+            @media (max-width: $large) {
+                padding-right: $base-gap / 2;
+            }
+        }
+        .right-col {
+            @media (max-width: $large) {
+                padding-left: $base-gap / 2;
+            }
+        }
     }
 
     .extra-service-sec {
@@ -4553,6 +4563,9 @@ form {
         height: 60vh;
         display: flex;
         justify-content: flex-end;
+        body.privacy & {
+            height: 61vh;
+        }
     }
     .h1-ct {
          @media (min-width: $large) {
@@ -4574,7 +4587,7 @@ form {
             font-size: 8.39rem;
         }
 
-        body.imprint & {
+        [data-barba-namespace="imprint"] & {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -4587,6 +4600,18 @@ form {
                 @media (min-width: $large) {
                     margin-top: 2rem;
     
+                }
+            }
+        }
+        [data-barba-namespace="privacy"] & {
+            @media (min-width: $large) {
+                margin-bottom: 3.8rem;
+            }
+            span {
+                &.script {
+                    @media (min-width: $large) {
+                        margin-left: 17rem;
+                    }
                 }
             }
         }
@@ -4617,7 +4642,7 @@ form {
         padding-top: 10rem;
     }
     @media (min-width: $large) {
-        padding-top: 2.8rem;
+        padding-top: 5.21rem;
     }
 
     .imprint-item {
@@ -4627,6 +4652,21 @@ form {
         }
         b {
             display: block;
+        }
+    }
+ }
+
+ .dse-sec {
+    h2 {
+        position: sticky;
+        top: 45%;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .line.standard {
+        margin: $base-font-size * 2 0;
+        @media (min-width: $large) {
+            margin: $large-font-size * 2 0;
         }
     }
  }

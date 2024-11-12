@@ -722,10 +722,10 @@ h6,
   text-rendering: optimizeLegibility;
   -webkit-hyphens: auto;
           hyphens: auto;
-  font-weight: 300;
   font-family: neue-haas-grotesk-display, sans-serif;
   line-height: 1em;
   color: #1D1D1D;
+  font-size: inherit;
   /* Use this to let headlines break in Chrome Desktop
   body.platformWindows.chrome &, body.platformLinux.chrome & {
       word-break: break-all;
@@ -1811,18 +1811,7 @@ header.index-header .bg {
   height: 100%;
   background-size: cover;
   background-position: center 25%;
-  background-image: url(../images/index/header.jpg);
   z-index: -1;
-}
-@media (min-width: 761px) {
-  header.index-header .bg {
-    background-image: url(../images/index/header-1920.jpg);
-  }
-}
-@media (min-width: 1921px) {
-  header.index-header .bg {
-    background-image: url(../images/index/header-2560.jpg);
-  }
 }
 header.index-header .name span {
   display: flex;
@@ -3903,6 +3892,16 @@ form input[type=submit]:hover {
     padding-top: 9rem;
   }
 }
+@media (max-width: 759px) {
+  .project-main .ref-dual-mobile-sec .left-col {
+    padding-right: 2.5rem;
+  }
+}
+@media (max-width: 759px) {
+  .project-main .ref-dual-mobile-sec .right-col {
+    padding-left: 2.5rem;
+  }
+}
 .project-main .extra-service-sec .headline span {
   display: block;
   font-size: 15rem;
@@ -4142,6 +4141,9 @@ form input[type=submit]:hover {
     display: flex;
     justify-content: flex-end;
   }
+  body.privacy .legal-header {
+    height: 61vh;
+  }
 }
 @media (min-width: 759px) {
   .legal-header .h1-ct {
@@ -4167,22 +4169,32 @@ form input[type=submit]:hover {
     font-size: 8.39rem;
   }
 }
-body.imprint .legal-header h1 {
+[data-barba-namespace=imprint] .legal-header h1 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 @media (min-width: 759px) {
-  body.imprint .legal-header h1 {
+  [data-barba-namespace=imprint] .legal-header h1 {
     justify-content: flex-start;
   }
 }
-body.imprint .legal-header h1 .script {
+[data-barba-namespace=imprint] .legal-header h1 .script {
   margin-top: 4rem;
 }
 @media (min-width: 759px) {
-  body.imprint .legal-header h1 .script {
+  [data-barba-namespace=imprint] .legal-header h1 .script {
     margin-top: 2rem;
+  }
+}
+@media (min-width: 759px) {
+  [data-barba-namespace=privacy] .legal-header h1 {
+    margin-bottom: 3.8rem;
+  }
+}
+@media (min-width: 759px) {
+  [data-barba-namespace=privacy] .legal-header h1 span.script {
+    margin-left: 17rem;
   }
 }
 .legal-header h1 span {
@@ -4212,7 +4224,7 @@ body.imprint .legal-header h1 .script {
 }
 @media (min-width: 759px) {
   .legal-main {
-    padding-top: 2.8rem;
+    padding-top: 5.21rem;
   }
 }
 .legal-main .imprint-item {
@@ -4225,4 +4237,19 @@ body.imprint .legal-header h1 .script {
 }
 .legal-main .imprint-item b {
   display: block;
+}
+
+.dse-sec h2 {
+  position: sticky;
+  top: 45%;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.dse-sec .line.standard {
+  margin: 7.22rem 0;
+}
+@media (min-width: 759px) {
+  .dse-sec .line.standard {
+    margin: 1.9rem 0;
+  }
 }/*# sourceMappingURL=style.css.map */
