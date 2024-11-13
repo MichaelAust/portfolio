@@ -202,7 +202,7 @@ main ul li:before {
   top: 3.0685rem;
   height: 1.805rem;
   width: 1.805rem;
-  background: #636363;
+  background: #1D1D1D;
   border-radius: 100%;
 }
 @media (min-width: 759px) {
@@ -800,6 +800,9 @@ main .line.standard {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .navi-overlay {
@@ -1936,16 +1939,6 @@ header.project-header h1 span.script {
     margin-left: 13rem;
   }
 }
-@media (min-width: 759px) {
-  body.times-event header.project-header h1 span.script {
-    margin-left: 9rem;
-  }
-}
-@media (min-width: 759px) {
-  body.wonderkin-tattoo header.project-header h1 span.script {
-    margin-left: 2rem;
-  }
-}
 @media (max-width: 759px) {
   header.project-header .header-img-ct {
     display: none;
@@ -2095,6 +2088,7 @@ main .sec-1 .claim-text > div span {
 }
 main .sec-2 .cutout-ct {
   position: relative;
+  overflow: hidden;
 }
 @media (max-width: 759px) {
   main .sec-2 .cutout-ct {
@@ -2105,17 +2099,14 @@ main .sec-2 .cutout-ct {
   main .sec-2 .cutout-ct {
     width: 80%;
   }
-  main .sec-2 .cutout-ct img {
-    width: auto;
-  }
 }
-main .sec-2 .cutout-ct picture:last-of-type {
+main .sec-2 .cutout-ct picture:first-of-type {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 1;
 }
 main .sec-3 .sec-3-inner {
   height: 250vh;
@@ -2128,12 +2119,12 @@ main .sec-3 .sec-3-inner {
 main .sec-3 .sec-3-inner .sec-3-scroll {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100lvh;
   width: 100%;
 }
 main .sec-3 .sec-3-inner .sec-3-scroll .bg {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -2156,7 +2147,7 @@ main .sec-3 .sec-3-inner .sec-3-scroll .col {
 }
 main .sec-3 .sec-3-inner .sec-3-scroll .text-ct {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -2266,6 +2257,7 @@ main .sec-3 .sec-3-inner .sec-3-scroll .lines-ct .line .line-inner {
 main .sec-4 {
   padding-top: 35vh;
   padding-bottom: 10vh;
+  overflow: hidden;
 }
 @media (min-width: 759px) {
   main .sec-4 {
@@ -4242,14 +4234,31 @@ form input[type=submit]:hover {
 .dse-sec h2 {
   position: sticky;
   top: 45%;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: 5rem;
+  line-height: 1.4em;
+}
+@media (min-width: 759px) {
+  .dse-sec h2 {
+    font-size: 1.3rem;
+  }
 }
 .dse-sec .line.standard {
   margin: 7.22rem 0;
 }
 @media (min-width: 759px) {
   .dse-sec .line.standard {
-    margin: 1.9rem 0;
+    margin: 5.7rem 0;
+  }
+}
+
+@media (min-width: 759px) {
+  [data-barba-namespace=times-event] h1 span.script {
+    margin-left: 9rem !important;
+  }
+}
+
+@media (min-width: 759px) {
+  [data-barba-namespace=wonderkin] h1 span.script {
+    margin-left: 2rem !important;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -1045,8 +1045,23 @@ function initResponsiveVideo() {
           }
         })
         .from('.sec-2 >.row .text-ct ', {
-          y: "-10rem",
+          y: "-17rem",
         })
+      
+
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: ".sec-2 >.row",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true, 
+          }
+        })
+        .from('.sec-2 >.row .cutout-ct picture:nth-of-type(1) ', {
+          left: "-2rem",
+        },0)
+
+     
 
       
         
