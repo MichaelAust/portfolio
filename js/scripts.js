@@ -352,21 +352,21 @@
    * Fire all scripts on page load
    */
   function initScript() {
-    checkDeviceOrientation();
     addOnScreen();
+    lazyLoadImagesAndRefreshScrollTrigger();
+    initScrollTriggerParallaxScroll();
+    initializeJarallaxScrolling();
+    initializeGSAPAnimations();
+    followCursor();
+    setTransitionSectionHeights();
+    initResponsiveVideo();
+    checkDeviceOrientation();
+    marquee();
     scrollDirection();
     naviToggle();
     contactToggle();
     switchLabels();
     htmlFixed();
-    initializeJarallaxScrolling();
-    lazyLoadImagesAndRefreshScrollTrigger();
-    initScrollTriggerParallaxScroll();
-    followCursor();
-    initializeGSAPAnimations();
-    setTransitionSectionHeights();
-    initResponsiveVideo();
-    marquee();
   }
 
 function marquee() {
@@ -565,7 +565,7 @@ function initResponsiveVideo() {
   function lazyLoadImagesAndRefreshScrollTrigger() {
     
     var lazyLoadInstance = new LazyLoad({
-      threshhold: 200,
+      container: document.querySelector('.page-wrap'),
       callback_loaded: function (element) {
         ScrollTrigger.refresh();
       }
