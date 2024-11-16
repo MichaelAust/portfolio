@@ -565,7 +565,7 @@ function initResponsiveVideo() {
   function lazyLoadImagesAndRefreshScrollTrigger() {
     
     var lazyLoadInstance = new LazyLoad({
-      threshhold: 100,
+      threshhold: 200,
       callback_loaded: function (element) {
         ScrollTrigger.refresh();
       }
