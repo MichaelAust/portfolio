@@ -9,11 +9,11 @@
     <meta property="og:description" content="Michael Aust is a webdesigner and developer from germany specialising in crafting outstanding websites that leave a lasting impression.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.michael-aust.com/">
-    <meta property="og:image" content="/images/social_branding.png">
+    <meta property="og:image" content="../images/social_branding.png">
     <meta property="og:site_name" content="Michael Aust">
     <meta name="author" content="Michael Aust">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="thumbnail" content="/images/social_branding.png">
+    <meta name="thumbnail" content="../images/social_branding.png">
     <meta name="theme-color" content="#d9d9d9">
     <link rel="canonical" href="https://www.michael-aust.com/">
     <!-- Fav Icon -->
@@ -46,7 +46,7 @@
                         <nav>
                             <ul>
                                 <li class="nav-item home">
-                                    <a href="index.html"  title="Go to Home" class="home">
+                                    <a href="#header" data-toggle-nav data-toggle-nav  title="Go to Home" class="home">
                                         <span class="name">
                                             <span class="serif">
                                                 <span>H</span>
@@ -65,7 +65,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item about">
-                                    <a href="index.html/#about"  title="Go to about" class="about">
+                                    <a href="#about" data-toggle-nav  title="Go to about" class="about">
                                         <span class="name">
                                             <span class="serif">
                                                 <span>A</span>
@@ -87,7 +87,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item work">
-                                    <a href="/index.html#work"  data-trans-link title="Go to work" class="work">
+                                    <a href="#work" data-toggle-nav  data-trans-link title="Go to work" class="work">
                                         <span class="name">
                                             <span class="serif">
                                                 <span class="mr">W</span>
@@ -138,9 +138,9 @@
                         <div class="nav-info-ct">
                             <div class="line"></div>
                             <div class="infos">
-                                <a href="mailto:michaelaust@yahoo.com" title="Send me an e-mail" class="mail">
+                                <a href="mailto:hey@michael-aust.com" title="Send me an e-mail" class="mail">
                                     <span>
-                                        michaelaust@yahoo.com
+                                        hey@michael-aust.com
                                     </span></a>
                                 <div class="socials-ct">
                                     <div class="social">
@@ -152,13 +152,13 @@
                                     </div>
                                     <div class="social">
 
-                                        <a href="https://www.awwwards.com/aust.design/" class="awwwards">
+                                        <a href="https://www.awwwards.com/aust.design/" target="_blank" class="awwwards">
                                             <img src="images/layout/awwwards.svg" alt="Awwwards-Icon">
                                         </a>
                                     </div>
                                     <div class="social">
 
-                                        <a href="https://www.linkedin.com/in/michael-aust-0943232a2/" class="linkedin">
+                                        <a href="https://www.linkedin.com/in/michael-aust-0943232a2/" target="_blank" class="linkedin">
                                             <img src="images/layout/linkedin.svg" alt="LinkedIn-Icon">
                                         </a>
                                     </div>
@@ -173,7 +173,7 @@
         <div class="page-wrap">
 
 
-            <header class="index-header jarallax" id="home">
+            <header class="index-header" id="home">
                 <div class="header-inner">
                     
                 <div class="name">
@@ -209,8 +209,6 @@
                     <source media="(min-width: 760px)"srcset="images/layout/placeholder.png" data-srcset="images/index/header-large.jpg" />
                     <img alt="Referenzbild" class="lazy" data-src="images/index/header.jpg" src="images/index/header.jpg" data-parallax-target />
                 </picture>
-                    <!-- <div class="bg header-bg jarallax-img"></div>
-                    </div> -->
             </header>
             <main>
                 <div class="sec-1 padding-outer" id="about">
@@ -360,7 +358,7 @@
                                 <span class="script">Event</span>
                             </div>
                             <div class="infos-ct">
-                                <span>Eventmanager</span>
+                                <span class="line-link shown"> Eventmanager</span>
                             </div>
                             <div class="bg jarallax-img" data-lazy-animation data-lazy-trigger="#work"></div>
                         </a>
@@ -401,7 +399,7 @@
                                     <span class="script">Wonderkin</span>
                                 </div>
                                 <div class="infos-ct">
-                                    <span>Tattoo Artist</span>
+                                    <span class="line-link shown">Tattoo Artist</span>
                                 </div>
                                     
 
@@ -415,7 +413,7 @@
                                     <span class="script">Media</span>
                                 </div>
                                 <div class="infos-ct">
-                                    <span>Marketing Agency</span>
+                                    <span class="line-link shown">Marketing Agency</span>
                                 </div>
                                 <div class="bg jarallax-img" data-lazy-animation data-lazy-trigger="#work"></div>
                             </a>
@@ -641,7 +639,7 @@
                             <span class="script">Touch</span>
                         </div>
                         <div class="form-ct">
-                            <form action="../send_mail.php" method="post">
+                            <form action="../send_mail.php" method="post" id="contact-form">
                                 <div class="dual-field-ct">
     
                                     <div class="field-ct">
@@ -705,6 +703,24 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <div class="form-sent" id="form-sent" data-toggle-sent class="active">
+            <div class="x">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="inner">
+    
+                <p class="mb">
+                    <b >
+                        Message sent
+                    </b>
+                </p>
+                <p>
+                   Thank you. Your contact form was sent.
+                </p>
             </div>
         </div>
         <a href="#home" title="Back to top" class="back-to-top no-barba">

@@ -10,11 +10,11 @@
         content="All the relevant legal information for Michael Aust.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.michael-aust.com/imprint">
-    <meta property="og:image" content="/images/social_branding.png">
+    <meta property="og:image" content="../images/social_branding.png">
     <meta property="og:site_name" content="Imprint">
     <meta name="author" content="Michael Aust">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="thumbnail" content="/images/social_branding.png">
+    <meta name="thumbnail" content="../images/social_branding.png">
     <meta name="theme-color" content="#d9d9d9">
     <link rel="canonical" href="https://www.michael-aust.com/imprint">
     <!-- Fav Icon -->
@@ -46,7 +46,7 @@
                         <nav>
                             <ul>
                                 <li class="nav-item home">
-                                    <a href="#home" data-toggle-nav title="Go to Home" class="home">
+                                    <a href="index.html"  title="Go to Home" class="home">
                                         <span class="name">
                                             <span class="serif">
                                                 <span>H</span>
@@ -65,7 +65,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item about">
-                                    <a href="#about" data-toggle-nav title="Go to about" class="about">
+                                    <a href="index.html#about"  title="Go to about" class="about">
                                         <span class="name">
                                             <span class="serif">
                                                 <span>A</span>
@@ -87,7 +87,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item work">
-                                    <a href="#work" data-toggle-nav data-trans-link title="Go to work" class="work">
+                                    <a href="index.html#work"  data-trans-link title="Go to work" class="work">
                                         <span class="name">
                                             <span class="serif">
                                                 <span class="mr">W</span>
@@ -107,8 +107,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item contact">
-                                    <a href="#" data-toggle-contact title="Go to contact"
-                                        class="contact">
+                                    <a href="#" data-toggle-contact title="Go to contact" class="contact">
                                         <span class="name">
                                             <span class="serif">
                                                 <span>C</span>
@@ -138,9 +137,9 @@
                         <div class="nav-info-ct">
                             <div class="line"></div>
                             <div class="infos">
-                                <a href="mailto:michaelaust@yahoo.com" title="Send me an e-mail" class="mail">
+                                <a href="mailto:hey@michael-aust.com" title="Send me an e-mail" class="mail">
                                     <span>
-                                        michaelaust@yahoo.com
+                                        hey@michael-aust.com
                                     </span></a>
                                 <div class="socials-ct">
                                     <div class="social">
@@ -152,13 +151,13 @@
                                     </div>
                                     <div class="social">
 
-                                        <a href="https://www.awwwards.com/aust.design/" class="awwwards">
+                                        <a target="_blank" href="https://www.awwwards.com/aust.design/" class="awwwards">
                                             <img src="images/layout/awwwards.svg" alt="Awwwards-Icon">
                                         </a>
                                     </div>
                                     <div class="social">
 
-                                        <a href="https://www.linkedin.com/in/michael-aust-0943232a2/" class="linkedin">
+                                        <a target="_blank" href="https://www.linkedin.com/in/michael-aust-0943232a2/" class="linkedin">
                                             <img src="images/layout/linkedin.svg" alt="LinkedIn-Icon">
                                         </a>
                                     </div>
@@ -422,7 +421,7 @@
                             <span class="script">Touch</span>
                         </div>
                         <div class="form-ct">
-                            <form action="send_mail.php" method="post">
+                            <form action="../send_mail.php" method="post" id="contact-form">
                                 <div class="dual-field-ct">
     
                                     <div class="field-ct">
@@ -486,6 +485,23 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+        <div class="form-sent" id="form-sent" data-toggle-sent class="active">
+            <div class="x">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="inner">
+    
+                <p class="mb">
+                    <b >
+                        Message sent
+                    </b>
+                </p>
+                <p>
+                   Thank you. Your contact form was sent.
+                </p>
             </div>
         </div>
         <a href="#header" title="Back to top" class="back-to-top">
