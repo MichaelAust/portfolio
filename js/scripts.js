@@ -162,6 +162,10 @@
       if (htmlElement.classList.contains('open-navi')) {
         htmlElement.classList.remove('open-navi');
       }
+      if (htmlElement.classList.contains('open-contact')) {
+        htmlElement.classList.remove('open-contact');
+      }
+
 
 
 
@@ -352,14 +356,13 @@
    * Fire all scripts on page load
    */
   function initScript() {
-    addOnScreen();
-    lazyLoadImagesAndRefreshScrollTrigger();
     initScrollTriggerParallaxScroll();
     initializeJarallaxScrolling();
     initializeGSAPAnimations();
+    lazyLoadImagesAndRefreshScrollTrigger();
     followCursor();
-    setTransitionSectionHeights();
     initResponsiveVideo();
+    addOnScreen();
     checkDeviceOrientation();
     marquee();
     scrollDirection();
@@ -367,6 +370,9 @@
     contactToggle();
     switchLabels();
     htmlFixed();
+    handleContactForm();
+    toggleFormSent();
+    setTransitionSectionHeights();
   }
 
 function marquee() {
@@ -565,10 +571,10 @@ function initResponsiveVideo() {
   function lazyLoadImagesAndRefreshScrollTrigger() {
     
     var lazyLoadInstance = new LazyLoad({
-      threshold: 1000,
-      callback_loaded: function (element) {
-        ScrollTrigger.refresh();
-      }
+      threshold: 800,
+      // callback_loaded: function (element) {
+      //   ScrollTrigger.refresh();
+      // }
     });
   }
 
@@ -1324,3 +1330,62 @@ function initResponsiveVideo() {
     checkOrientation();
   }
   
+
+  function handleContactForm() {
+
+
+  const form = document.getElementById('contact-form');
+
+if (form) {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Verhindert die Weiterleitung zur send_mail.php
+        
+        // Füge dem HTML-Element die Klasse "is-sending-form" hinzu
+        document.documentElement.classList.add('is-sending-form');
+
+        // Erstelle ein neues FormData-Objekt aus dem Formular
+        const formData = new FormData(form);
+
+        // Sende die Daten mit fetch
+        fetch('send_mail.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            // Entferne die Klasse "is-sending-form"
+            document.documentElement.classList.remove('is-sending-form');
+            document.querySelector('.form-sent').classList.add('active');
+
+            // Füge nach einer Verzögerung die Klasse "active" zu .form-sent hinzu
+            setTimeout(() => {   
+                // Füge dem HTML die Klasse "open-sent" hinzu
+                document.documentElement.classList.add('open-sent');
+            }, 100); // Ändere die Verzögerungszeit hier entsprechend deiner Anforderungen (in Millisekunden)
+            
+            console.log(data); // Optional: Zeige die Antwort an (zum Debuggen)
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Optional: Fehlerbehandlung
+        });
+    });
+}
+}
+
+function toggleFormSent() {
+  const toggleSentElements = document.querySelectorAll('[data-toggle-sent]');
+  
+  toggleSentElements.forEach(function (toggleSentElement) {
+    toggleSentElement.addEventListener("click", function () {
+      var naviElement = document.querySelector('html');
+      
+      naviElement.classList.toggle("open-sent");
+    });
+  });
+}

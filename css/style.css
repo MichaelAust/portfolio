@@ -41,7 +41,7 @@ html.lenis {
 }
 
 .awards-sec .awards-item, form label.checkbox:before, form label.checkbox:after, form .field-ct:not(.dse-ct) input,
-form .field-ct:not(.dse-ct) textarea, form .field-ct:not(.dse-ct) label, .contact-popup .popup-inner .img-ct .img-inner .socials-ct .social a:hover, #navigation .row .col .navigation-inner .nav-info-ct .socials-ct .social a:hover, .quickbar .quickbar-inner .branding, .back-to-top .circle, .back-to-top .arrow, html, .btn, form input[type=submit] {
+form .field-ct:not(.dse-ct) textarea, form .field-ct:not(.dse-ct) label, .contact-popup .popup-inner .img-ct .img-inner .socials-ct .social a:hover, #navigation .row .col .navigation-inner .nav-info-ct .socials-ct .social a:hover, .quickbar .quickbar-inner .branding, .back-to-top .circle, .back-to-top .arrow, .btn, form input[type=submit] {
   transition: 0.3s ease;
 }
 
@@ -52,7 +52,7 @@ form .field-ct:not(.dse-ct) textarea, form .field-ct:not(.dse-ct) label, .contac
   transition: 0.7s cubic-bezier(0.9, 0.1, 0.1, 0.9);
 }
 
-.video-teaser-sec .video-ct video, .video-teaser-sec .video-ct, .contact-popup .popup-inner .img-ct .img-inner .socials-ct .social a, .contact-popup .popup-inner .x .circle, .contact-popup .popup-inner .x .line:nth-of-type(2), .contact-popup .popup-inner .x .line, footer.project-footer .bottom-footer .bottom-footer-ct .all-projects img, #navigation .row .col .navigation-inner .nav-info-ct .socials-ct .social a, #navigation .row .col .navigation-inner .nav-info-ct .socials-ct .social, #navigation .row .col .navigation-inner .nav-info-ct .mail span, #navigation .row .col .navigation-inner .nav-info-ct .mail:before, .quickbar .quickbar-inner .menu .x .circle, .quickbar .quickbar-inner .menu .x .line:nth-of-type(2), .quickbar .quickbar-inner .menu .x .line, .quickbar .quickbar-inner .menu .hamburger, .quickbar .quickbar-inner .menu .div-line, .quickbar .quickbar-inner .menu .desktop-nav li, .line-link:before, .line-link {
+.form-sent .x .line, .form-sent .x, .form-sent, .video-teaser-sec .video-ct video, .video-teaser-sec .video-ct, .contact-popup .popup-inner .img-ct .img-inner .socials-ct .social a, .contact-popup .popup-inner .x .circle, .contact-popup .popup-inner .x .line:nth-of-type(2), .contact-popup .popup-inner .x .line, footer.project-footer .bottom-footer .bottom-footer-ct .all-projects img, #navigation .row .col .navigation-inner .nav-info-ct .socials-ct .social a, #navigation .row .col .navigation-inner .nav-info-ct .socials-ct .social, #navigation .row .col .navigation-inner .nav-info-ct .mail span, #navigation .row .col .navigation-inner .nav-info-ct .mail:before, .quickbar .quickbar-inner .menu .x .circle, .quickbar .quickbar-inner .menu .x .line:nth-of-type(2), .quickbar .quickbar-inner .menu .x .line, .quickbar .quickbar-inner .menu .hamburger, .quickbar .quickbar-inner .menu .div-line, .quickbar .quickbar-inner .menu .desktop-nav li, .line-link:before, .line-link {
   transition: 0.7s cubic-bezier(0, 0, 0, 1);
 }
 
@@ -1792,6 +1792,7 @@ html:not(.open-navi) #navigation .row .col .navigation-inner .nav-info-ct .socia
 
 header.index-header {
   height: 100vh;
+  min-height: -webkit-fill-available;
   position: relative;
   display: flex;
   align-items: center;
@@ -2319,6 +2320,11 @@ main .teaser {
     height: 110vh;
   }
 }
+main .teaser:hover .infos-ct span:before {
+  width: 0% !important;
+  right: 0 !important;
+  left: auto !important;
+}
 main .teaser .teaser-title {
   line-height: 0.7em;
   padding-top: 0.2em;
@@ -2354,6 +2360,11 @@ main .teaser .infos-ct {
 @media (min-width: 759px) {
   main .teaser .infos-ct {
     bottom: 2.81rem;
+  }
+}
+@media (min-width: 759px) {
+  main .teaser .infos-ct span:before {
+    display: none;
   }
 }
 main .teaser .bg {
@@ -2896,6 +2907,9 @@ footer.project-footer .bottom-footer .bottom-footer-ct .navi-add-ct .line {
   opacity: 0;
   visibility: hidden;
   transition-delay: 1.2s;
+}
+html.is-trans .contact-popup {
+  transition: none !important;
 }
 html.open-contact .contact-popup {
   opacity: 1;
@@ -4266,4 +4280,117 @@ form input[type=submit]:hover {
   [data-barba-namespace=wonderkin] h1 span.script {
     margin-left: 2rem !important;
   }
+}
+
+.form-sent {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  background-color: #2D2D2D;
+  z-index: 999999;
+  pointer-events: none;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+.form-sent.active {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+html.open-sent .form-sent {
+  pointer-events: auto;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+@media (min-width: 759px) {
+  .form-sent {
+    width: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 6%;
+  }
+}
+.form-sent .inner {
+  padding: 10rem;
+}
+@media (min-width: 759px) {
+  .form-sent .inner {
+    padding: 3.29rem 2.82rem 2.82rem;
+  }
+}
+.form-sent .inner p {
+  color: #858585;
+}
+.form-sent .inner p b {
+  color: #d9d9d9;
+}
+.form-sent .inner .mb {
+  margin-bottom: 3.61rem;
+}
+@media (min-width: 759px) {
+  .form-sent .inner .mb {
+    margin-bottom: 0.95rem;
+  }
+}
+.form-sent .x {
+  position: absolute;
+  top: 5rem;
+  right: 5rem;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.form-sent .x:hover, .form-sent .x:focus {
+  transform: rotate(90deg);
+}
+@media (min-width: 759px) {
+  .form-sent .x {
+    top: 1.175rem;
+    right: 1.175rem;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+.form-sent .x:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+  border-radius: 100%;
+  transform: scale(0);
+}
+html.open-sent .form-sent .x:before {
+  transform: scale(1);
+}
+.form-sent .x .line {
+  width: 45%;
+  height: 1px;
+  background-color: #1D1D1D;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  transform: rotate(45deg) scale3d(0, 1, 1);
+}
+html.open-sent .form-sent .x .line {
+  transition-delay: 0.3s;
+  transform: rotate(45deg) scale3d(1, 1, 1);
+}
+.form-sent .x .line:last-of-type {
+  transform: rotate(-45deg) scale3d(0, 1, 1);
+}
+html.open-sent .form-sent .x .line:last-of-type {
+  transform: rotate(-45deg) scale3d(1, 1, 1);
+  transition-delay: 0.4s;
 }/*# sourceMappingURL=style.css.map */

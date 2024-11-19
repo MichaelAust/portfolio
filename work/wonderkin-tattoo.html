@@ -137,9 +137,9 @@
                         <div class="nav-info-ct">
                             <div class="line"></div>
                             <div class="infos">
-                                <a href="mailto:michaelaust@yahoo.com" title="Send me an e-mail" class="mail">
+                                <a href="mailto:hey@michael-aust.com" title="Send me an e-mail" class="mail">
                                     <span>
-                                        michaelaust@yahoo.com
+                                        hey@michael-aust.com
                                     </span></a>
                                 <div class="socials-ct">
                                     <div class="social">
@@ -151,13 +151,13 @@
                                     </div>
                                     <div class="social">
 
-                                        <a href="https://www.awwwards.com/aust.design/" class="awwwards">
+                                        <a target="_blank" href="https://www.awwwards.com/aust.design/" class="awwwards">
                                             <img src="../images/layout/awwwards.svg" alt="Awwwards-Icon">
                                         </a>
                                     </div>
                                     <div class="social">
 
-                                        <a href="https://www.linkedin.com/in/michael-aust-0943232a2/" class="linkedin">
+                                        <a target="_blank" href="https://www.linkedin.com/in/michael-aust-0943232a2/" class="linkedin">
                                             <img src="../images/layout/linkedin.svg" alt="LinkedIn-Icon">
                                         </a>
                                     </div>
@@ -266,12 +266,18 @@
                                         <div class="col default-6">Honorable Mention</div>
                                     </div>
                                 </div>
-                                <div class="awards-item" data-show-cursor data-cursor-target="wonderkin-award-02" data-lazy-animation-delay="400">
+                                <div class="awards-item" data-show-cursor data-cursor-target="wonderkin-award-02"  data-lazy-animation-delay="400">
                                     <div class="row">
                                         <div class="col default-6">Design Nominees</div>
                                         <div class="col default-6">Site of the Day</div>
                                     </div>
                                 </div>
+                                <!-- <div class="awards-item" data-show-cursor data-cursor-target="wonderkin-award-02" data-lazy-animation-delay="400">
+                                    <div class="row">
+                                        <div class="col default-6">Design Nominees</div>
+                                        <div class="col default-6">Site of the Day</div>
+                                    </div>
+                                </div> -->
                             </div>
 
                             
@@ -630,7 +636,7 @@
                             <span class="script">Touch</span>
                         </div>
                         <div class="form-ct">
-                            <form action="../send_mail.php" method="post">
+                            <form id="contact-form" action="../send_mail.php" method="post">
                                 <div class="dual-field-ct">
     
                                     <div class="field-ct">
@@ -675,12 +681,12 @@
                                         </a>
                                     </div>
                                     <div class="social">
-                                        <a href="https://www.awwwards.com/aust.design/" class="awwwards">
+                                        <a target="_blank" href="https://www.awwwards.com/aust.design/" class="awwwards">
                                             <img src="../images/layout/awwwards-dark.svg" alt="Awwwards-Icon">
                                         </a>
                                     </div>
                                     <div class="social">
-                                        <a href="https://www.linkedin.com/in/michael-aust-0943232a2/" class="linkedin">
+                                        <a target="_blank" href="https://www.linkedin.com/in/michael-aust-0943232a2/" class="linkedin">
                                             <img src="../images/layout/linkedin-dark.svg" alt="LinkedIn-Icon">
                                         </a>
                                     </div>
@@ -693,6 +699,23 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+        <div class="form-sent" id="form-sent" data-toggle-sent class="active">
+            <div class="x">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="inner">
+    
+                <p class="mb">
+                    <b >
+                        Message sent
+                    </b>
+                </p>
+                <p>
+                   Thank you. Your contact form was sent.
+                </p>
             </div>
         </div>
         <a href="#header" title="Back to top" class="back-to-top">
