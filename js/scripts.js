@@ -359,7 +359,7 @@
     initScrollTriggerParallaxScroll();
     initializeJarallaxScrolling();
     initializeGSAPAnimations();
-    lazyLoadImagesAndRefreshScrollTrigger();
+    lazyLoadImages();
     followCursor();
     initResponsiveVideo();
     addOnScreen();
@@ -566,17 +566,61 @@ function initResponsiveVideo() {
 }
 
 
-
-
-  function lazyLoadImagesAndRefreshScrollTrigger() {
-    
-    var lazyLoadInstance = new LazyLoad({
-      threshold: 800,
-      // callback_loaded: function (element) {
-      //   ScrollTrigger.refresh();
-      // }
+function lazyLoadImagesWithTriggers() {
+  var lazyLoadInstances = [];
+  var initLazyLoadForTarget = function (triggerElement) {
+    // Hole den Wert von data-lazyload-trigger
+    var targetKey = triggerElement.getAttribute("data-lazyload-trigger");
+  
+    // Prüfen, ob der Wert existiert
+    if (!targetKey) {
+      console.error("Kein gültiger data-lazyload-trigger-Wert gefunden:", triggerElement);
+      return;
+    }
+  
+    // Finde alle Elemente mit dem entsprechenden data-lazyload-target
+    var targetElements = document.querySelectorAll(`[data-lazyload-target="${targetKey}"]`);
+  
+    // Wenn keine Ziel-Elemente gefunden werden
+    if (targetElements.length === 0) {
+      console.warn(`Keine Zielelemente für Trigger "${targetKey}" gefunden.`);
+      return;
+    }
+  
+    // Erstelle eine neue LazyLoad-Instanz für die Zielelemente
+    var oneLazyLoadInstance = new LazyLoad({
+      elements_selector: `[data-lazyload-target="${targetKey}"]`,
     });
-  }
+  
+    // Optional: Speichere die Instanz
+    lazyLoadInstances.push(oneLazyLoadInstance);
+  };
+  
+
+  // Initialisiere LazyLoad für Auslöseelemente (data-lazyload-trigger)
+  var lazyLoadTriggers = new LazyLoad({
+    elements_selector: "[data-lazyload-trigger]",
+    callback_enter: initLazyLoadForTarget,
+    unobserve_entered: true, // Stoppt das Überwachen, sobald das Element sichtbar wurde
+  });
+}
+
+function lazyLoadImages() {
+  // Normales Lazy-Loading für Bilder mit der Klasse .lazy
+  var lazyLoadInstance = new LazyLoad({
+    container: document.querySelector('[data-barba="container"]'),
+    elements_selector: ".lazy",
+    callback_loaded: function (element) {
+      ScrollTrigger.refresh();
+    }
+  });
+
+  // Erweiterte Lazy-Loading-Logik für Trigger- und Ziel-Elemente
+  lazyLoadImagesWithTriggers();
+}
+
+
+
 
 
   function addOnScreen() {
