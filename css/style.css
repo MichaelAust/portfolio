@@ -4393,4 +4393,9 @@ html.open-sent .form-sent .x .line {
 html.open-sent .form-sent .x .line:last-of-type {
   transform: rotate(-45deg) scale3d(1, 1, 1);
   transition-delay: 0.4s;
+}
+
+.script {
+  margin-block: -0.3em !important;
+  padding-block: 0.3em !important;
 }/*# sourceMappingURL=style.css.map */
