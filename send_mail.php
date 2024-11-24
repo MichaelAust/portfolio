@@ -40,7 +40,7 @@ try {
 
     // Überprüfen, ob die Datenschutz-Checkbox aktiviert wurde
     if ($datenschutz != 'akzeptiert') {
-        die("Bitte stimmen Sie der Datenschutzerklärung zu.");
+        die("Please acceppt privacy policy.");
     }
 
     // Zusammenstellen der E-Mail-Nachricht
@@ -51,13 +51,13 @@ try {
     // E-Mail-Konfiguration
     $mail->setFrom('u94059@michael-aust.com', 'Ihr Name');  // Absenderadresse
     $mail->addAddress('u94059@michael-aust.com');  // Empfängeradresse
-    $mail->Subject = 'Neue Kontaktformular-Nachricht';  // Betreff der E-Mail
+    $mail->Subject = 'Kontaktformular Portfolio';  // Betreff der E-Mail
     $mail->Body = $message;  // Inhalt der E-Mail
 
     // E-Mail senden
     $mail->send();
-    echo "Vielen Dank für Ihre Nachricht. Wir werden uns bald bei Ihnen melden.";  // Erfolgsnachricht
+    echo "Thank you for your message. I will get back to you as soon as possible.";  // Erfolgsnachricht
 } catch (Exception $e) {
-    echo "Fehler beim Senden der Nachricht: ", $mail->ErrorInfo;  // Fehlermeldung
+    echo "Error with sending mesage: ", $mail->ErrorInfo;  // Fehlermeldung
 }
 ?>
