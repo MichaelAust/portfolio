@@ -1193,6 +1193,21 @@ function lazyLoadImages() {
         }, {
           x: "5%",
         }, 0);
+        gsap.set(".sec-3", { autoAlpha: 0 });
+
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: ".sec-3-inner",
+            start: "top bottom",
+            end: "bottom top",
+            toggleActions: "play reset play reset",
+          }
+        })
+        .to('.sec-3', {
+          autoAlpha: 1,
+          duration: 0.1,
+        });
+
         gsap.timeline({
             scrollTrigger: {
               trigger: ".sec-3-inner",
@@ -1205,6 +1220,7 @@ function lazyLoadImages() {
           .to('.sec-3 .bg', {
             backgroundPositionY: "75%", // Hintergrundposition auf -20% setzen
           });
+
           gsap.timeline({
             scrollTrigger: {
               trigger: ".footer-trigger",
