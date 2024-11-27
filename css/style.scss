@@ -1998,6 +1998,18 @@ header {
 
 
                     }
+                    span {
+                        padding-inline: .4em;
+                        margin-inline: -.4em;
+                        padding-block: .4em;
+                        margin-block: -.4em;
+                         @media (min-width: $large) {
+                            padding-inline: 1em;
+                            margin-inline: -1em;
+                            padding-block: 1em;
+                            margin-block: -1em;
+                        }
+                    }
 
                 }
             }
@@ -4826,3 +4838,4 @@ form {
         }
     }
 }
+

@@ -1867,6 +1867,20 @@ header.index-header .name span.small {
     margin-top: -0.5em;
   }
 }
+header.index-header .name span.small span {
+  padding-inline: 0.4em;
+  margin-inline: -0.4em;
+  padding-block: 0.4em;
+  margin-block: -0.4em;
+}
+@media (min-width: 759px) {
+  header.index-header .name span.small span {
+    padding-inline: 1em;
+    margin-inline: -1em;
+    padding-block: 1em;
+    margin-block: -1em;
+  }
+}
 header.index-header .passion {
   position: absolute;
   inset: auto auto 3.3%;
