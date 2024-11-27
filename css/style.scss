@@ -1690,7 +1690,8 @@ $large-branding-width: 3.18rem;
                                             display: flex;
                                             font-size: 18.06rem;
                                             line-height: 1.2em;
-
+                                            padding: .7em;
+                                            margin: -.7em;
                                             @media (min-width: $large) {
                                                 font-size: 9rem;
                                                 line-height: 1.18em;
@@ -1999,16 +2000,10 @@ header {
 
                     }
                     span {
-                        padding-inline: .4em;
-                        margin-inline: -.4em;
-                        padding-block: .4em;
-                        margin-block: -.4em;
-                         @media (min-width: $large) {
-                            padding-inline: 1em;
-                            margin-inline: -1em;
-                            padding-block: 1em;
-                            margin-block: -1em;
-                        }
+                        padding-inline: .7em;
+                        margin-inline: -.7em;
+                        padding-block: .7em;
+                        margin-block: -.7em;
                     }
 
                 }
@@ -3719,7 +3714,7 @@ footer {
                 z-index: -1;
                 background-size: cover;
                 @extend %animated-transform-inout;
-                background-position: right;
+                background-position: center;
                 transform-origin: bottom;
                 height: 0%;
                 transition-delay: .3s;
@@ -4839,3 +4834,12 @@ form {
     }
 }
 
+.script-correction {
+    padding-block: .7em;
+    margin-block: -.7em;
+}
+
+.script-correction-all-sides {
+    padding-block: .7em;
+    margin-block: -.7em;
+}

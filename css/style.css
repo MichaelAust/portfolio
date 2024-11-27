@@ -1562,6 +1562,8 @@ html:not(.open-navi) #navigation .row .col .navigation-inner nav ul li .a {
   display: flex;
   font-size: 18.06rem;
   line-height: 1.2em;
+  padding: 0.7em;
+  margin: -0.7em;
 }
 @media (min-width: 759px) {
   #navigation .row .col .navigation-inner nav ul li a span.name .script,
@@ -1868,18 +1870,10 @@ header.index-header .name span.small {
   }
 }
 header.index-header .name span.small span {
-  padding-inline: 0.4em;
-  margin-inline: -0.4em;
-  padding-block: 0.4em;
-  margin-block: -0.4em;
-}
-@media (min-width: 759px) {
-  header.index-header .name span.small span {
-    padding-inline: 1em;
-    margin-inline: -1em;
-    padding-block: 1em;
-    margin-block: -1em;
-  }
+  padding-inline: 0.7em;
+  margin-inline: -0.7em;
+  padding-block: 0.7em;
+  margin-block: -0.7em;
 }
 header.index-header .passion {
   position: absolute;
@@ -3398,7 +3392,7 @@ html.open-contact .contact-popup .popup-inner .img-ct .img-inner p {
   width: 100%;
   z-index: -1;
   background-size: cover;
-  background-position: right;
+  background-position: center;
   transform-origin: bottom;
   height: 0%;
   transition-delay: 0.3s;
@@ -4407,4 +4401,14 @@ html.open-sent .form-sent .x .line {
 html.open-sent .form-sent .x .line:last-of-type {
   transform: rotate(-45deg) scale3d(1, 1, 1);
   transition-delay: 0.4s;
+}
+
+.script-correction {
+  padding-block: 0.7em;
+  margin-block: -0.7em;
+}
+
+.script-correction-all-sides {
+  padding-block: 0.7em;
+  margin-block: -0.7em;
 }/*# sourceMappingURL=style.css.map */
