@@ -9,6 +9,44 @@ require 'PHPMailer-master/src/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// Turnstile Secret Key
+$secretKey = '0x4AAAAAAA06QGgSRwkn9dNUFvRotUeAsJk';
+
+// Daten aus dem Formular
+$name = $_POST['name'] ?? '';          // Name des Absenders
+$email = $_POST['email'] ?? '';        // E-Mail-Adresse des Absenders
+$nachricht = $_POST['nachricht'] ?? '';// Nachricht
+$datenschutz = $_POST['Datenschutz'] ?? ''; // Datenschutz-Checkbox
+$turnstileResponse = $_POST['cf-turnstile-response'] ?? ''; // Turnstile-Token
+
+// Honeypot-Feld überprüfen
+if (!empty($_POST['honeypot'])) {
+    die("Spam-Versuch erkannt.");
+}
+
+// Überprüfen, ob die Datenschutz-Checkbox aktiviert wurde
+if ($datenschutz != 'akzeptiert') {
+    die("Please accept the privacy policy.");
+}
+
+// Turnstile-Antwort validieren
+$verifyResponse = file_get_contents("https://challenges.cloudflare.com/turnstile/v0/siteverify", false, stream_context_create([
+    'http' => [
+        'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method' => 'POST',
+        'content' => http_build_query([
+            'secret' => $secretKey,
+            'response' => $turnstileResponse,
+        ]),
+    ],
+]));
+
+$verificationResult = json_decode($verifyResponse, true);
+
+if (!$verificationResult['success']) {
+    die("Turnstile-Überprüfung fehlgeschlagen. Bitte versuche es erneut.");
+}
+
 // Erstellen des PHPMailer-Objekts
 $mail = new PHPMailer(true);
 
@@ -26,23 +64,6 @@ try {
     $mail->CharSet = 'UTF-8';
     $mail->Encoding = 'base64';
 
-    // Extrahieren der Daten aus dem Formular
-    $name = $_POST['name'] ?? '';  // Name des Absenders
-    $email = $_POST['email'] ?? '';  // E-Mail-Adresse des Absenders
-    $nachricht = $_POST['nachricht'] ?? '';  // Nachricht
-    $datenschutz = $_POST['Datenschutz'] ?? '';  // Datenschutz-Checkbox
-
-    // Honeypot-Feld überprüfen
-    if (!empty($_POST['honeypot'])) {
-        // Wenn das Honeypot-Feld ausgefüllt wurde, breche den Prozess ab
-        die("Spam-Versuch erkannt.");
-    }
-
-    // Überprüfen, ob die Datenschutz-Checkbox aktiviert wurde
-    if ($datenschutz != 'akzeptiert') {
-        die("Please acceppt privacy policy.");
-    }
-
     // Zusammenstellen der E-Mail-Nachricht
     $message = "Name: $name\n";
     $message .= "E-Mail: $email\n";
@@ -58,6 +79,5 @@ try {
     $mail->send();
     echo "Thank you for your message. I will get back to you as soon as possible.";  // Erfolgsnachricht
 } catch (Exception $e) {
-    echo "Error with sending mesage: ", $mail->ErrorInfo;  // Fehlermeldung
+    echo "Error with sending message: ", $mail->ErrorInfo;  // Fehlermeldung
 }
-?>

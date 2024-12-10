@@ -2072,7 +2072,7 @@ main .sec-1 .claim-text > div:nth-of-type(2) {
   }
 }
 main .sec-1 .claim-text > div:nth-of-type(4) {
-  margin-right: 7.22rem;
+  margin-right: 6.22rem;
 }
 @media (min-width: 759px) {
   main .sec-1 .claim-text > div:nth-of-type(4) {
@@ -2954,8 +2954,9 @@ html.open-contact .contact-popup:before {
 }
 @media (min-width: 759px) {
   .contact-popup .popup-inner {
-    max-width: 97%;
-    max-height: 94%;
+    max-width: 97vw;
+    max-height: 94vh;
+    overflow: hidden;
   }
 }
 .contact-popup .popup-inner .content-wrapper {
@@ -3197,6 +3198,12 @@ html.open-contact .contact-popup .popup-inner .text-ct .form-ct .field-ct:nth-of
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.65s;
+}
+.contact-popup .popup-inner .text-ct .form-ct .cf-turnstile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
 }
 .contact-popup .popup-inner .text-ct .dark-bg {
   content: "";

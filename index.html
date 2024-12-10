@@ -222,7 +222,7 @@
                                     <div class="sans letter-ct">
                                         <span>C</span><span>r</span><span>a</span><span>f</span><span>t</span><span>i</span><span>n</span><span>g</span>
                                     </div>
-                                    <div class="script letter-ct">
+                                    <div class="script letter-ct script-correction" >
                                         <span>O</span><span>u</span><span>t</span><span>s</span><span>t</span><span>a</span><span>n</span><span>d</span><span>i</span><span>n</span><span>g</span>
                                     </div>
                                     <div class="sans letter-ct">
@@ -236,7 +236,7 @@
                                         <span>a</span>
                                     </div>
 
-                                    <div class="script letter-ct">
+                                    <div class="script letter-ct script-correction">
                                         <span>L</span><span>a</span><span>s</span><span>t</span><span>i</span><span>n</span><span>g</span>
                                         <span></span>
                                         <span>I</span><span>m</span><span>p</span><span>r</span><span>e</span><span>s</span><span>s</span><span>i</span><span>o</span><span>n</span>
@@ -272,7 +272,7 @@
                                 </div>
                                 <div class="line-split about-text" data-lazy-animation="fade-left" data-lazy-animation-delay="150">
                                     <p>I am a digital creative from Düsseldorf, Germany where I currently work
-                                        as a webdesigner & art art director for wwwe GmbH. 
+                                        as a webdesigner & art director for wwwe GmbH. 
                                         Building upon my experiences in digital design across various industry sectors
                                         and numerous projects, my goal is to create high-end web experiences that
                                         elevate exceptional people and brands. </p>
@@ -314,13 +314,17 @@
                                             <div class="usp-ct one">
                                                 <span class="sans">5+ Years of</span>
                                                 <span class="sans">Agency</span>
-                                                <span class="script">Experience</span>
+                                                <div class="script-correction">
+                                                    <span class="script">Experience</span>
+                                                </div>
 
                                             </div>
                                             <div class="usp-ct two">
                                                 <span class="sans">Over 90</span>
                                                 <span class="sans">Completed</span>
-                                                <span class="script">Projects</span>
+                                                <div class="script-correction">
+                                                    <span class="script">Projects</span>
+                                                </div>
 
                                             </div>
                                         </div>
@@ -353,7 +357,7 @@
                             </div>
                         </div>
                         <div class="sticky-wrapper">
-                            <a href="work/times-event.html" class="teaser times jarallax" data-show-cursor
+                            <a href="/work/times-event.html" class="teaser times jarallax" data-show-cursor
                             title="Times Event | See Project">
                             <div class="teaser-title">
                                 <span class="sans">Times</span>
@@ -395,7 +399,7 @@
                     </div>
                     <div class="sec-5">
                         <div class="teaser-ct">
-                            <a href="work/wonderkin-tattoo.html" class="teaser elli jarallax" data-show-cursor title="Nicki Wonderkin | See Project">
+                            <a href="/work/wonderkin-tattoo.html" class="teaser elli jarallax" data-show-cursor title="Nicki Wonderkin | See Project">
                                 <div class="teaser-title">
                                     <span class="sans">Nicki</span>
                                     <span class="script">Wonderkin</span>
@@ -408,7 +412,7 @@
                                     <div class="bg jarallax-img" data-lazy-animation data-lazy-trigger="#work"></div>
 
                                 </a>
-                            <a href="work/united-media.html" class="teaser um jarallax" data-show-cursor
+                            <a href="/work/united-media.html" class="teaser um jarallax" data-show-cursor
                                 title="United Media | See Project">
                                 <div class="teaser-title">
                                     <span class="sans">United</span>
@@ -430,7 +434,7 @@
                                 <div class="col large-9 large-prefix-2">
                                     <h3 class="contact-title">
                                         <span class="sans" data-lazy-animation="fade-right">Let's start</span>
-                                        <span class="script" data-lazy-animation="fade-left">Something Great</span>
+                                        <span class="script script-correction" data-lazy-animation="fade-left">Something Great</span>
                                         <span class="sans" data-lazy-animation="fade-right">Together</span>
                                     </h3>
                                 </div>
@@ -660,6 +664,7 @@
                                     <label for="nachricht">What can i help you with?</label>
                                     <textarea id="nachricht" name="nachricht" required></textarea>
                                 </div>
+                                <div class="cf-turnstile" id="example-container" data-sitekey="0x4AAAAAAA06QCSCs2NLxjYB"></div>
                                 <div class="field-ct dse-ct">
                                     <input type="checkbox" id="datenschutz" name="Datenschutz"
                                         value="akzeptiert" required="">
@@ -765,7 +770,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jarallax@2/dist/jarallax.min.js"></script>
 
-
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="js/scripts.js"></script>
 </body>
 

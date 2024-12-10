@@ -45,12 +45,28 @@ $padding: 30.56rem;
 
 $padding-large: 14.06rem;
 
+/* Scrollbar ausblenden */
 ::-webkit-scrollbar {
-    display: none;
-
-    @media (min-width: $large) {}
+    display: none; /* Für WebKit-basierte Browser */
 }
 
+/* Für alle anderen Browser */
+body {
+    scrollbar-width: none; /* Für Firefox */
+    -ms-overflow-style: none; /* Für Internet Explorer und Edge */
+}
+
+/* Optional: Beibehalten von Medienabfragen */
+@media (min-width: $large) {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    body {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+}
 
 html.lenis {
     height: auto;
@@ -2228,7 +2244,7 @@ main {
                 }
 
                 &:nth-of-type(4) {
-                    margin-right: 7.22rem;
+                    margin-right: 6.22rem;
 
                     @media (min-width: $large) {
                         margin-right: 17.5rem;
@@ -3272,10 +3288,10 @@ footer {
         align-items: center;
         justify-content: center;
         position: relative;
-
         @media (min-width: $large) {
-            max-width: 97%;
-            max-height: 94%;
+            max-width: 97vw;
+            max-height: 94vh;
+            overflow: hidden;
             // flex-flow: row;
             // align-items: stretch;
         }
@@ -3549,6 +3565,13 @@ footer {
                             transition-delay: .65s;
                         }
                     }
+                }
+                .cf-turnstile {
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                   
+                    z-index: 99;
                 }
             }
 
